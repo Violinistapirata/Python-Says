@@ -5,7 +5,13 @@
     box-sizing: border-box;
 }
 
-#game-area h1 {
-    color: red;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#game-area {
+    width: 90vw;
+    height: 90vh;
     border: 1px solid red;
 }

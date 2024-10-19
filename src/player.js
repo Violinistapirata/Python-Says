@@ -1,4 +1,3 @@
-console.log('PLAYER IS WORKING')
 
 class Player {
     static playerArray = []
@@ -12,5 +11,4 @@ class Player {
 
     // displayChoices(){
     // }
-}
 }
