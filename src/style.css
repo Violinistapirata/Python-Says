@@ -99,7 +99,7 @@ body {
 }
 
 #answer-line {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     margin-top: 30vh;
     /* position: absolute; */
     width: 90%;
@@ -114,4 +114,22 @@ body {
     width: 6vw;
     height: 6vw;
 
+}
+
+#avatars {
+    border: 1px solid red;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#avatars div img {
+    width: 40vw;
+    height: auto;
+}
+
+#python {
+    transform: scaleX(-1);
 }
