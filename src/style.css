@@ -68,7 +68,7 @@ body {
     border: 1px solid black;
     background-color: rgb(127, 170, 255);
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 #menu-icon {
@@ -88,8 +88,8 @@ body {
 
 #python-head {
     /* border: 1px solid red; */
-    width: 50vw;
-    height: 50vw;
+    width: 85vw;
+    height: 85vw;
 
 }
 
@@ -99,8 +99,8 @@ body {
 }
 
 #answer-line {
-    border: 1px solid red;
-    margin-top: 30vh;
+    /* border: 1px solid red; */
+    margin-top: 15vh;
     /* position: absolute; */
     width: 90%;
     height: 10%;
@@ -117,7 +117,7 @@ body {
 }
 
 #avatars {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
     height: 20vh;
     display: flex;
@@ -132,4 +132,17 @@ body {
 
 #python {
     transform: scaleX(-1);
+}
+
+#lives {
+    width: 20vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lives img {
+    width: 30%;
+    height: auto;
 }
