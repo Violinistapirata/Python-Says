@@ -19,3 +19,9 @@ El juego es un Simon Says tematizado con elementos de programación. El argument
 
 The python head should always be above the game buttons enough to see its tongue (it should behave responsively relative to the game buttons div)
 
+Media queries:
+ - mobile landscape mode.
+ - tablet portrait.
+ - tablet landscape.
+ - laptop.
+
