@@ -10,19 +10,24 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: lightgray;
 }
+
 #game-area {
     width: 90vw;
     height: 90vh;
-    border: 1px solid red;
+    background-color: lightgreen;
+    /* border: 1px solid red; */
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
 }
 
 #game-buttons-div {
-    border: 1px solid red;
+    border: 2px solid black;
     background-color: white;
     margin-top: 14vh;
     height: 80vw;
@@ -31,14 +36,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    align-content: center;
     flex-wrap: wrap;
-    gap: 15px;
     /* display: none; */
 }
 
 .game-button {
-    height: 45%;
-    width: 45%;
+    height: 50%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,19 +60,23 @@ body {
 }
 
 #nav-bar {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100vw;
     height: 6.5vh;
     padding: 5px;
+    background-color: aquamarine;
     display: flex;
     justify-content: flex-end;
 }
 
 #menu-icon {
-    width: 6.5vh;
-    height: 6.5vh;
-    background-color: white;
+    width: 5.5vh;
+    height: 5.5vh;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
 }
 
 #menu-icon img {
@@ -76,7 +85,7 @@ body {
 }
 
 #python-head {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 50vw;
     height: 50vw;
 
@@ -85,4 +94,21 @@ body {
 #python-head img {
     width: 100%;
     height: auto;
+}
+
+#answer-line {
+    border: 1px solid red;
+    margin-top: 35vh;
+    width: 90%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    align-items: center;
+}
+
+.game-button-icon {
+    width: 6vw;
+    height: 6vw;
+
 }

@@ -15,4 +15,7 @@ El juego es un Simon Says tematizado con elementos de programación. El argument
   - Atributos
 5. Empezar a codear el juego
 
-                       
+## Issues to solve:
+
+The python head should always be above the game buttons enough to see its tongue (it should behave responsively relative to the game buttons div)
+
