@@ -2,7 +2,7 @@
 class Player {
     static playerArray = []
     constructor() {
-        this.life = 3;
+        this.lives = 3;
     }
 
     addChosenElement(choice){

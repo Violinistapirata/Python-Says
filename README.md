@@ -25,3 +25,4 @@ Media queries:
  - tablet landscape.
  - laptop.
 
+The icons for HTML and NODE are bigger
