@@ -106,6 +106,19 @@ body {
   height: 80%;
 }
 
+#lives {
+  width: 20vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#lives img {
+  width: 30%;
+  height: auto;
+}
+
 #python-head {
   /* border: 1px solid red; */
   width: 85vw;
@@ -152,20 +165,6 @@ body {
   transform: scaleX(-1);
 }
 
-#lives {
-  width: 20vw;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#lives img {
-  width: 30%;
-  height: auto;
-}
-
-
 /* --- Media queries --- */
 
 /* Teléfonos pequeños */
@@ -176,48 +175,93 @@ body {
 /* Teléfonos pequeños en modo apaisado */
 @media only screen and (min-width: 480px) and (orientation: landscape) {
   /* Estilos para teléfonos pequeños en modo apaisado */
-  #game-buttons-div {
+
+  #game-area {
     height: 80vh;
-    width: 80vh;
-    top: 10vh ;
-    /* display: none; */
+  }
+
+  #game-buttons-div {
+    height: 70vh;
+    width: 70vh;
+    top: 8vh;
   }
 
   #nav-bar {
     width: 100vw;
     height: 15vh;
-    padding: 5px;
-    /* border: none; */
-    background-color: inherit;
-    display: flex;
+    border: none;
+    background-color: transparent;
+  }
 
-    justify-content: space-between;
+  #menu-icon {
+    width: 5vw;
+    height: 5vw;
+  }
+
+  #lives {
+    margin-left: 5vw;
+    margin-top: 5vw;
+  }
+  
+  #python-head {
+    width: 75vh;
+    height: 75vh;
+    position: absolute;
+    top: -10vh;
+  }
+  
+  #avatars {
+    width: 90%;
+    height: 0vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    top: 10vh;
+  }
+  
+  #avatars div img {
+    width: 30vh; 
+  }
+
+  #answer-line {
+    position: absolute;
+    top: 28vh;
+    width: 75%;
+    height: 0%;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .game-button-icon {
+    width: 6vh;
+    height: 6vh;
   }
 }
 
 /* Teléfonos medianos */
 @media (min-width: 481px) and (max-width: 768px) {
-    /* Estilos para teléfonos medianos */
+  /* Estilos para teléfonos medianos */
 }
 
 /* Teléfonos medianos a grandes en modo apaisado */
 @media only screen and (min-width: 641px) and (orientation: landscape) {
-    /* Estilos para teléfonos medianos a grandes en modo apaisado */
+  /* Estilos para teléfonos medianos a grandes en modo apaisado */
 }
 
 /* Tablets pequeñas */
 @media (min-width: 769px) and (max-width: 1024px) {
-    /* Estilos para tablets pequeñas */
+  /* Estilos para tablets pequeñas */
 }
 
 /* Tablets grandes */
 @media (min-width: 1025px) and (max-width: 1280px) {
-    /* Estilos para tablets grandes */
+  /* Estilos para tablets grandes */
 }
 
 /* Tablets en modo apaisado */
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
-    /* Estilos para tablets en modo apaisado */
+  /* Estilos para tablets en modo apaisado */
 }
 
 /* Laptops pequeñas */
