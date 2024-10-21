@@ -1,7 +1,76 @@
+const answerLine = document.querySelector("#answer-line");
+// const htmlButton = document.querySelector('#html-button');
+const gameButtonsDiv = document.querySelector("#game-buttons-div");
 const answersArray = [null];
-const answerLine = document.querySelector('#answer-line');
-const htmlButton = document.querySelector('#html-button');
-htmlButton.addEventListener('click', () => {
+
+class GameButton {
+  static answersArray = [null];
+  constructor(id, imageUrl, alt, highlightColor) {
+    this.id = id;
+    this.imageUrl = imageUrl;
+    this.alt = alt;
+    this.highlightColor = highlightColor;
+    this.generateButtonElement();
+  }
+
+  generateButtonElement() {
+    this.buttonElement = document.createElement("button");
+    this.buttonElement.setAttribute("id", this.id);
+    this.buttonElement.setAttribute("class", "game-button");
+    gameButtonsDiv.appendChild(this.buttonElement);
+
+    console.log(this.buttonElement);
+
+    const icon = document.createElement("img");
+    icon.setAttribute("src", this.imageUrl);
+    icon.setAttribute("alt", this.alt);
+
+    this.buttonElement.appendChild(icon);
+
+    this.buttonElement.addEventListener("click", () =>
+      this.highlight(this.highlightColor)
+    );
+  }
+
+  highlight(color) {
+    // highlight button
+    console.log(this);
+
+    this.buttonElement.style.backgroundColor = color;
+    setTimeout(() => {
+      this.buttonElement.style.backgroundColor = "";
+    }, 500);
+  }
+}
+
+const htmlButton = new GameButton(
+  "html-button",
+  "../images/HTML logo.png",
+  "html icon",
+  "rgba(255, 0, 0, 0.5)"
+);
+const cssButton = new GameButton(
+  "css-button",
+  "../images/CSS logo.png",
+  "css icon",
+  "rgba(0, 0, 255, 0.5)"
+);
+const nodeButton = new GameButton(
+  "node-button",
+  "../images/NODE logo.png",
+  "node icon",
+  "rgba(0, 255, 0, 0.5)"
+);
+const jsButton = new GameButton(
+  "js-button",
+  "../images/JS logo.png",
+  "js icon",
+  "rgba(255, 255, 0, 0.5)"
+);
+console.log(htmlButton.buttonElement.style);
+
+/* 
+htmlButton.buttonElement.addEventListener('click', () => {
     // show icon in answers array
     const html = document.createElement('img');
     html.setAttribute('class', 'game-button-icon');
@@ -11,9 +80,9 @@ htmlButton.addEventListener('click', () => {
     answerLine.appendChild(answersArray[0]);
 
     // highlight button
-    htmlButton.style.backgroundColor = 'rgba(255, 0, 0, 0.5)'
+    htmlButton.buttonElement.style.backgroundColor = 'rgba(255, 0, 0, 0.5)'
     setTimeout(() => {
-        htmlButton.style.backgroundColor = '';
+        htmlButton.buttonElement.style.backgroundColor = '';
     }, 500);
 })
 
@@ -68,18 +137,17 @@ jsButton.addEventListener('click', () => {
         jsButton.style.backgroundColor = '';
     }, 500);
 })
+ */
 
+const pythonHead = document.querySelector("#python-head");
+pythonHead.addEventListener("click", () => {
+  // show icon in answers array
+  const questionMark = document.createElement("img");
+  questionMark.setAttribute("class", "game-button-icon");
+  questionMark.setAttribute("src", "../images/question-mark.png");
+  questionMark.setAttribute("alt", "question mark");
+  answersArray.splice(0, 1, questionMark);
+  answerLine.appendChild(answersArray[0]);
 
-const pythonHead = document.querySelector('#python-head');
-pythonHead.addEventListener('click', () => {
-    // show icon in answers array
-    const questionMark = document.createElement('img');
-    questionMark.setAttribute('class', 'game-button-icon');
-    questionMark.setAttribute('src', '../images/question-mark.png');
-    questionMark.setAttribute('alt', 'question mark');
-    answersArray.splice(0, 1, questionMark);
-    answerLine.appendChild(answersArray[0]);
-
-    // highlight button
-    
-})
+  // highlight button
+});
