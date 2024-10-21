@@ -1,63 +1,65 @@
 /* General layouts reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* mobile app */
+
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
 }
 
 #game-area {
-    width: 90vw;
-    height: 90vh;
-    /* border: 1px solid black; */
-    /* background-color: lightgreen; */
-    /* border: 1px solid red; */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    
+  width: 90vw;
+  height: 90vh;
+  /* border: 1px solid black; */
+  /* background-color: lightgreen; */
+  /* border: 1px solid red; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #game-buttons-div {
-    border: 2px solid black;
-    background-color: white;
-    height: 80vw;
-    width: 80vw;
-    position: absolute;
-    top: 14vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
-    /* display: none; */
+  border: 2px solid black;
+  background-color: white;
+  height: 80vw;
+  width: 80vw;
+  position: absolute;
+  top: 14vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  /* display: none; */
 }
 
 .game-button {
-    height: 50%;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 50%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-button img {
-    width: 90%;
-    height:90%;
+  width: 90%;
+  height: 90%;
 }
 
-#html-button img, #node-button img {
-    width: 80%;
-    height: 80%;
+#html-button img,
+#node-button img {
+  width: 80%;
+  height: 80%;
 }
 
 /*#html-button{
@@ -78,88 +80,134 @@ body {
 */
 
 #nav-bar {
-    /* border: 1px solid red; */
-    width: 100vw;
-    height: 6.5vh;
-    padding: 5px;
-    border: 1px solid black;
-    background-color: rgb(127, 170, 255);
-    display: flex;
-    justify-content: space-between;
+  /* border: 1px solid red; */
+  width: 100vw;
+  height: 6.5vh;
+  padding: 5px;
+  border: 1px solid black;
+  background-color: rgb(127, 170, 255);
+  display: flex;
+  justify-content: space-between;
 }
 
 #menu-icon {
-    width: 5vh;
-    height: 5vh;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
+  width: 5vh;
+  height: 5vh;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
 }
 
 #menu-icon img {
-    width: 80%;
-    height: 80%;
+  width: 80%;
+  height: 80%;
 }
 
 #python-head {
-    /* border: 1px solid red; */
-    width: 85vw;
-    height: 85vw;
-
+  /* border: 1px solid red; */
+  width: 85vw;
+  height: 85vw;
 }
 
 #python-head img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 #answer-line {
-    /* border: 1px solid red; */
-    margin-top: 15vh;
-    /* position: absolute; */
-    width: 90%;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    gap: 2vw;
-    align-items: center;
+  /* border: 1px solid red; */
+  margin-top: 15vh;
+  /* position: absolute; */
+  width: 90%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+  align-items: center;
 }
 
 .game-button-icon {
-    width: 6vw;
-    height: 6vw;
-
+  width: 6vw;
+  height: 6vw;
 }
 
 #avatars {
-    /* border: 1px solid red; */
-    width: 100%;
-    height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #avatars div img {
-    width: 40vw;
-    height: auto;
+  width: 40vw;
+  height: auto;
 }
 
 #python {
-    transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 #lives {
-    width: 20vw;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 20vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #lives img {
-    width: 30%;
-    height: auto;
+  width: 30%;
+  height: auto;
+}
+
+
+/* --- Media queries --- */
+
+/* Teléfonos pequeños */
+@media (max-width: 480px) {
+  /* Estilos para teléfonos pequeños */
+}
+
+/* Teléfonos pequeños en modo apaisado */
+@media only screen and (min-width: 480px) and (orientation: landscape) {
+  /* Estilos para teléfonos pequeños en modo apaisado */
+}
+
+/* Teléfonos medianos */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Estilos para teléfonos medianos */
+}
+
+/* Teléfonos medianos a grandes en modo apaisado */
+@media only screen and (min-width: 641px) and (orientation: landscape) {
+    /* Estilos para teléfonos medianos a grandes en modo apaisado */
+}
+
+/* Tablets pequeñas */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Estilos para tablets pequeñas */
+}
+
+/* Tablets grandes */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    /* Estilos para tablets grandes */
+}
+
+/* Tablets en modo apaisado */
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+    /* Estilos para tablets en modo apaisado */
+}
+
+/* Laptops pequeñas */
+@media (min-width: 1281px) and (max-width: 1440px) {
+  /* Estilos para laptops pequeñas */
+}
+
+/* Laptops grandes y monitores de escritorio */
+@media (min-width: 1441px) {
+  /* Estilos para laptops grandes y monitores de escritorio */
 }
