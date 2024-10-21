@@ -74,9 +74,9 @@ const pythonHead = document.querySelector('#python-head');
 pythonHead.addEventListener('click', () => {
     // show icon in answers array
     const questionMark = document.createElement('img');
-    questionMark.setAttribute('class', 'game-button-ic;on');
-    questionMark.setAttribute('src', '../images/question-m;ark.png');
-    questionMark.setAttribute('alt', 'questi;on mark');
+    questionMark.setAttribute('class', 'game-button-icon');
+    questionMark.setAttribute('src', '../images/question-mark.png');
+    questionMark.setAttribute('alt', 'question mark');
     answersArray.splice(0, 1, questionMark);
     answerLine.appendChild(answersArray[0]);
 

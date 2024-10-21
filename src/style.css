@@ -88,6 +88,7 @@ body {
   background-color: rgb(127, 170, 255);
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #menu-icon {
@@ -175,6 +176,23 @@ body {
 /* Teléfonos pequeños en modo apaisado */
 @media only screen and (min-width: 480px) and (orientation: landscape) {
   /* Estilos para teléfonos pequeños en modo apaisado */
+  #game-buttons-div {
+    height: 80vh;
+    width: 80vh;
+    top: 10vh ;
+    /* display: none; */
+  }
+
+  #nav-bar {
+    width: 100vw;
+    height: 15vh;
+    padding: 5px;
+    /* border: none; */
+    background-color: inherit;
+    display: flex;
+
+    justify-content: space-between;
+  }
 }
 
 /* Teléfonos medianos */
