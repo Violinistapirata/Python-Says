@@ -19,22 +19,26 @@ class GameButton {
     this.buttonElement.setAttribute("class", "game-button");
     gameButtonsDiv.appendChild(this.buttonElement);
 
-    console.log(this.buttonElement);
-
     const icon = document.createElement("img");
     icon.setAttribute("src", this.imageUrl);
     icon.setAttribute("alt", this.alt);
 
     this.buttonElement.appendChild(icon);
 
-    this.buttonElement.addEventListener("click", () =>
-      this.highlight(this.highlightColor)
-    );
+    this.buttonElement.addEventListener("click", () => {
+      this.highlight(this.highlightColor);
+      // show icon in answers array
+      const icon = document.createElement("img");
+      icon.setAttribute("class", "game-button-icon");
+      icon.setAttribute("src", this.imageUrl);
+      icon.setAttribute("alt", this.alt);
+      GameButton.answersArray.splice(0, 1, icon);
+      answerLine.appendChild(GameButton.answersArray[0]);
+    });
   }
 
   highlight(color) {
     // highlight button
-    console.log(this);
 
     this.buttonElement.style.backgroundColor = color;
     setTimeout(() => {
@@ -43,6 +47,7 @@ class GameButton {
   }
 }
 
+/* const buttonsArray = [htmlButton, cssButton, ]nodeButton, jsButton */
 const htmlButton = new GameButton(
   "html-button",
   "../images/HTML logo.png",
@@ -67,7 +72,6 @@ const jsButton = new GameButton(
   "js icon",
   "rgba(255, 255, 0, 0.5)"
 );
-console.log(htmlButton.buttonElement.style);
 
 /* 
 htmlButton.buttonElement.addEventListener('click', () => {

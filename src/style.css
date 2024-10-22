@@ -16,16 +16,25 @@ body {
 }
 
 #game-area {
-  width: 90vw;
-  height: 90vh;
-  /* border: 1px solid black; */
-  /* background-color: lightgreen; */
+  width: 100vw;
+  height: 93vh;
   /* border: 1px solid red; */
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+
+.screen {
+    width: 100vw;
+    height: 93vh;
+    /* border: 1px solid red; */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 #game-buttons-div {
@@ -82,7 +91,7 @@ body {
 #nav-bar {
   /* border: 1px solid red; */
   width: 100vw;
-  height: 6.5vh;
+  height: 7vh;
   padding: 5px;
   border: 1px solid black;
   background-color: rgb(127, 170, 255);
@@ -151,6 +160,7 @@ body {
   /* border: 1px solid red; */
   width: 100%;
   height: 20vh;
+  margin-bottom: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -222,6 +232,10 @@ body {
   
   #avatars div img {
     width: 30vh; 
+  }
+
+  #python {
+    transform: none;
   }
 
   #answer-line {
