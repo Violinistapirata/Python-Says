@@ -1,5 +1,5 @@
 
-class Player {
+/* class Player {
     static playerArray = []
     constructor() {
         this.lives = 3;
@@ -11,4 +11,15 @@ class Player {
 
     // displayChoices(){
     // }
+} */
+
+// const lives = 3;
+
+
+
+function addChosenButton(choice) {
+    const chosenButton = choice;
+    playerArray.push(chosenButton);
+    console.log(playerArray)
 }
+

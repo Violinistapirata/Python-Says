@@ -2,6 +2,7 @@ const answerLine = document.querySelector("#answer-line");
 // const htmlButton = document.querySelector('#html-button');
 const gameButtonsDiv = document.querySelector("#game-buttons-div");
 const answersArray = [null];
+const playerArray = [];
 
 class GameButton {
   static answersArray = [null];
@@ -34,8 +35,10 @@ class GameButton {
       icon.setAttribute("class", "game-button-icon");
       icon.setAttribute("src", this.imageUrl);
       icon.setAttribute("alt", this.alt);
-      GameButton.answersArray.splice(0, 1, icon);
-      answerLine.appendChild(GameButton.answersArray[0]);
+      playerArray.push(icon);
+      console.log(playerArray);
+      
+      answerLine.appendChild(playerArray[playerArray.length - 1]);
     });
   }
 

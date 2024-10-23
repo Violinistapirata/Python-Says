@@ -12,6 +12,7 @@ function addRandomButton() {
     console.log(pythonArray)
 }
 
+function resetPlayerArray(){playerArray.splice(0)}
 const pythonHead = document.querySelector("#python-head");
 pythonHead.addEventListener("click", () => {
   // show icon in answers array
@@ -24,6 +25,7 @@ pythonHead.addEventListener("click", () => {
   
   addRandomButton();
   displayPythonArray();
+  resetPlayerArray();
 });
 
 
