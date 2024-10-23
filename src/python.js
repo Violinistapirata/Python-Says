@@ -1,5 +1,5 @@
 
-const pythonArray = [1, 2, 3, 4];
+const pythonArray = [];
 
 function generateRandomNumber() {
   let randomNumber = Math.ceil(Math.random() * 4);
@@ -9,10 +9,23 @@ let randomNumber = 0;
 function addRandomButton() {
     const randomButton = generateRandomNumber();
     pythonArray.push(randomButton);
+    console.log(pythonArray)
 }
-addRandomButton();
 
-console.log(pythonArray)
+const pythonHead = document.querySelector("#python-head");
+pythonHead.addEventListener("click", () => {
+  // show icon in answers array
+  const questionMark = document.createElement("img");
+  questionMark.setAttribute("class", "game-button-icon");
+  questionMark.setAttribute("src", "../images/question-mark.png");
+  questionMark.setAttribute("alt", "question mark");
+  answersArray.splice(0, 1, questionMark);
+  answerLine.appendChild(answersArray[0]);
+  
+  addRandomButton();
+  displayPythonArray();
+});
+
 
 // This function executes the highlight function in every element of the pythonArray
 function displayPythonArray() {
@@ -39,7 +52,7 @@ function displayPythonArray() {
   }, 1000);
 }
 
-displayPythonArray();
+
 
 /* setInterval(()=>{
     randomNumber = generateRandomNumber();
