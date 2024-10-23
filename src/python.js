@@ -1,4 +1,3 @@
-const python = {};
 
 const pythonArray = [1, 2, 3, 4];
 
@@ -7,6 +6,15 @@ function generateRandomNumber() {
   return randomNumber;
 }
 let randomNumber = 0;
+function addRandomButton() {
+    const randomButton = generateRandomNumber();
+    pythonArray.push(randomButton);
+}
+addRandomButton();
+
+console.log(pythonArray)
+
+// This function executes the highlight function in every element of the pythonArray
 function displayPythonArray() {
   let counter = 0;
   const intervalId = setInterval(() => {
