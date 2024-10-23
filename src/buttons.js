@@ -47,7 +47,7 @@ class GameButton {
   }
 }
 
-/* const buttonsArray = [htmlButton, cssButton, ]nodeButton, jsButton */
+/* const buttonsArray = [htmlButton, cssButton, nodeButton, jsButton ]*/
 const htmlButton = new GameButton(
   "html-button",
   "../images/HTML logo.png",

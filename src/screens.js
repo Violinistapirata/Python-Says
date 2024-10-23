@@ -9,7 +9,9 @@ const menuIcon = document.querySelector('#menu-icon');
 
 class Screen {
     constructor() {
+        this.id = 'game-screen';
         this.class = 'screen';
+        this.elements = ['nav-bar', 'game-area', 'python-head', 'game-buttons-div', 'answers-array', 'lives', 'menu-button', 'avatars-div', 'python', 'player'];
     }
 
     generateGameScreenElement() {
@@ -34,4 +36,4 @@ class Screen {
     } */
 }
 
-const gameScreen = new Screen(100, 50);
+const gameScreen = new Screen();
