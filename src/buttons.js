@@ -50,25 +50,25 @@ class GameButton {
 /* const buttonsArray = [htmlButton, cssButton, nodeButton, jsButton ]*/
 const htmlButton = new GameButton(
   "html-button",
-  "../images/HTML logo.png",
+  "../images/HTML-logo.png",
   "html icon",
   "rgba(255, 0, 0, 0.5)"
 );
 const cssButton = new GameButton(
   "css-button",
-  "../images/CSS logo.png",
+  "../images/CSS-logo.png",
   "css icon",
   "rgba(0, 0, 255, 0.5)"
 );
 const nodeButton = new GameButton(
   "node-button",
-  "../images/NODE logo.png",
+  "../images/NODE-logo.png",
   "node icon",
   "rgba(0, 255, 0, 0.5)"
 );
 const jsButton = new GameButton(
   "js-button",
-  "../images/JS logo.png",
+  "../images/JS-logo.png",
   "js icon",
   "rgba(255, 255, 0, 0.5)"
 );
