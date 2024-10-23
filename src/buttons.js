@@ -11,6 +11,8 @@ class GameButton {
     this.alt = alt;
     this.highlightColor = highlightColor;
     this.generateButtonElement();
+    console.log(this.imageUrl);
+    
   }
 
   generateButtonElement() {
