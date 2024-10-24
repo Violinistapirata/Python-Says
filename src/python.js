@@ -1,33 +1,71 @@
 
+
+// Python Array
 const pythonArray = [];
+
+
+// Array for the question mark icons
+const answersArray = [];
+
+
+// This generates a random number between 1 and 4 to represent each of the 4 game buttons
 
 function generateRandomNumber() {
   let randomNumber = Math.ceil(Math.random() * 4);
   return randomNumber;
 }
-let randomNumber = 0;
+
+/* This function adds a random number (that represents one of the four game buttons)
+to the Python Array */
+
 function addRandomButton() {
-    const randomButton = generateRandomNumber();
-    pythonArray.push(randomButton);
-    console.log(pythonArray)
+  const randomButton = generateRandomNumber();
+  pythonArray.push(randomButton);
+  console.log(pythonArray);
 }
 
-function resetPlayerArray(){playerArray.splice(0)}
+/* This function resets the answers array */
+function resetAnswersArray() {
+  answersArray.splice(0);
+}
+
+/* This function resets the player's array */
+function resetPlayerArray() {
+    playerArray.splice(0);
+}
+
+
+
+/* This function clears the answer line */
+function clearAnswerLine() {
+  answerLine.innerHTML = "";
+}
+
+// Variable with the Python Head Element
 const pythonHead = document.querySelector("#python-head");
+
+// Python head Click Event Listener
+
 pythonHead.addEventListener("click", () => {
-  // show icon in answers array
-  const questionMark = document.createElement("img");
-  questionMark.setAttribute("class", "game-button-icon");
-  questionMark.setAttribute("src", "./images/question-mark.png");
-  questionMark.setAttribute("alt", "question mark");
-  answersArray.splice(0, 1, questionMark);
-  answerLine.appendChild(answersArray[0]);
-  
+  clearAnswerLine();
+
   addRandomButton();
+
+/* Shows a question mark icon in the answers line for each element
+   in the python array */
+  pythonArray.forEach(() => {
+    const questionMark = document.createElement("img");
+    questionMark.setAttribute("class", "game-button-icon");
+    questionMark.setAttribute("src", "./images/question-mark.png");
+    questionMark.setAttribute("alt", "question mark");
+    answersArray.push(questionMark);
+    answerLine.appendChild(questionMark);
+  });
+
+  resetAnswersArray();
   displayPythonArray();
   resetPlayerArray();
 });
-
 
 // This function executes the highlight function in every element of the pythonArray
 function displayPythonArray() {
@@ -53,8 +91,6 @@ function displayPythonArray() {
     if (counter == pythonArray.length) clearInterval(intervalId);
   }, 1000);
 }
-
-
 
 /* setInterval(()=>{
     randomNumber = generateRandomNumber();

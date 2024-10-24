@@ -1,7 +1,7 @@
 const answerLine = document.querySelector("#answer-line");
 // const htmlButton = document.querySelector('#html-button');
 const gameButtonsDiv = document.querySelector("#game-buttons-div");
-const answersArray = [null];
+
 const playerArray = [];
 
 class GameButton {
