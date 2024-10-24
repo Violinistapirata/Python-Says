@@ -23,3 +23,6 @@ function addChosenButton(choice) {
     console.log(playerArray)
 }
 
+
+
+// The answer list element in the same position as the player's last choice

@@ -4,10 +4,6 @@
 const pythonArray = [];
 
 
-// Array for the question mark icons
-const answersArray = [];
-
-
 // This generates a random number between 1 and 4 to represent each of the 4 game buttons
 
 function generateRandomNumber() {
@@ -21,17 +17,21 @@ to the Python Array */
 function addRandomButton() {
   const randomButton = generateRandomNumber();
   pythonArray.push(randomButton);
-  console.log(pythonArray);
+  console.log('PYTHON ARRAY', pythonArray);
 }
 
 /* This function resets the answers array */
 function resetAnswersArray() {
   answersArray.splice(0);
+  console.log('ANSWERS ARRAY AFTER RESET', answersArray);
+  
 }
 
 /* This function resets the player's array */
 function resetPlayerArray() {
     playerArray.splice(0);
+    console.log('PLAYER ARRAY AFTER RESET', playerArray);
+    
 }
 
 
@@ -44,25 +44,31 @@ function clearAnswerLine() {
 // Variable with the Python Head Element
 const pythonHead = document.querySelector("#python-head");
 
+
+
+
+
 // Python head Click Event Listener
 
 pythonHead.addEventListener("click", () => {
   clearAnswerLine();
+  resetAnswersArray();
 
   addRandomButton();
 
-/* Shows a question mark icon in the answers line for each element
-   in the python array */
+    /* Shows a question mark icon in the answers line for each element
+    in the python array */
   pythonArray.forEach(() => {
     const questionMark = document.createElement("img");
     questionMark.setAttribute("class", "game-button-icon");
     questionMark.setAttribute("src", "./images/question-mark.png");
     questionMark.setAttribute("alt", "question mark");
     answersArray.push(questionMark);
-    answerLine.appendChild(questionMark);
   });
 
-  resetAnswersArray();
+  console.log('ANSWERS ARRAY', answersArray);    
+
+  displayAnswersArray();
   displayPythonArray();
   resetPlayerArray();
 });
@@ -113,7 +119,3 @@ function displayPythonArray() {
             break;
     }
 }, 1000); */
-
-generateRandomNumber();
-
-console.log(generateRandomNumber());

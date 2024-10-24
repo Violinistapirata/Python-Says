@@ -1,18 +1,29 @@
 const answerLine = document.querySelector("#answer-line");
-// const htmlButton = document.querySelector('#html-button');
 const gameButtonsDiv = document.querySelector("#game-buttons-div");
 
 const playerArray = [];
 
+// Array for the question mark icons and the game button icons
+const answersArray = [];
+
+
+
+
+
+
+
+// This function appends to the answerLine all the icon elements in the answersArray
+function displayAnswersArray() {
+    answersArray.forEach(element => answerLine.appendChild(element));
+}
+
 class GameButton {
-  static answersArray = [null];
   constructor(id, imageUrl, alt, highlightColor) {
     this.id = id;
     this.imageUrl = imageUrl;
     this.alt = alt;
     this.highlightColor = highlightColor;
     this.generateButtonElement();
-    console.log(this.imageUrl);
     
   }
 
@@ -30,15 +41,19 @@ class GameButton {
 
     this.buttonElement.addEventListener("click", () => {
       this.highlight(this.highlightColor);
-      // show icon in answers array
+      // show icon in answer line
       const icon = document.createElement("img");
       icon.setAttribute("class", "game-button-icon");
       icon.setAttribute("src", this.imageUrl);
       icon.setAttribute("alt", this.alt);
       playerArray.push(icon);
-      console.log(playerArray);
-      
-      answerLine.appendChild(playerArray[playerArray.length - 1]);
+      const lastChoiceIndex = playerArray.length - 1;
+      console.log(lastChoiceIndex);
+      answersArray.splice(lastChoiceIndex, 1, icon);
+      console.log('PLAYER ARRAY', playerArray);
+      console.log('ANSWERS ARRAY', answersArray);
+      clearAnswerLine();
+      displayAnswersArray();
     });
   }
 
