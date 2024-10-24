@@ -11,6 +11,18 @@ function displayAnswersArray() {
   answersArray.forEach((element) => answerLine.appendChild(element));
 }
 
+function checkCoincidence() {
+    const lastChoice = playerArray[playerArray.length -1];
+    const currentQuestionMark = pythonArray[playerArray.length -1]
+
+    if (lastChoice.id === currentQuestionMark.id){
+        console.log('✅');
+    } else {
+        console.log('❌');
+        
+    }
+}
+
 class GameButton {
   constructor(id, imageUrl, alt, highlightColor) {
     this.id = id;
@@ -37,21 +49,23 @@ class GameButton {
       this.highlight(this.highlightColor);
 
       // The icon shown in the answers line
-      this.icon = document.createElement("img");
+      /* this.icon = document.createElement("img");
       this.icon.setAttribute("class", "game-button-icon");
       this.icon.setAttribute("src", this.imageUrl);
-      this.icon.setAttribute("alt", this.alt);
+      this.icon.setAttribute("alt", this.alt); */
+      this.icon = new Icon (this.id, this.imageUrl, this.alt);
 
       playerArray.push(this.icon);
 
       const lastChoiceIndex = playerArray.length - 1;
       console.log(lastChoiceIndex);
-      answersArray.splice(lastChoiceIndex, 1, this.icon);
+      answersArray.splice(lastChoiceIndex, 1, this.icon.iconElement);
       console.log("PLAYER ARRAY", playerArray);
       console.log("ANSWERS ARRAY", answersArray);
 
       clearAnswerLine();
       displayAnswersArray();
+      checkCoincidence();
     });
   }
 
@@ -91,6 +105,24 @@ const jsButton = new GameButton(
   "rgba(255, 255, 0, 0.5)"
 );
 
+
+class Icon {
+    constructor(id, src, alt) {
+        this.id = id;
+        this.class = 'game-button-icon';
+        this.src = src;
+        this.alt = alt;
+        this.generateIconElement()
+    }
+
+    generateIconElement() {
+        this.iconElement = document.createElement("img");
+        this.iconElement.setAttribute("id", this.id);
+        this.iconElement.setAttribute("class", "game-button-icon");
+        this.iconElement.setAttribute("src", this.src);
+        this.iconElement.setAttribute("alt", this.alt);
+    }
+}
 /* 
 htmlButton.buttonElement.addEventListener('click', () => {
     // show icon in answers array
