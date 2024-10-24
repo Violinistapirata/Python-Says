@@ -6,15 +6,9 @@ const playerArray = [];
 // Array for the question mark icons and the game button icons
 const answersArray = [];
 
-
-
-
-
-
-
 // This function appends to the answerLine all the icon elements in the answersArray
 function displayAnswersArray() {
-    answersArray.forEach(element => answerLine.appendChild(element));
+  answersArray.forEach((element) => answerLine.appendChild(element));
 }
 
 class GameButton {
@@ -24,7 +18,6 @@ class GameButton {
     this.alt = alt;
     this.highlightColor = highlightColor;
     this.generateButtonElement();
-    
   }
 
   generateButtonElement() {
@@ -33,25 +26,30 @@ class GameButton {
     this.buttonElement.setAttribute("class", "game-button");
     gameButtonsDiv.appendChild(this.buttonElement);
 
-    const icon = document.createElement("img");
-    icon.setAttribute("src", this.imageUrl);
-    icon.setAttribute("alt", this.alt);
+    // The image in the button
+    this.image = document.createElement("img");
+    this.image.setAttribute("src", this.imageUrl);
+    this.image.setAttribute("alt", this.alt);
 
-    this.buttonElement.appendChild(icon);
+    this.buttonElement.appendChild(this.image);
 
     this.buttonElement.addEventListener("click", () => {
       this.highlight(this.highlightColor);
-      // show icon in answer line
-      const icon = document.createElement("img");
-      icon.setAttribute("class", "game-button-icon");
-      icon.setAttribute("src", this.imageUrl);
-      icon.setAttribute("alt", this.alt);
-      playerArray.push(icon);
+
+      // The icon shown in the answers line
+      this.icon = document.createElement("img");
+      this.icon.setAttribute("class", "game-button-icon");
+      this.icon.setAttribute("src", this.imageUrl);
+      this.icon.setAttribute("alt", this.alt);
+
+      playerArray.push(this.icon);
+
       const lastChoiceIndex = playerArray.length - 1;
       console.log(lastChoiceIndex);
-      answersArray.splice(lastChoiceIndex, 1, icon);
-      console.log('PLAYER ARRAY', playerArray);
-      console.log('ANSWERS ARRAY', answersArray);
+      answersArray.splice(lastChoiceIndex, 1, this.icon);
+      console.log("PLAYER ARRAY", playerArray);
+      console.log("ANSWERS ARRAY", answersArray);
+
       clearAnswerLine();
       displayAnswersArray();
     });
@@ -162,5 +160,3 @@ jsButton.addEventListener('click', () => {
     }, 500);
 })
  */
-
-

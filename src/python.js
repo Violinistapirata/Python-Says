@@ -16,7 +16,22 @@ to the Python Array */
 
 function addRandomButton() {
   const randomButton = generateRandomNumber();
-  pythonArray.push(randomButton);
+  switch (randomButton) {
+    case 1:
+        pythonArray.push(htmlButton.icon);
+        break;
+    case 2:
+        pythonArray.push(cssButton.icon);
+        break;
+    case 3:
+        pythonArray.push(nodeButton.icon);
+        break;
+    case 4:
+        pythonArray.push(jsButton.icon);
+        break;
+    default:
+        break;
+}
   console.log('PYTHON ARRAY', pythonArray);
 }
 
@@ -78,16 +93,16 @@ function displayPythonArray() {
   let counter = 0;
   const intervalId = setInterval(() => {
     switch (pythonArray[counter]) {
-      case 1:
+      case htmlButton.icon:
         htmlButton.highlight(htmlButton.highlightColor);
         break;
-      case 2:
+      case cssButton.icon:
         cssButton.highlight(cssButton.highlightColor);
         break;
-      case 3:
+      case nodeButton.icon:
         nodeButton.highlight(nodeButton.highlightColor);
         break;
-      case 4:
+      case jsButton.icon:
         jsButton.highlight(jsButton.highlightColor);
         break;
       default:
