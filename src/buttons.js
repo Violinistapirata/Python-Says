@@ -26,12 +26,12 @@ function checkCoincidence() {
         Icon.iconsArray[Icon.iconsArray.length - 1].setAttribute('class', 'lastAnswer');
         const lastAnswer = document.querySelector('.lastAnswer')
         lastAnswer.prepend(cross);
-        
-
+        GameButton.buttonsArray.forEach(button => button.lockGameButton());
     }
 }
 
 class GameButton {
+    static buttonsArray = [];
   constructor(id, imageUrl, alt, highlightColor) {
     this.id = id;
     this.imageUrl = imageUrl;
@@ -55,7 +55,6 @@ class GameButton {
 
     this.buttonElement.addEventListener("click", () => {
       this.highlight(this.highlightColor);
-
       // The icon shown in the answers line
       /* this.icon = document.createElement("img");
       this.icon.setAttribute("class", "game-button-icon");
@@ -75,6 +74,8 @@ class GameButton {
       displayAnswersArray();
       checkCoincidence();
     });
+
+    GameButton.buttonsArray.push(this);
   }
 
   highlight(color) {
@@ -85,9 +86,17 @@ class GameButton {
       this.buttonElement.style.backgroundColor = "";
     }, 500);
   }
+
+  lockGameButton() {
+    this.buttonElement.style.pointerEvents = 'none';
+    }
+
+  unlockGameButton() {
+    this.buttonElement.style.pointerEvents = 'auto';
+    }
 }
 
-/* const buttonsArray = [htmlButton, cssButton, nodeButton, jsButton ]*/
+
 const htmlButton = new GameButton(
   "html-button",
   "./images/HTML-logo.png",
@@ -112,7 +121,9 @@ const jsButton = new GameButton(
   "js icon",
   "rgba(255, 255, 0, 0.5)"
 );
+console.log("BUTTONS ARRAY", GameButton.buttonsArray);
 
+// GameButton.buttonsArray.push(htmlButton, cssButton, nodeButton, jsButton);
 
 class Icon {
     static iconsArray = []

@@ -58,6 +58,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* pointer-events: none; */
 }
 
 .game-button img {
@@ -137,6 +138,7 @@ body {
 #python-head img {
   width: 100%;
   height: auto;
+  pointer-events: visiblePainted;
 }
 
 #answer-line {
