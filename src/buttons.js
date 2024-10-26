@@ -1,9 +1,9 @@
 // HTML Elements
 
 // const gameArea = document.querySelector('#game-area');
-const navBar = document.querySelector('#nav-bar');
-const lives = document.querySelector('#lives');
-const menuIcon = document.querySelector('#menu-icon');
+const navBar = document.querySelector("#nav-bar");
+const lives = document.querySelector("#lives");
+const menuIcon = document.querySelector("#menu-icon");
 
 const answerLine = document.querySelector("#answer-line");
 const gameButtonsDiv = document.querySelector("#game-buttons-div");
@@ -45,18 +45,27 @@ function fail() {
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
   rage();
   setTimeout(bite, 2000);
+
+  const currentHearts = document.querySelectorAll('[alt="heart"]');
+  if (currentHearts.length === 0);{
+    showGameOver(); // Falta declarar esta función
+  }
 }
 
-function rage(){
+function showGameOver() {
 
 }
 
-function bite(){
-    const bite = document.querySelector('#bite');
-    bite.setAttribute('style', 'display: block');
-    setTimeout(() => bite.setAttribute('style', 'display: none'), 300);
-    const heart = document.querySelectorAll('[alt="heart"]');
-    heart[0].remove();
+function rage() {
+    
+}
+
+function bite() {
+  const bite = document.querySelector("#bite");
+  bite.setAttribute("style", "display: block");
+  setTimeout(() => bite.setAttribute("style", "display: none"), 300);
+  const heart = document.querySelectorAll('[alt="heart"]');
+  heart[0].remove();
 }
 
 // bite();
@@ -106,6 +115,7 @@ class GameButton {
       checkCoincidence();
       if (playerArray.length === pythonArray.length) {
         GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+        checkLine(); // Falta declarar esta función
       }
     });
 
@@ -180,7 +190,6 @@ class Icon {
     console.log("ICONS ARRAY", Icon.iconsArray);
   }
 }
-
 
 /* 
 htmlButton.buttonElement.addEventListener('click', () => {
