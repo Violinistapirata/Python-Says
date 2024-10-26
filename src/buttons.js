@@ -57,7 +57,7 @@ function showGameOver() {
 }
 
 function rage() {
-    
+    document.getElementById("python-eye").classList.add("visible");
 }
 
 function bite() {
@@ -71,7 +71,6 @@ function bite() {
 function checkLine () {
     
 }
-// bite();
 
 class GameButton {
   static buttonsArray = [];

@@ -141,6 +141,23 @@ body {
   pointer-events: visiblePainted;
 }
 
+#python-eye {
+    width: 4vw;
+    height: 3vw;
+    background-color: rgb(255, 0, 0);
+    position: absolute;
+    top: 3.8%;
+    left: 43%;
+    border-radius: 50%;
+    border: 1px solid black;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.visible {
+    opacity: 0.5;
+}
+
 #answer-line {
   /* border: 1px solid red; */
   margin-top: 15vh;
@@ -197,6 +214,8 @@ body {
     display: none;
     animation: grow 500ms;
 }
+
+/* --- Keyframes per a animations --- */
 
 @keyframes grow {
     from {transform: translate(-50%) scale(1)}
