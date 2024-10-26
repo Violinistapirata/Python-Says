@@ -1,9 +1,3 @@
-// HTML Elements
-
-// const gameArea = document.querySelector('#game-area');
-const navBar = document.querySelector('#nav-bar');
-const lives = document.querySelector('#lives');
-const menuIcon = document.querySelector('#menu-icon');
 
 // Screen class
 

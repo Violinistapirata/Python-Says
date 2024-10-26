@@ -1,3 +1,10 @@
+// HTML Elements
+
+// const gameArea = document.querySelector('#game-area');
+const navBar = document.querySelector('#nav-bar');
+const lives = document.querySelector('#lives');
+const menuIcon = document.querySelector('#menu-icon');
+
 const answerLine = document.querySelector("#answer-line");
 const gameButtonsDiv = document.querySelector("#game-buttons-div");
 const biteImgElement = document.querySelector("#bite");
@@ -37,7 +44,7 @@ function fail() {
   lastAnswer.prepend(cross);
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
   rage();
-  setTimeout(bite, 1000);
+  setTimeout(bite, 2000);
 }
 
 function rage(){
@@ -48,14 +55,8 @@ function bite(){
     const bite = document.querySelector('#bite');
     bite.setAttribute('style', 'display: block');
     setTimeout(() => bite.setAttribute('style', 'display: none'), 300);
-    
-    /* function gameLoop() {
-        if (!myGame.gameOver) { //si el juego está activo
-          requestAnimationFrame(gameLoop);
-          frames++;
-      -código-
-      }
-      requestAnimationFrame(gameLoop); */
+    const heart = document.querySelectorAll('[alt="heart"]');
+    heart[0].remove();
 }
 
 // bite();
