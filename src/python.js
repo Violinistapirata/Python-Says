@@ -121,7 +121,10 @@ function displayPythonArray() {
         break;
     }
     counter++;
-    if (counter == pythonArray.length) clearInterval(intervalId);
+    if (counter == pythonArray.length) {
+        GameButton.buttonsArray.forEach(button => button.unlockGameButton());
+        clearInterval(intervalId);
+    }
   }, 1000);
 }
 
