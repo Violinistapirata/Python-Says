@@ -23,7 +23,10 @@ function checkCoincidence() {
         cross.setAttribute('id', 'cross');
         cross.setAttribute('src', './images/red-cross.png');
         cross.setAttribute('alt', 'red cross');
-        answerLine.appendChild(cross);
+        Icon.iconsArray[Icon.iconsArray.length - 1].setAttribute('class', 'lastAnswer');
+        const lastAnswer = document.querySelector('.lastAnswer')
+        lastAnswer.prepend(cross);
+        
 
     }
 }
@@ -134,6 +137,7 @@ class Icon {
         
     }
 }
+
 /* 
 htmlButton.buttonElement.addEventListener('click', () => {
     // show icon in answers array
