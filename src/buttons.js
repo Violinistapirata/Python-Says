@@ -68,6 +68,9 @@ function bite() {
   heart[0].remove();
 }
 
+function checkLine () {
+    
+}
 // bite();
 
 class GameButton {

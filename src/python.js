@@ -124,7 +124,9 @@ function displayPythonArray() {
     counter++;
     if (counter == pythonArray.length) {
         clearInterval(intervalId);
-        GameButton.buttonsArray.forEach(button => button.unlockGameButton());
+        setTimeout(() => {
+            GameButton.buttonsArray.forEach(button => button.unlockGameButton());
+        }, 1000)
     }
   }, 1000);
 }
