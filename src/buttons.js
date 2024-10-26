@@ -104,6 +104,9 @@ class GameButton {
       clearAnswerLine();
       displayAnswersArray();
       checkCoincidence();
+      if (playerArray.length === pythonArray.length) {
+        GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+      }
     });
 
     GameButton.buttonsArray.push(this);
@@ -177,6 +180,7 @@ class Icon {
     console.log("ICONS ARRAY", Icon.iconsArray);
   }
 }
+
 
 /* 
 htmlButton.buttonElement.addEventListener('click', () => {

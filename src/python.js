@@ -98,6 +98,7 @@ pythonHead.addEventListener("click", () => {
   displayAnswersArray();
   displayPythonArray();
   resetPlayerArray();
+  if (pythonArray.length >= 10) pythonArray.splice(0);
 });
 
 // This function executes the highlight function in every element of the pythonArray
@@ -122,8 +123,8 @@ function displayPythonArray() {
     }
     counter++;
     if (counter == pythonArray.length) {
-        GameButton.buttonsArray.forEach(button => button.unlockGameButton());
         clearInterval(intervalId);
+        GameButton.buttonsArray.forEach(button => button.unlockGameButton());
     }
   }, 1000);
 }
