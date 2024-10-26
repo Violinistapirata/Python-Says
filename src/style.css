@@ -187,7 +187,7 @@ body {
 
 /* The bite image */
 
-#bite img{
+#bite {
     width: 20vw;
     height: 20vh;
     position: absolute;
@@ -195,6 +195,12 @@ body {
     left: 50vw;
     transform: translate(-50%);
     display: none;
+    animation: grow 500ms;
+}
+
+@keyframes grow {
+    from {transform: translate(-50%) scale(1)}
+    to {transform: translatey(50%) scale(3)}
 }
 /* --- Media queries --- */
 

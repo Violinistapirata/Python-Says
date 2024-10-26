@@ -1,5 +1,6 @@
 const answerLine = document.querySelector("#answer-line");
 const gameButtonsDiv = document.querySelector("#game-buttons-div");
+const biteImgElement = document.querySelector("#bite");
 
 const playerArray = [];
 
@@ -12,26 +13,55 @@ function displayAnswersArray() {
 }
 
 function checkCoincidence() {
-    const lastChoice = playerArray[playerArray.length -1];
-    const currentQuestionMark = pythonArray[playerArray.length -1]
+  const lastChoice = playerArray[playerArray.length - 1];
+  const currentQuestionMark = pythonArray[playerArray.length - 1];
 
-    if (lastChoice.id === currentQuestionMark.id){
-        console.log('✅');
-    } else {
-        console.log('❌');
-        const cross = document.createElement('img');
-        cross.setAttribute('id', 'cross');
-        cross.setAttribute('src', './images/red-cross.png');
-        cross.setAttribute('alt', 'red cross');
-        Icon.iconsArray[Icon.iconsArray.length - 1].setAttribute('class', 'lastAnswer');
-        const lastAnswer = document.querySelector('.lastAnswer')
-        lastAnswer.prepend(cross);
-        GameButton.buttonsArray.forEach(button => button.lockGameButton());
-    }
+  if (lastChoice.id === currentQuestionMark.id) {
+    console.log("✅");
+  } else {
+    fail();
+  }
 }
 
+function fail() {
+  console.log("❌");
+  const cross = document.createElement("img");
+  cross.setAttribute("id", "cross");
+  cross.setAttribute("src", "./images/red-cross.png");
+  cross.setAttribute("alt", "red cross");
+  Icon.iconsArray[Icon.iconsArray.length - 1].setAttribute(
+    "class",
+    "lastAnswer"
+  );
+  const lastAnswer = document.querySelector(".lastAnswer");
+  lastAnswer.prepend(cross);
+  GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+  rage();
+  setTimeout(bite, 1000);
+}
+
+function rage(){
+
+}
+
+function bite(){
+    const bite = document.querySelector('#bite');
+    bite.setAttribute('style', 'display: block');
+    setTimeout(() => bite.setAttribute('style', 'display: none'), 300);
+    
+    /* function gameLoop() {
+        if (!myGame.gameOver) { //si el juego está activo
+          requestAnimationFrame(gameLoop);
+          frames++;
+      -código-
+      }
+      requestAnimationFrame(gameLoop); */
+}
+
+// bite();
+
 class GameButton {
-    static buttonsArray = [];
+  static buttonsArray = [];
   constructor(id, imageUrl, alt, highlightColor) {
     this.id = id;
     this.imageUrl = imageUrl;
@@ -60,7 +90,7 @@ class GameButton {
       this.icon.setAttribute("class", "game-button-icon");
       this.icon.setAttribute("src", this.imageUrl);
       this.icon.setAttribute("alt", this.alt); */
-      this.icon = new Icon (this.id, this.imageUrl, this.alt);
+      this.icon = new Icon(this.id, this.imageUrl, this.alt);
 
       playerArray.push(this.icon);
 
@@ -88,14 +118,13 @@ class GameButton {
   }
 
   lockGameButton() {
-    this.buttonElement.style.pointerEvents = 'none';
-    }
+    this.buttonElement.style.pointerEvents = "none";
+  }
 
   unlockGameButton() {
-    this.buttonElement.style.pointerEvents = 'auto';
-    }
+    this.buttonElement.style.pointerEvents = "auto";
+  }
 }
-
 
 const htmlButton = new GameButton(
   "html-button",
@@ -126,27 +155,26 @@ console.log("BUTTONS ARRAY", GameButton.buttonsArray);
 // GameButton.buttonsArray.push(htmlButton, cssButton, nodeButton, jsButton);
 
 class Icon {
-    static iconsArray = []
-    constructor(id, src, alt) {
-        this.id = id;
-        this.class = 'game-button-icon';
-        this.src = src;
-        this.alt = alt;
-        this.generateIconElement()
-    }
+  static iconsArray = [];
+  constructor(id, src, alt) {
+    this.id = id;
+    this.class = "game-button-icon";
+    this.src = src;
+    this.alt = alt;
+    this.generateIconElement();
+  }
 
-    generateIconElement() {
-        this.iconDivElement = document.createElement('div');
-        this.iconElement = document.createElement("img");
-        this.iconElement.setAttribute("id", this.id);
-        this.iconElement.setAttribute("class", "game-button-icon");
-        this.iconElement.setAttribute("src", this.src);
-        this.iconElement.setAttribute("alt", this.alt);
-        this.iconDivElement.appendChild(this.iconElement);
-        Icon.iconsArray.push(this.iconDivElement);
-        console.log("ICONS ARRAY", Icon.iconsArray);
-        
-    }
+  generateIconElement() {
+    this.iconDivElement = document.createElement("div");
+    this.iconElement = document.createElement("img");
+    this.iconElement.setAttribute("id", this.id);
+    this.iconElement.setAttribute("class", "game-button-icon");
+    this.iconElement.setAttribute("src", this.src);
+    this.iconElement.setAttribute("alt", this.alt);
+    this.iconDivElement.appendChild(this.iconElement);
+    Icon.iconsArray.push(this.iconDivElement);
+    console.log("ICONS ARRAY", Icon.iconsArray);
+  }
 }
 
 /* 
