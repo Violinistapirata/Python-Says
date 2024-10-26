@@ -19,7 +19,12 @@ function checkCoincidence() {
         console.log('✅');
     } else {
         console.log('❌');
-        
+        const cross = document.createElement('img');
+        cross.setAttribute('id', 'cross');
+        cross.setAttribute('src', './images/red-cross.png');
+        cross.setAttribute('alt', 'red cross');
+        answerLine.appendChild(cross);
+
     }
 }
 
@@ -59,7 +64,7 @@ class GameButton {
 
       const lastChoiceIndex = playerArray.length - 1;
       console.log(lastChoiceIndex);
-      answersArray.splice(lastChoiceIndex, 1, this.icon.iconElement);
+      answersArray.splice(lastChoiceIndex, 1, this.icon.iconDivElement);
       console.log("PLAYER ARRAY", playerArray);
       console.log("ANSWERS ARRAY", answersArray);
 
@@ -107,6 +112,7 @@ const jsButton = new GameButton(
 
 
 class Icon {
+    static iconsArray = []
     constructor(id, src, alt) {
         this.id = id;
         this.class = 'game-button-icon';
@@ -116,11 +122,16 @@ class Icon {
     }
 
     generateIconElement() {
+        this.iconDivElement = document.createElement('div');
         this.iconElement = document.createElement("img");
         this.iconElement.setAttribute("id", this.id);
         this.iconElement.setAttribute("class", "game-button-icon");
         this.iconElement.setAttribute("src", this.src);
         this.iconElement.setAttribute("alt", this.alt);
+        this.iconDivElement.appendChild(this.iconElement);
+        Icon.iconsArray.push(this.iconDivElement);
+        console.log("ICONS ARRAY", Icon.iconsArray);
+        
     }
 }
 /* 

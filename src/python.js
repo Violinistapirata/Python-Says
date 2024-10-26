@@ -62,6 +62,9 @@ function resetAnswersArray() {
 function resetPlayerArray() {
   playerArray.splice(0);
   console.log("PLAYER ARRAY AFTER RESET", playerArray);
+  Icon.iconsArray.splice(0);
+  console.log("ICONS ARRAY AFTER RESET", Icon.iconsArray);
+  
 }
 
 /* This function clears the answer line */
