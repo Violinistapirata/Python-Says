@@ -183,6 +183,17 @@ body {
     position: absolute;
 }
 
+/* The bite image */
+
+#bite img{
+    width: 20vw;
+    height: 20vh;
+    position: absolute;
+    top: 10vw;
+    left: 50vw;
+    transform: translate(-50%);
+    display: none;
+}
 /* --- Media queries --- */
 
 /* Teléfonos pequeños */
