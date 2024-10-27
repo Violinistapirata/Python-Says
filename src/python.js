@@ -78,13 +78,17 @@ const pythonHead = document.querySelector("#python-head");
 // Python head Click Event Listener
 
 pythonHead.addEventListener("click", () => {
+  /* This clears the answers Line in the DOM*/
   clearAnswerLine();
+
+  /* This clears the AnswersArray */
   resetAnswersArray();
 
+  /* This adds a random button Element in the pythonArray */
   addRandomButton();
 
-  /* Shows a question mark icon in the answers line for each element
-    in the python array */
+  /* This generates a question mark icon Element for each element
+    in the pythonArray and pushes them into the answersArray */
   pythonArray.forEach(() => {
     const questionMark = document.createElement("img");
     questionMark.setAttribute("class", "game-button-icon");
@@ -93,11 +97,16 @@ pythonHead.addEventListener("click", () => {
     answersArray.push(questionMark);
   });
 
-  console.log("ANSWERS ARRAY", answersArray);
-
+  /* This appends each element of the answers array into the answers Line to display them on screen */
   displayAnswersArray();
+
+  /* This highlights each button Element in the python array with a time interval of 0.5s */
   displayPythonArray();
+
+  /* This clears the playerArray */
   resetPlayerArray();
+
+  /* This clears the python array when it reaches 10 elements */
   if (pythonArray.length >= 10) pythonArray.splice(0);
 });
 

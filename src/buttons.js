@@ -44,7 +44,8 @@ function fail() {
   lastAnswer.prepend(cross);
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
   rage();
-  setTimeout(bite, 2000);
+  setTimeout(bite, 1500);
+  setTimeout(calm, 2000);
 
   const currentHearts = document.querySelectorAll('[alt="heart"]');
   if (currentHearts.length === 0);{
@@ -57,7 +58,11 @@ function showGameOver() {
 }
 
 function rage() {
-    document.getElementById("python-eye").classList.add("visible");
+    document.getElementById("python-eye").classList.replace('calm', 'rage');
+}
+
+function calm() {
+    document.getElementById("python-eye").classList.replace('rage', 'calm');
 }
 
 function bite() {
