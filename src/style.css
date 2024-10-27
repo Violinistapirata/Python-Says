@@ -161,20 +161,35 @@ body {
 }
 
 #answer-line {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   margin-top: 15vh;
   /* position: absolute; */
   width: 90%;
   height: 10%;
   display: flex;
   justify-content: center;
-  gap: 2vw;
   align-items: center;
 }
 
 .game-button-icon {
   width: 6vw;
   height: 6vw;
+}
+
+#verification {
+    height: 80%;
+    padding: 3px;
+    /* background-color: rgba(3, 229, 3, 0.53); */
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    align-items: flex-end;
+    transition: background-color 2s;
+}
+
+.verify {
+    background-color: rgba(3, 229, 3, 0.53);
 }
 
 #avatars {
@@ -226,6 +241,9 @@ body {
 }
 
 /* --- Keyframes per a animations --- */
+@keyframes verify {
+    
+}
 
 @keyframes grow {
     from {transform: translate(-50%) scale(1)}

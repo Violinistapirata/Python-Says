@@ -5,7 +5,7 @@ const navBar = document.querySelector("#nav-bar");
 const lives = document.querySelector("#lives");
 const menuIcon = document.querySelector("#menu-icon");
 
-const answerLine = document.querySelector("#answer-line");
+const answerLine = document.querySelector("#verification");
 const gameButtonsDiv = document.querySelector("#game-buttons-div");
 const biteImgElement = document.querySelector("#bite");
 
@@ -24,6 +24,10 @@ function checkCoincidence() {
   const currentQuestionMark = pythonArray[playerArray.length - 1];
 
   if (lastChoice.id === currentQuestionMark.id) {
+    const verificationDivArray = answerLine.querySelectorAll('div');
+    const lastElement = verificationDivArray[verificationDivArray.length -1];
+    console.log(lastElement);
+    lastElement.classList.add('correct');
     console.log("✅");
   } else {
     fail();
@@ -77,7 +81,14 @@ function bite() {
 }
 
 function checkLine () {
+    const verificationDivArray = answerLine.querySelectorAll('div');
+    const lastElement = verificationDivArray[verificationDivArray.length -1];
     
+    if (lastElement.classList.value === 'correct'){
+        const verificationDivElement = document.querySelector('#verification');
+        verificationDivElement.classList.add('verify');
+        setTimeout(() => verificationDivElement.classList.remove('verify'), 2500);
+    }
 }
 
 class GameButton {
@@ -125,7 +136,7 @@ class GameButton {
       checkCoincidence();
       if (playerArray.length === pythonArray.length) {
         GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-        checkLine(); // Falta declarar esta función
+        checkLine();
       }
     });
 
