@@ -78,6 +78,9 @@ const pythonHead = document.querySelector("#python-head");
 // Python head Click Event Listener
 
 pythonHead.addEventListener("click", () => {
+  /* This locks the game buttons during the sequence animation */
+  GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+
   /* This clears the answers Line in the DOM*/
   clearAnswerLine();
 
