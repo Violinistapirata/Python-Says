@@ -71,6 +71,9 @@ function bite() {
   setTimeout(() => bite.setAttribute("style", "display: none"), 300);
   const heart = document.querySelectorAll('[alt="heart"]');
   heart[0].remove();
+  const pythonAvatar = document.querySelector('#python');
+  pythonAvatar.classList.replace('stare', 'attack');
+  setTimeout(() => pythonAvatar.classList.replace('attack', 'stare'), 500);
 }
 
 function checkLine () {

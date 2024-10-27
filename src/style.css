@@ -196,6 +196,14 @@ body {
   transform: scaleX(-1);
 }
 
+.attack {
+    animation: attack 0.5s;
+}
+
+.stare {
+    animation: none;
+}
+
 /* The cross that appears when you fail the sequence */
 
 #cross {
@@ -222,6 +230,11 @@ body {
 @keyframes grow {
     from {transform: translate(-50%) scale(1)}
     to {transform: translatey(50%) scale(3)}
+}
+
+@keyframes attack {
+    from {transform: translateX(0) scaleX(-1);}
+    to {transform: translateX(75%) scaleX(-1);}
 }
 /* --- Media queries --- */
 
