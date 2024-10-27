@@ -80,6 +80,7 @@ const pythonHead = document.querySelector("#python-head");
 pythonHead.addEventListener("click", () => {
   /* This locks the game buttons during the sequence animation */
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+  pythonHead.classList.replace('clickable', 'non-clickable');
 
   /* This clears the answers Line in the DOM*/
   clearAnswerLine();
@@ -138,6 +139,7 @@ function displayPythonArray() {
         clearInterval(intervalId);
         setTimeout(() => {
             GameButton.buttonsArray.forEach(button => button.unlockGameButton());
+            pythonHead.classList.replace('non-clickable', 'clickable');
         }, 1000)
     }
   }, 1000);
