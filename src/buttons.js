@@ -24,11 +24,19 @@ function checkCoincidence() {
   const currentQuestionMark = pythonArray[playerArray.length - 1];
 
   if (lastChoice.id === currentQuestionMark.id) {
-    const verificationDivArray = answerLine.querySelectorAll('div');
-    const lastElement = verificationDivArray[verificationDivArray.length -1];
+    const verificationDivArray = answerLine.querySelectorAll("div");
+    const lastElement = verificationDivArray[verificationDivArray.length - 1];
     console.log(lastElement);
-    lastElement.classList.add('correct');
+    lastElement.classList.add("correct");
     console.log("✅");
+    setTimeout(() => {
+    }, 3000);
+      /* This clears the python array when it reaches 10 elements */
+    if (pythonArray.length === 10 && playerArray[9].id === pythonArray[9].id) {
+        pythonArray.splice(0);
+        showYouWin();
+        GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+    }
   } else {
     fail();
   }
@@ -50,23 +58,49 @@ function fail() {
   rage();
   setTimeout(bite, 1500);
   setTimeout(calm, 2000);
+  setTimeout(checkLives, 3000);
+}
 
-  const currentHearts = document.querySelectorAll('[alt="heart"]');
-  if (currentHearts.length === 0);{
-    showGameOver(); // Falta declarar esta función
-  }
+function checkLives() {
+    const currentHearts = document.querySelectorAll('[alt="heart"]');
+    console.log('CURRENT HEARTS =', currentHearts.length);
+    console.log('AM I DEAD?', currentHearts.length === 0);
+    if (currentHearts.length > 0) {
+        repeatSequence();
+    } else {
+        showGameOver();
+        // GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+    }
+
+}
+function repeatSequence() {
+  clearAnswerLine();
+
+  resetAnswersArray();
+
+  addQuestionMarks();
+
+  displayAnswersArray();
+
+  displayPythonArray();
+
+  resetPlayerArray();
 }
 
 function showGameOver() {
+    console.log('GAME OVER');
+}
 
+function showYouWin() {
+    console.log('YOU WIN');
 }
 
 function rage() {
-    document.getElementById("python-eye").classList.replace('calm', 'rage');
+  document.getElementById("python-eye").classList.replace("calm", "rage");
 }
 
 function calm() {
-    document.getElementById("python-eye").classList.replace('rage', 'calm');
+  document.getElementById("python-eye").classList.replace("rage", "calm");
 }
 
 function bite() {
@@ -75,20 +109,23 @@ function bite() {
   setTimeout(() => bite.setAttribute("style", "display: none"), 300);
   const heart = document.querySelectorAll('[alt="heart"]');
   heart[0].remove();
-  const pythonAvatar = document.querySelector('#python');
-  pythonAvatar.classList.replace('stare', 'attack');
-  setTimeout(() => pythonAvatar.classList.replace('attack', 'stare'), 500);
+  const pythonAvatar = document.querySelector("#python");
+  pythonAvatar.classList.replace("stare", "attack");
+  setTimeout(() => pythonAvatar.classList.replace("attack", "stare"), 500);
 }
 
-function checkLine () {
-    const verificationDivArray = answerLine.querySelectorAll('div');
-    const lastElement = verificationDivArray[verificationDivArray.length -1];
-    
-    if (lastElement.classList.value === 'correct'){
-        const verificationDivElement = document.querySelector('#verification');
-        verificationDivElement.classList.add('verify');
-        setTimeout(() => verificationDivElement.classList.remove('verify'), 2500);
-    }
+function checkLine() {
+  const verificationDivArray = answerLine.querySelectorAll("div");
+  const lastElement = verificationDivArray[verificationDivArray.length - 1];
+
+  if (lastElement.classList.value === "correct") {
+    const verificationDivElement = document.querySelector("#verification");
+    verificationDivElement.classList.add("verify");
+    setTimeout(() => {
+      verificationDivElement.classList.remove("verify");
+      pythonHead.classList.replace("non-clickable", "clickable");
+    }, 2500);
+  }
 }
 
 class GameButton {

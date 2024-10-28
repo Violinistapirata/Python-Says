@@ -72,15 +72,24 @@ function clearAnswerLine() {
   answerLine.innerHTML = "";
 }
 
+function addQuestionMarks () {
+    pythonArray.forEach(() => {
+        const questionMark = document.createElement("img");
+        questionMark.setAttribute("class", "game-button-icon");
+        questionMark.setAttribute("src", "./images/question-mark.png");
+        questionMark.setAttribute("alt", "question mark");
+        answersArray.push(questionMark);
+      });
+} 
 // Variable with the Python Head Element
 const pythonHead = document.querySelector("#python-head");
 
 // Python head Click Event Listener
 
 pythonHead.addEventListener("click", () => {
+    pythonHead.classList.replace('clickable', 'non-clickable');
   /* This locks the game buttons during the sequence animation */
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-  pythonHead.classList.replace('clickable', 'non-clickable');
 
   /* This clears the answers Line in the DOM*/
   clearAnswerLine();
@@ -93,13 +102,7 @@ pythonHead.addEventListener("click", () => {
 
   /* This generates a question mark icon Element for each element
     in the pythonArray and pushes them into the answersArray */
-  pythonArray.forEach(() => {
-    const questionMark = document.createElement("img");
-    questionMark.setAttribute("class", "game-button-icon");
-    questionMark.setAttribute("src", "./images/question-mark.png");
-    questionMark.setAttribute("alt", "question mark");
-    answersArray.push(questionMark);
-  });
+  addQuestionMarks();
 
   /* This appends each element of the answers array into the answers Line to display them on screen */
   displayAnswersArray();
@@ -110,8 +113,6 @@ pythonHead.addEventListener("click", () => {
   /* This clears the playerArray */
   resetPlayerArray();
 
-  /* This clears the python array when it reaches 10 elements */
-  if (pythonArray.length >= 10) pythonArray.splice(0);
 });
 
 // This function executes the highlight function in every element of the pythonArray
@@ -139,7 +140,6 @@ function displayPythonArray() {
         clearInterval(intervalId);
         setTimeout(() => {
             GameButton.buttonsArray.forEach(button => button.unlockGameButton());
-            pythonHead.classList.replace('non-clickable', 'clickable');
         }, 1000)
     }
   }, 1000);
