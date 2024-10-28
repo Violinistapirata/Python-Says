@@ -57,23 +57,34 @@ body {
     }
 }
 
-#instructions1 {
+#instructions2 {
     img {
-    width: 40vw;
-    height: 9vh;
-    /* transform: rotate(250deg); */
-    position: absolute;
-    left: 55vw;
-    top: 1.5vw;
+        height: 10vh;
     }
 
     p {
+        width: 70%;
+    }
+}
+
+.speech-bubble {
+    /* border: 2px solid red; */
+    position: absolute;
+    left: 55vw;
+    top: 1.5vw;
+    img {
+    width: 40vw;
+    height: 9vh;
+    }
+
+    p {text-align: center;
+        width: 110%;
     font-size: 1.1rem;
     font-weight: bold;
-    /* transform: rotate(340deg); */
     position: absolute;
-    top: 6vw;
-    left: 61vw;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     }
 }
 

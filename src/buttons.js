@@ -12,6 +12,7 @@ const gameOverPrompt = document.querySelector('#box-container-game-over');
 const victoryPrompt = document.querySelector('#box-container-victory');
 const arrowSign = document.querySelector('#arrow');
 const instructions1 = document.querySelector('#instructions1');
+const instructions2 = document.querySelector('#instructions2')
 
 const playerArray = [];
 
@@ -33,6 +34,12 @@ function checkCoincidence() {
     console.log(lastElement);
     lastElement.classList.add("correct");
     console.log("✅");
+    if (pythonArray.length === 1) {
+        great.classList.replace('hidden', 'visible');
+        setTimeout(() => {
+            great.classList.replace('visible', 'hidden');
+        }, 2000);
+    }
     setTimeout(() => {
     }, 3000);
       /* This clears the python array when it reaches 10 elements */
@@ -70,6 +77,14 @@ function checkLives() {
     console.log('CURRENT HEARTS =', currentHearts.length);
     console.log('AM I DEAD?', currentHearts.length === 0);
     if (currentHearts.length > 0) {
+        if (pythonArray.length === 1) {
+            wrong.classList.replace('hidden', 'visible');
+            wrong.classList.replace('visible', 'hidden');
+            instructions2.classList.replace('hidden', 'visible');
+            setTimeout(() => {
+                instructions2.classList.replace('visible', 'hidden');
+            }, 1000)      
+        }
         repeatSequence();
     } else {
         showGameOver();
