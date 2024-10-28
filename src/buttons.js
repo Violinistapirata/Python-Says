@@ -8,6 +8,10 @@ const menuIcon = document.querySelector("#menu-icon");
 const answerLine = document.querySelector("#verification");
 const gameButtonsDiv = document.querySelector("#game-buttons-div");
 const biteImgElement = document.querySelector("#bite");
+const gameOverPrompt = document.querySelector('#box-container-game-over');
+const victoryPrompt = document.querySelector('#box-container-victory');
+const arrowSign = document.querySelector('#arrow');
+const instructions1 = document.querySelector('#instructions1');
 
 const playerArray = [];
 
@@ -73,6 +77,7 @@ function checkLives() {
     }
 
 }
+
 function repeatSequence() {
   clearAnswerLine();
 
@@ -89,9 +94,11 @@ function repeatSequence() {
 
 function showGameOver() {
     console.log('GAME OVER');
+    gameOverPrompt.classList.replace('hidden', 'visible');
 }
 
 function showYouWin() {
+    victoryPrompt.classList.replace('hidden', 'visible');
     console.log('YOU WIN');
 }
 

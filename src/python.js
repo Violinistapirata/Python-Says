@@ -88,6 +88,13 @@ const pythonHead = document.querySelector("#python-head");
 
 pythonHead.addEventListener("click", () => {
     pythonHead.classList.replace('clickable', 'non-clickable');
+    arrowSign.classList.add('hidden');
+    if (pythonArray.length === 0) {
+        instructions1.classList.replace('hidden', 'visible');
+        setTimeout(() => {
+            instructions1.classList.replace('visible', 'hidden');
+        }, 2000);
+    }
   /* This locks the game buttons during the sequence animation */
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
 
