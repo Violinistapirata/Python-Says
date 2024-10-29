@@ -38,7 +38,7 @@ body {
 }
 
 #arrow {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     transform: rotate(340deg);
     position: absolute;
     left: 60vw;
@@ -51,7 +51,7 @@ body {
 }
 
     p {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     text-align: center;
     font-size: 2.5vh;
     width: 100%;
