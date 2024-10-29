@@ -67,32 +67,40 @@ body {
 }
 
 #instructions2 {
+
+    top: 4vh;
+    left: 37vw;
+
     img {
-        height: 10vh;
+        width: 45vw;
+        height: 12vh;
     }
 
     p {
-        width: 70%;
+        width: 90%;
+        font-size: 1.3rem;
     }
 }
 
 .speech-bubble {
     /* border: 2px solid red; */
     position: absolute;
-    left: 55vw;
-    top: 1.5vw;
+    top: 4vh;
+    left: 37vw;
+    /* left: 55vw;
+    top: 10vh; */
 
     img {
         width: 40vw;
-        height: 9vh;
+        height: 11vh;
     }
 
     p {text-align: center;
-        width: 110%;
-        font-size: 1.1rem;
+        width: 60%;
+        font-size: 1.7rem;
         font-weight: bold;
         position: absolute;
-        top: 40%;
+        top: 38%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
