@@ -69,6 +69,7 @@ function fail() {
   const lastAnswer = document.querySelector(".lastAnswer");
   lastAnswer.prepend(cross);
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+  wrong.classList.replace('hidden', 'visible');
   rage();
   setTimeout(bite, 1500);
   setTimeout(calm, 2000);

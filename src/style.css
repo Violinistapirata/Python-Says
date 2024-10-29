@@ -82,6 +82,11 @@ body {
     }
 }
 
+#wrong {
+    p {
+        left: 45%;
+    }
+}
 .speech-bubble {
     /* border: 2px solid red; */
     position: absolute;
@@ -91,11 +96,15 @@ body {
     top: 10vh; */
 
     img {
+        z-index: 1;
+        position: relative;
         width: 40vw;
         height: 11vh;
     }
 
-    p {text-align: center;
+    p {
+        z-index: 2;
+        text-align: center;
         width: 60%;
         font-size: 1.7rem;
         font-weight: bold;
