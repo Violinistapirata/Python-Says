@@ -110,6 +110,11 @@ function repeatSequence() {
 function showGameOver() {
     console.log('GAME OVER');
     gameOverPrompt.classList.replace('hidden', 'visible');
+    // confetti({
+    //     particleCount: 100,
+    //     spread: 70,
+    //     origin: { y: 0.6 }
+    //   });
 }
 
 function showYouWin() {
