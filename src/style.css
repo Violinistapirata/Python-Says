@@ -38,22 +38,29 @@ body {
 }
 
 #arrow {
-    img {
-    width: 15vw;
-    height: 15vh;
-    transform: rotate(250deg);
-    position: absolute;
-    left: 67vw;
-    top: -5vw;
-    }
-
-    p {
-    font-size: 1rem;
-    font-weight: bold;
+    border: 2px solid red;
     transform: rotate(340deg);
     position: absolute;
-    top: 6.5vw;
-    left: 65vw;
+    left: 60vw;
+    top: 2vh;
+
+    img {
+        width: 35vw;
+        height: 10vh;
+        position: relative;
+}
+
+    p {
+    border: 2px solid red;
+    text-align: center;
+    font-size: 2.5vh;
+    width: 100%;
+    height: 30%;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 46%;
+    left: 55%;
     }
 }
 
@@ -72,19 +79,20 @@ body {
     position: absolute;
     left: 55vw;
     top: 1.5vw;
+
     img {
-    width: 40vw;
-    height: 9vh;
+        width: 40vw;
+        height: 9vh;
     }
 
     p {text-align: center;
         width: 110%;
-    font-size: 1.1rem;
-    font-weight: bold;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+        font-size: 1.1rem;
+        font-weight: bold;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 
