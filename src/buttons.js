@@ -70,6 +70,9 @@ function fail() {
   lastAnswer.prepend(cross);
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
   wrong.classList.replace('hidden', 'visible');
+  setTimeout(() => {
+    wrong.classList.replace('visible', 'hidden');
+  }, 2000);
   rage();
   setTimeout(bite, 1500);
   setTimeout(calm, 2000);
@@ -137,7 +140,7 @@ function calm() {
 function bite() {
   const bite = document.querySelector("#bite");
   bite.setAttribute("style", "display: block");
-  setTimeout(() => bite.setAttribute("style", "display: none"), 300);
+  setTimeout(() => bite.setAttribute("style", "display: none"), 500);
   const heart = document.querySelectorAll('[alt="heart"]');
   heart[0].remove();
   const pythonAvatar = document.querySelector("#python");
@@ -150,10 +153,13 @@ function checkLine() {
   const lastElement = verificationDivArray[verificationDivArray.length - 1];
 
   if (lastElement.classList.value === "correct") {
-    const verificationDivElement = document.querySelector("#verification");
-    verificationDivElement.classList.add("verify");
+    const answerElementsArray = document.querySelectorAll('.game-button-icon');
+    // const verificationDivElement = document.querySelector("#verification");
+    // verificationDivElement.classList.add("verify");
+    answerElementsArray.forEach(element => element.classList.add('verify'));
     setTimeout(() => {
-      verificationDivElement.classList.remove("verify");
+      answerElementsArray.forEach(element => element.classList.remove('verify'))
+    //   verificationDivElement.classList.remove("verify");
       pythonHead.classList.replace("non-clickable", "clickable");
       if (pythonArray.length < 10) {
           clickPythonHead();
