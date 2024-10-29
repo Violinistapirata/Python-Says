@@ -151,6 +151,9 @@ function checkLine() {
     setTimeout(() => {
       verificationDivElement.classList.remove("verify");
       pythonHead.classList.replace("non-clickable", "clickable");
+      if (pythonArray.length < 10) {
+          clickPythonHead();
+      }
     }, 2500);
   }
 }

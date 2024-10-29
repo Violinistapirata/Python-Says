@@ -84,9 +84,7 @@ function addQuestionMarks () {
 // Variable with the Python Head Element
 const pythonHead = document.querySelector("#python-head");
 
-// Python head Click Event Listener
-
-pythonHead.addEventListener("click", () => {
+function clickPythonHead (){
     pythonHead.classList.replace('clickable', 'non-clickable');
     arrowSign.classList.add('hidden');
     if (pythonArray.length === 0) {
@@ -95,31 +93,35 @@ pythonHead.addEventListener("click", () => {
             instructions1.classList.replace('visible', 'hidden');
         }, 2000);
     }
-  /* This locks the game buttons during the sequence animation */
-  GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-
-  /* This clears the answers Line in the DOM*/
-  clearAnswerLine();
-
-  /* This clears the AnswersArray */
-  resetAnswersArray();
-
-  /* This adds a random button Element in the pythonArray */
-  addRandomButton();
-
-  /* This generates a question mark icon Element for each element
+    /* This locks the game buttons during the sequence animation */
+    GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+    
+    /* This clears the answers Line in the DOM*/
+    clearAnswerLine();
+    
+    /* This clears the AnswersArray */
+    resetAnswersArray();
+    
+    /* This adds a random button Element in the pythonArray */
+    addRandomButton();
+    
+    /* This generates a question mark icon Element for each element
     in the pythonArray and pushes them into the answersArray */
-  addQuestionMarks();
+    addQuestionMarks();
+    
+    /* This appends each element of the answers array into the answers Line to display them on screen */
+    displayAnswersArray();
+    
+    /* This highlights each button Element in the python array with a time interval of 0.5s */
+    displayPythonArray();
+    
+    /* This clears the playerArray */
+    resetPlayerArray();
+}
 
-  /* This appends each element of the answers array into the answers Line to display them on screen */
-  displayAnswersArray();
-
-  /* This highlights each button Element in the python array with a time interval of 0.5s */
-  displayPythonArray();
-
-  /* This clears the playerArray */
-  resetPlayerArray();
-
+// Python head Click Event Listener
+pythonHead.addEventListener("click", () => {
+ clickPythonHead();
 });
 
 // This function executes the highlight function in every element of the pythonArray
