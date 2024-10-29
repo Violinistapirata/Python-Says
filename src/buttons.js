@@ -41,13 +41,13 @@ function checkCoincidence() {
         }, 2000);
     }
     setTimeout(() => {
+        /* This clears the python array when it reaches 10 elements */
+      if (playerArray[9].id === pythonArray[9].id) {
+          pythonArray.splice(0);
+          showYouWin();
+          GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+      }
     }, 3000);
-      /* This clears the python array when it reaches 10 elements */
-    if (pythonArray.length === 10 && playerArray[9].id === pythonArray[9].id) {
-        pythonArray.splice(0);
-        showYouWin();
-        GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-    }
   } else {
     fail();
   }
