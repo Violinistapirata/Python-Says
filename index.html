@@ -13,7 +13,7 @@
             <img src="./images/heart.png" alt="heart">
             <img src="./images/heart.png" alt="heart">
         </div>
-        <button id="menu-icon">
+        <button id="menu-icon" onclick="openMenu()">
             <img src="./images/menu-icon.png" alt="menu-icon">
         </button>
     </nav>
@@ -37,6 +37,15 @@
         <div id="wrong" class="speech-bubble hidden">
             <img src="./images/speech-bubble.png" alt="speech bubble">
             <p>WRONG!!</p>
+        </div>
+        <div id="box-container-menu" class="box-container hidden">
+            <div id="menu-div" class="menu">
+                <div id="close" onclick="closeMenu()">x</div>
+                <p>PAUSE</p>
+                <button onclick="window.location.reload()">Restart Game</button>
+                <button onclick="">Return to Title (coming soon)</button>
+                <button onclick="">Options (coming soon)</button>
+            </div>
         </div>
         <div id="box-container-game-over" class="box-container hidden">
             <div id="prompt-div" class="game-over">

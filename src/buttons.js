@@ -8,11 +8,14 @@ const menuIcon = document.querySelector("#menu-icon");
 const answerLine = document.querySelector("#verification");
 const gameButtonsDiv = document.querySelector("#game-buttons-div");
 const biteImgElement = document.querySelector("#bite");
+const menuButton = document.querySelector('#box-container-menu');
 const gameOverPrompt = document.querySelector('#box-container-game-over');
 const victoryPrompt = document.querySelector('#box-container-victory');
 const arrowSign = document.querySelector('#arrow');
 const instructions1 = document.querySelector('#instructions1');
-const instructions2 = document.querySelector('#instructions2')
+const instructions2 = document.querySelector('#instructions2');
+
+
 
 const playerArray = [];
 
@@ -156,6 +159,19 @@ function checkLine() {
       }
     }, 2500);
   }
+}
+
+function openMenu () {
+    menuButton.classList.replace('hidden', 'visible');
+    GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+    // pythonHead.classList.replace("clickable", "non-clickable");
+
+}
+
+function closeMenu () {
+    menuButton.classList.replace('visible', 'hidden');
+    GameButton.buttonsArray.forEach(button => button.unlockGameButton());
+    // pythonHead.classList.replace("non-clickable", "clickable");
 }
 
 class GameButton {
