@@ -55,7 +55,7 @@ function checkCoincidence() {
     setTimeout(() => {
       /* This clears the python array when it reaches 10 elements */
       if (playerArray[9].id === pythonArray[9].id) {
-        pythonArray.splice(0);
+        // pythonArray.splice(0);
         showYouWin();
         GameButton.buttonsArray.forEach((button) => button.lockGameButton());
       }
@@ -168,12 +168,14 @@ function checkLine() {
     const answerElementsArray = document.querySelectorAll(".game-button-icon");
     // const verificationDivElement = document.querySelector("#verification");
     // verificationDivElement.classList.add("verify");
-    answerElementsArray.forEach((element) => element.classList.add("verify"));
     setTimeout(() => {
-      answerElementsArray.forEach((element) =>
-        element.classList.remove("verify")
-      );
+      answerElementsArray.forEach((element) => element.classList.add("verify"));
       playSoundEffect("./sounds/correct.mp3");
+    }, 500);
+    setTimeout(() => {
+      answerElementsArray.forEach((element) => element.classList.remove("verify"));
+    }, 2000);
+    setTimeout(() => {
       pythonHead.classList.replace("non-clickable", "clickable");
       if (pythonArray.length < 10) {
         clickPythonHead();
