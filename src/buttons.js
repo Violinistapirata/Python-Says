@@ -8,19 +8,28 @@ const menuIcon = document.querySelector("#menu-icon");
 const answerLine = document.querySelector("#verification");
 const gameButtonsDiv = document.querySelector("#game-buttons-div");
 const biteImgElement = document.querySelector("#bite");
-const menuButton = document.querySelector('#box-container-menu');
-const gameOverPrompt = document.querySelector('#box-container-game-over');
-const victoryPrompt = document.querySelector('#box-container-victory');
-const arrowSign = document.querySelector('#arrow');
-const instructions1 = document.querySelector('#instructions1');
-const instructions2 = document.querySelector('#instructions2');
-
-
+const menuButton = document.querySelector("#box-container-menu");
+const gameOverPrompt = document.querySelector("#box-container-game-over");
+const victoryPrompt = document.querySelector("#box-container-victory");
+const arrowSign = document.querySelector("#arrow");
+const instructions1 = document.querySelector("#instructions1");
+const instructions2 = document.querySelector("#instructions2");
+const muteButton = document.querySelector("#mute");
 
 const playerArray = [];
 
 // Array for the question mark icons and the game button icons
 const answersArray = [];
+
+function toggleMusic() {
+  if (backgroundMusic.paused) {
+    startMusic();
+  } else {
+    stopMusic();
+  }
+}
+
+muteButton.addEventListener("click", toggleMusic);
 
 // This function appends to the answerLine all the icon elements in the answersArray
 function displayAnswersArray() {
@@ -38,17 +47,17 @@ function checkCoincidence() {
     lastElement.classList.add("correct");
     console.log("✅");
     if (pythonArray.length === 1) {
-        great.classList.replace('hidden', 'visible');
-        setTimeout(() => {
-            great.classList.replace('visible', 'hidden');
-        }, 2000);
+      great.classList.replace("hidden", "visible");
+      setTimeout(() => {
+        great.classList.replace("visible", "hidden");
+      }, 2000);
     }
     setTimeout(() => {
-        /* This clears the python array when it reaches 10 elements */
+      /* This clears the python array when it reaches 10 elements */
       if (playerArray[9].id === pythonArray[9].id) {
-          pythonArray.splice(0);
-          showYouWin();
-          GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+        pythonArray.splice(0);
+        showYouWin();
+        GameButton.buttonsArray.forEach((button) => button.lockGameButton());
       }
     }, 3000);
   } else {
@@ -68,11 +77,11 @@ function fail() {
   );
   const lastAnswer = document.querySelector(".lastAnswer");
   lastAnswer.prepend(cross);
-  playSoundEffect('./sounds/wrong.mp3');
+  playSoundEffect("./sounds/wrong.mp3");
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-  wrong.classList.replace('hidden', 'visible');
+  wrong.classList.replace("hidden", "visible");
   setTimeout(() => {
-    wrong.classList.replace('visible', 'hidden');
+    wrong.classList.replace("visible", "hidden");
   }, 2000);
   rage();
   setTimeout(bite, 1500);
@@ -81,24 +90,23 @@ function fail() {
 }
 
 function checkLives() {
-    const currentHearts = document.querySelectorAll('[alt="heart"]');
-    console.log('CURRENT HEARTS =', currentHearts.length);
-    console.log('AM I DEAD?', currentHearts.length === 0);
-    if (currentHearts.length > 0) {
-        if (pythonArray.length === 1) {
-            wrong.classList.replace('hidden', 'visible');
-            wrong.classList.replace('visible', 'hidden');
-            instructions2.classList.replace('hidden', 'visible');
-            setTimeout(() => {
-                instructions2.classList.replace('visible', 'hidden');
-            }, 1000)      
-        }
-        repeatSequence();
-    } else {
-        showGameOver();
-        // GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+  const currentHearts = document.querySelectorAll('[alt="heart"]');
+  console.log("CURRENT HEARTS =", currentHearts.length);
+  console.log("AM I DEAD?", currentHearts.length === 0);
+  if (currentHearts.length > 0) {
+    if (pythonArray.length === 1) {
+      wrong.classList.replace("hidden", "visible");
+      wrong.classList.replace("visible", "hidden");
+      instructions2.classList.replace("hidden", "visible");
+      setTimeout(() => {
+        instructions2.classList.replace("visible", "hidden");
+      }, 1000);
     }
-
+    repeatSequence();
+  } else {
+    showGameOver();
+    // GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+  }
 }
 
 function repeatSequence() {
@@ -116,26 +124,25 @@ function repeatSequence() {
 }
 
 function showGameOver() {
-    console.log('GAME OVER');
-    gameOverPrompt.classList.replace('hidden', 'visible');
-    playSoundEffect('./sounds/game-over.mp3');
-    // confetti({
-    //     particleCount: 100,
-    //     spread: 70,
-    //     origin: { y: 0.6 }
-    //   });
+  console.log("GAME OVER");
+  gameOverPrompt.classList.replace("hidden", "visible");
+  playSoundEffect("./sounds/game-over.mp3");
+  // confetti({
+  //     particleCount: 100,
+  //     spread: 70,
+  //     origin: { y: 0.6 }
+  //   });
 }
 
 function showYouWin() {
-    victoryPrompt.classList.replace('hidden', 'visible');
-    playSoundEffect('./sounds/victory.mp3');
-    console.log('YOU WIN');
+  victoryPrompt.classList.replace("hidden", "visible");
+  playSoundEffect("./sounds/victory.mp3");
+  console.log("YOU WIN");
 }
 
 function rage() {
   document.getElementById("python-eye").classList.replace("calm", "rage");
-  playSoundEffect('./sounds/rage&bite.mp3');
-  
+  playSoundEffect("./sounds/rage&bite.mp3");
 }
 
 function calm() {
@@ -158,32 +165,33 @@ function checkLine() {
   const lastElement = verificationDivArray[verificationDivArray.length - 1];
 
   if (lastElement.classList.value === "correct") {
-    const answerElementsArray = document.querySelectorAll('.game-button-icon');
+    const answerElementsArray = document.querySelectorAll(".game-button-icon");
     // const verificationDivElement = document.querySelector("#verification");
     // verificationDivElement.classList.add("verify");
-    answerElementsArray.forEach(element => element.classList.add('verify'));
+    answerElementsArray.forEach((element) => element.classList.add("verify"));
     setTimeout(() => {
-      answerElementsArray.forEach(element => element.classList.remove('verify'))
-      playSoundEffect('./sounds/correct.mp3');
+      answerElementsArray.forEach((element) =>
+        element.classList.remove("verify")
+      );
+      playSoundEffect("./sounds/correct.mp3");
       pythonHead.classList.replace("non-clickable", "clickable");
       if (pythonArray.length < 10) {
-          clickPythonHead();
+        clickPythonHead();
       }
     }, 2500);
   }
 }
 
-function openMenu () {
-    menuButton.classList.replace('hidden', 'visible');
-    GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-    // pythonHead.classList.replace("clickable", "non-clickable");
-
+function openMenu() {
+  menuButton.classList.replace("hidden", "visible");
+  GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+  // pythonHead.classList.replace("clickable", "non-clickable");
 }
 
-function closeMenu () {
-    menuButton.classList.replace('visible', 'hidden');
-    GameButton.buttonsArray.forEach(button => button.unlockGameButton());
-    // pythonHead.classList.replace("non-clickable", "clickable");
+function closeMenu() {
+  menuButton.classList.replace("visible", "hidden");
+  GameButton.buttonsArray.forEach((button) => button.unlockGameButton());
+  // pythonHead.classList.replace("non-clickable", "clickable");
 }
 
 class GameButton {
@@ -218,7 +226,7 @@ class GameButton {
       this.icon.setAttribute("src", this.imageUrl);
       this.icon.setAttribute("alt", this.alt); */
       this.icon = new Icon(this.id, this.imageUrl, this.alt);
-      
+
       playerArray.push(this.icon);
 
       const lastChoiceIndex = playerArray.length - 1;

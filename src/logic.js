@@ -10,5 +10,7 @@ function stopMusic() {
     backgroundMusic.currentTime = 0; // Restarts the music to the beginning
 }
 
-stopMusic();
+// stopMusic();
+
+
 
