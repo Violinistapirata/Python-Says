@@ -68,6 +68,7 @@ function fail() {
   );
   const lastAnswer = document.querySelector(".lastAnswer");
   lastAnswer.prepend(cross);
+  playSoundEffect('./sounds/wrong.mp3');
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
   wrong.classList.replace('hidden', 'visible');
   setTimeout(() => {
@@ -117,6 +118,7 @@ function repeatSequence() {
 function showGameOver() {
     console.log('GAME OVER');
     gameOverPrompt.classList.replace('hidden', 'visible');
+    playSoundEffect('./sounds/game-over.mp3');
     // confetti({
     //     particleCount: 100,
     //     spread: 70,
@@ -126,11 +128,14 @@ function showGameOver() {
 
 function showYouWin() {
     victoryPrompt.classList.replace('hidden', 'visible');
+    playSoundEffect('./sounds/victory.mp3');
     console.log('YOU WIN');
 }
 
 function rage() {
   document.getElementById("python-eye").classList.replace("calm", "rage");
+  playSoundEffect('./sounds/rage&bite.mp3');
+  
 }
 
 function calm() {
@@ -159,7 +164,7 @@ function checkLine() {
     answerElementsArray.forEach(element => element.classList.add('verify'));
     setTimeout(() => {
       answerElementsArray.forEach(element => element.classList.remove('verify'))
-    //   verificationDivElement.classList.remove("verify");
+      playSoundEffect('./sounds/correct.mp3');
       pythonHead.classList.replace("non-clickable", "clickable");
       if (pythonArray.length < 10) {
           clickPythonHead();
@@ -183,9 +188,10 @@ function closeMenu () {
 
 class GameButton {
   static buttonsArray = [];
-  constructor(id, imageUrl, alt, highlightColor) {
+  constructor(id, imageUrl, soundUrl, alt, highlightColor) {
     this.id = id;
     this.imageUrl = imageUrl;
+    this.soundUrl = soundUrl;
     this.alt = alt;
     this.highlightColor = highlightColor;
     this.generateButtonElement();
@@ -212,7 +218,7 @@ class GameButton {
       this.icon.setAttribute("src", this.imageUrl);
       this.icon.setAttribute("alt", this.alt); */
       this.icon = new Icon(this.id, this.imageUrl, this.alt);
-
+      
       playerArray.push(this.icon);
 
       const lastChoiceIndex = playerArray.length - 1;
@@ -240,6 +246,8 @@ class GameButton {
     setTimeout(() => {
       this.buttonElement.style.backgroundColor = "";
     }, 500);
+
+    playSoundEffect(this.soundUrl);
   }
 
   lockGameButton() {
@@ -254,24 +262,28 @@ class GameButton {
 const htmlButton = new GameButton(
   "html-button",
   "./images/HTML-logo.png",
+  "./sounds/tone1.mp3",
   "html icon",
   "rgba(255, 0, 0, 0.5)"
 );
 const cssButton = new GameButton(
   "css-button",
   "./images/CSS-logo.png",
+  "./sounds/tone2.mp3",
   "css icon",
   "rgba(0, 0, 255, 0.5)"
 );
 const nodeButton = new GameButton(
   "node-button",
   "./images/NODE-logo.png",
+  "./sounds/tone3.mp3",
   "node icon",
   "rgba(0, 255, 0, 0.5)"
 );
 const jsButton = new GameButton(
   "js-button",
   "./images/JS-logo.png",
+  "./sounds/tone4.mp3",
   "js icon",
   "rgba(255, 255, 0, 0.5)"
 );

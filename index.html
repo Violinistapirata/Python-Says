@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="./src/style.css">
 </head>
 <body>
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="./Sounds/background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="sound-effect">
+        <source src="" type="audio/mpeg">
+    </audio>
+
+
     <nav id="nav-bar">
         <div id="lives">
             <img src="./images/heart.png" alt="heart">
@@ -44,7 +53,7 @@
                 <div id="close" onclick="closeMenu()">x</div>
                 <p>PAUSE</p>
                 <button onclick="window.location.reload()">Restart Game</button>
-                <button onclick="">Return to Title (coming soon)</button>
+                <button onclick="">Toggle Music on/off</button>
                 <button onclick="">Options (coming soon)</button>
             </div>
         </div>
@@ -103,6 +112,7 @@
     </section>
 </body>
 <!-- Scripts -->
+<script src="./src/sound.js"></script>
 <script src="./src/buttons.js"></script>
 <script src="./src/player.js"></script>
 <script src="./src/python.js"></script>
