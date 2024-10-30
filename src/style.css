@@ -41,7 +41,7 @@ body {
     /* border: 2px solid red; */
     transform: rotate(340deg);
     position: absolute;
-    left: 58vw;
+    left: 54vw;
     top: 12vh;
 
     img {
@@ -68,8 +68,7 @@ body {
 
 #instructions2 {
 
-    top: 4vh;
-    left: 37vw;
+    top: 8vh;
 
     img {
         width: 45vw;
@@ -82,7 +81,12 @@ body {
     }
 }
 
+#great {
+    top: 8vh;
+}
+
 #wrong {
+    top: 8vh;
     p {
         left: 45%;
     }
@@ -91,8 +95,8 @@ body {
 .speech-bubble {
     /* border: 2px solid red; */
     position: absolute;
-    top: 4vh;
-    left: 37vw;
+    top: 9vh;
+    left: 40vw;
     /* left: 55vw;
     top: 10vh; */
 
@@ -216,7 +220,7 @@ body {
   height: 80vw;
   width: 80vw;
   position: absolute;
-  top: 28vh;
+  top: 25vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -355,25 +359,25 @@ body {
 }
 
 .game-button-icon {
-  
   /* border: 1px solid red; */
   padding: 3px 7px;
   width: 10vw;
   height: 5vh;
+  transition: background-color 1s;
 }
 
 #verification {
     /* border: 2px solid red; */
     width: 55vw;
-    height: 15vh;
+    height: 12vh;
     /* background-color: rgba(3, 229, 3, 0.53); */
     border-radius: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    align-content: center;
     flex-wrap: wrap;
-    gap: 2vw 0;
-    transition: background-color 2s;
+    gap: 1vh 0;
 }
 
 .verify {
