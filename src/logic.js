@@ -6,7 +6,7 @@ const lives = document.querySelector("#lives");
 const menuIcon = document.querySelector("#menu-icon");
 
 const answerLine = document.querySelector("#verification");
-const gameButtonsDiv = document.querySelector("#game-buttons-div");
+
 const biteImgElement = document.querySelector("#bite");
 const menuButton = document.querySelector("#box-container-menu");
 const gameOverPrompt = document.querySelector("#box-container-game-over");
@@ -17,7 +17,6 @@ const instructions2 = document.querySelector("#instructions2");
 const muteButton = document.querySelector("#mute");
 const backgroundMusic = document.getElementById("backgroundMusic");
 
-
 const playerArray = [];
 
 // ARRAY TO BE DISPLAYED ON SCREEN
@@ -27,12 +26,12 @@ const answersArray = [];
 // TURN BACKGROUND MUSIC ON/OFF
 
 function startMusic() {
-    backgroundMusic.play(); // Starts the music
+  backgroundMusic.play(); // Starts the music
 }
 
 function stopMusic() {
-    backgroundMusic.pause(); // Stops the music
-    backgroundMusic.currentTime = 0; // Restarts the music to the beginning
+  backgroundMusic.pause(); // Stops the music
+  backgroundMusic.currentTime = 0; // Restarts the music to the beginning
 }
 
 function toggleMusic() {
@@ -105,6 +104,52 @@ function fail() {
   setTimeout(checkLives, 3000);
 }
 
+function rage() {
+  document.getElementById("python-eye").classList.replace("calm", "rage");
+  playSoundEffect("./sounds/rage&bite.mp3");
+}
+
+function calm() {
+  document.getElementById("python-eye").classList.replace("rage", "calm");
+}
+
+function bite() {
+  const bite = document.querySelector("#bite");
+  bite.setAttribute("style", "display: block");
+  setTimeout(() => bite.setAttribute("style", "display: none"), 500);
+  const heart = document.querySelectorAll('[alt="heart"]');
+  heart[0].remove();
+  const pythonAvatar = document.querySelector("#python");
+  pythonAvatar.classList.replace("stare", "attack");
+  setTimeout(() => pythonAvatar.classList.replace("attack", "stare"), 500);
+}
+
+function checkLine() {
+  const verificationDivArray = answerLine.querySelectorAll("div");
+  const lastElement = verificationDivArray[verificationDivArray.length - 1];
+
+  if (lastElement.classList.value === "correct") {
+    const answerElementsArray = document.querySelectorAll(".game-button-icon");
+    // const verificationDivElement = document.querySelector("#verification");
+    // verificationDivElement.classList.add("verify");
+    setTimeout(() => {
+      answerElementsArray.forEach((element) => element.classList.add("verify"));
+      playSoundEffect("./sounds/correct.mp3");
+    }, 500);
+    setTimeout(() => {
+      answerElementsArray.forEach((element) =>
+        element.classList.remove("verify")
+      );
+    }, 2000);
+    setTimeout(() => {
+      pythonHead.classList.replace("non-clickable", "clickable");
+      if (pythonArray.length < 10) {
+        clickPythonHead();
+      }
+    }, 2500);
+  }
+}
+
 function checkLives() {
   const currentHearts = document.querySelectorAll('[alt="heart"]');
   console.log("CURRENT HEARTS =", currentHearts.length);
@@ -141,61 +186,12 @@ function showGameOver() {
   console.log("GAME OVER");
   gameOverPrompt.classList.replace("hidden", "visible");
   playSoundEffect("./sounds/game-over.mp3");
-  // confetti({
-  //     particleCount: 100,
-  //     spread: 70,
-  //     origin: { y: 0.6 }
-  //   });
 }
 
 function showYouWin() {
   victoryPrompt.classList.replace("hidden", "visible");
   playSoundEffect("./sounds/victory.mp3");
   console.log("YOU WIN");
-}
-
-function rage() {
-  document.getElementById("python-eye").classList.replace("calm", "rage");
-  playSoundEffect("./sounds/rage&bite.mp3");
-}
-
-function calm() {
-  document.getElementById("python-eye").classList.replace("rage", "calm");
-}
-
-function bite() {
-  const bite = document.querySelector("#bite");
-  bite.setAttribute("style", "display: block");
-  setTimeout(() => bite.setAttribute("style", "display: none"), 500);
-  const heart = document.querySelectorAll('[alt="heart"]');
-  heart[0].remove();
-  const pythonAvatar = document.querySelector("#python");
-  pythonAvatar.classList.replace("stare", "attack");
-  setTimeout(() => pythonAvatar.classList.replace("attack", "stare"), 500);
-}
-
-function checkLine() {
-  const verificationDivArray = answerLine.querySelectorAll("div");
-  const lastElement = verificationDivArray[verificationDivArray.length - 1];
-
-  if (lastElement.classList.value === "correct") {
-    const answerElementsArray = document.querySelectorAll(".game-button-icon");
-    // const verificationDivElement = document.querySelector("#verification");
-    // verificationDivElement.classList.add("verify");
-    setTimeout(() => {
-      answerElementsArray.forEach((element) => element.classList.add("verify"));
-      playSoundEffect("./sounds/correct.mp3");
-    }, 500);
-    setTimeout(() => {
-      answerElementsArray.forEach((element) => element.classList.remove("verify"));
-    }, 2000);
-    setTimeout(() => {
-      pythonHead.classList.replace("non-clickable", "clickable");
-      if (pythonArray.length < 10) {
-        clickPythonHead();
-      }
-    }, 2500);
-  }
 }
 
 function openMenu() {
@@ -209,7 +205,3 @@ function closeMenu() {
   GameButton.buttonsArray.forEach((button) => button.unlockGameButton());
   // pythonHead.classList.replace("non-clickable", "clickable");
 }
-
-
-
-

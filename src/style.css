@@ -96,90 +96,6 @@ body {
 }
 
 
-
-/* ----------------------- TUTORIAL TEXT BOXES -----------------------*/
-
-#arrow {
-  /* border: 2px solid red; */
-  transform: rotate(340deg);
-  position: absolute;
-  left: 54vw;
-  top: 12vh;
-
-  img {
-    width: 35vw;
-    height: 10vh;
-    position: relative;
-  }
-
-  p {
-    /* border: 2px solid red; */
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    text-align: center;
-    font-size: 2vh;
-    width: 100%;
-    height: 30%;
-    font-weight: bold;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 48%;
-    left: 55%;
-  }
-}
-
-#instructions2 {
-  top: 8vh;
-
-  img {
-    width: 45vw;
-    height: 12vh;
-  }
-
-  p {
-    width: 90%;
-    font-size: 1.3rem;
-  }
-}
-
-#great {
-  top: 8vh;
-}
-
-#wrong {
-  top: 8vh;
-  p {
-    left: 45%;
-  }
-}
-
-.speech-bubble {
-  /* border: 2px solid red; */
-  position: absolute;
-  top: 9vh;
-  left: 40vw;
-
-  img {
-    z-index: 1;
-    position: relative;
-    width: 40vw;
-    height: 11vh;
-  }
-
-  p {
-    z-index: 2;
-    text-align: center;
-    width: 60%;
-    font-size: 1.7rem;
-    font-weight: bold;
-    position: absolute;
-    top: 38%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-
 /* -----------------------  MENU AND PROMPTS -----------------------*/
 
 
@@ -314,6 +230,7 @@ body {
 
 /* -----------------------  GAME AREA ELEMENTS -----------------------*/
 
+
 #answer-line {
   /* border: 1px solid red; */
   margin-top: 2vh;
@@ -358,6 +275,40 @@ body {
   position: absolute;
 }
 
+#click-area-wrapper {
+  border: 1px solid red;
+  position: relative;
+  width: 85vw;
+}
+
+#python-head img {
+  width: 100%;
+}
+
+#python-eye {
+  width: 4vw;
+  height: 3vw;
+  background-color: rgb(255, 0, 0);
+  position: absolute;
+  top: 7.5%;
+  left: 42%;
+  border-radius: 50%;
+  border: 1px solid black;
+  /* transition: opacity 1.3s; */
+}
+
+/* The bite image */
+
+#bite {
+  width: 40%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  display: none;
+  animation: grow 900ms;
+  z-index: 3;
+}
 
 #game-buttons-div {
   border: 2px solid black;
@@ -365,13 +316,14 @@ body {
   height: 80vw;
   width: 80vw;
   position: absolute;
-  top: 25vh;
+  top: 32%;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  /* display: none; */
 }
 
 .game-button {
@@ -394,49 +346,11 @@ body {
   height: 80%;
 }
 
-#python-head {
-  /* border: 1px solid red; */
-  width: 85vw;
-  height: 85vw;
-  position: relative;
-}
-
-#python-head img {
-  width: 100%;
-  height: auto;
-}
-
-#python-eye {
-  width: 4vw;
-  height: 3vw;
-  background-color: rgb(255, 0, 0);
-  position: absolute;
-  top: 7.5%;
-  left: 42%;
-  border-radius: 50%;
-  border: 1px solid black;
-  transition: opacity 1.3s;
-}
-
-/* The bite image */
-
-#bite {
-  width: 20vw;
-  height: 20vh;
-  position: absolute;
-  top: 18vh;
-  left: 50vw;
-  transform: translate(-50%);
-  display: none;
-  animation: grow 900ms;
-  z-index: 3;
-}
-
 #avatars {
-  /* border: 1px solid red; */
-  width: 100%;
+  border: 1px solid red;
+  max-width: 100%;
   height: 20vh;
-  margin-top: 12vh;
+  margin: 12vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -450,6 +364,93 @@ body {
 #python {
   transform: scaleX(-1);
 }
+
+
+
+/* ----------------------- TUTORIAL TEXT BOXES -----------------------*/
+
+#arrow {
+  /* border: 2px solid red; */
+  transform: rotate(340deg);
+  position: absolute;
+  top: 0;
+  left: 60%;
+
+  img {
+    width: 35vw;
+    height: 10vh;
+    position: relative;
+  }
+
+  p {
+    /* border: 2px solid red; */
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 2vh;
+    width: 100%;
+    height: 30%;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 48%;
+    left: 55%;
+  }
+}
+
+.speech-bubble {
+  /* border: 2px solid red; */
+  position: absolute;
+  top: -20%;
+  left: 45%;
+
+  img {
+    z-index: 1;
+    position: relative;
+    width: 40vw;
+    height: 11vh;
+  }
+
+  p {
+    z-index: 2;
+    text-align: center;
+    width: 60%;
+    font-size: 6vw;
+    font-weight: bold;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#instructions2 {
+  top: 8vh;
+
+  img {
+    width: 45vw;
+    height: 12vh;
+  }
+
+  p {
+    width: 90%;
+    font-size: 1.3rem;
+  }
+}
+
+#great {
+  top: 8vh;
+}
+
+#wrong {
+  top: 8vh;
+  p {
+    left: 45%;
+  }
+}
+
+
+
 
 /* -----------------------  KEYFRAMES ANIMATIONS -----------------------*/
 

@@ -1,4 +1,4 @@
-
+const gameButtonsDiv = document.querySelector("#game-buttons-div");
 
 class Icon {
   static iconsArray = [];
