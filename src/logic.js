@@ -128,7 +128,7 @@ function checkLine() {
   const verificationDivArray = answerLine.querySelectorAll("div");
   const lastElement = verificationDivArray[verificationDivArray.length - 1];
 
-  if (lastElement.classList.value === "correct") {
+  if (lastElement.classList.value === "game-button-icon correct") {
     const answerElementsArray = document.querySelectorAll(".game-button-icon");
     // const verificationDivElement = document.querySelector("#verification");
     // verificationDivElement.classList.add("verify");

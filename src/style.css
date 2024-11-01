@@ -12,7 +12,7 @@ button {
   border-radius: 0;
 }
 
-
+img {max-width: 100%;}
 /* ----------------------- MOBILE VERSION -----------------------*/
 
 body {
@@ -242,8 +242,12 @@ body {
 
 .game-button-icon {
   /* border: 1px solid red; */
+  width: 20%;
+  height: 40%;
   padding: 3px 7px;
-  width: 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: background-color 1s;
 }
 
@@ -267,7 +271,6 @@ body {
 
 #cross {
   width: 10%;
-  /* height: 5vh; */
   position: absolute;
 }
 
