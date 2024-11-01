@@ -270,6 +270,7 @@ function checkLine() {
 
 function fail() {
   console.log("❌");
+  GameButton.buttonsArray.forEach((button) => button.lockGameButton());
   const cross = document.createElement("img");
   cross.setAttribute("id", "cross");
   cross.setAttribute("src", "./images/red-cross.png");
@@ -280,7 +281,6 @@ function fail() {
   const lastAnswer = document.querySelector(".lastAnswer");
   lastAnswer.prepend(cross);
   playSoundEffect("./sounds/wrong.mp3");
-  GameButton.buttonsArray.forEach((button) => button.lockGameButton());
   toggleClass(wrong,'hidden');
   setTimeout(() => {
     toggleClass(wrong,'hidden');
@@ -300,8 +300,6 @@ function rage() {
 function bite() {
   const biteElement = document.querySelector("#bite");
   toggleClass(biteElement,'hidden');
-  console.log('after toggle', biteElement);
-
   setTimeout(() => toggleClass(biteElement,'hidden'), 500);
   const heart = document.querySelectorAll('[alt="heart"]');
   heart[0].remove();
@@ -327,6 +325,7 @@ function checkLives() {
 }
 
 function repeatSequence() {
+    
   clearAnswerLine();
 
   resetArray(answersArray);
