@@ -5,6 +5,10 @@
 const playerArray = [];
 
 
+// PYTHON ARRAY
+
+const pythonArray = [];
+
 
 // ARRAY TO BE DISPLAYED ON SCREEN
 
@@ -131,10 +135,10 @@ function checkLine() {
       playSoundEffect("./sounds/correct.mp3");
     }, 500);
     setTimeout(() => {
-      answerElementsArray.forEach((element) => toggle(element, "verify"));
+      answerElementsArray.forEach((element) => toggleClass(element, "verify"));
     }, 2000);
     setTimeout(() => {
-      pythonHead.classList.replace("non-clickable", "clickable");
+        toggleClass(pythonHead, 'non-clickable');
       if (pythonArray.length < 10) {
         clickPythonHead();
       }
@@ -148,9 +152,9 @@ function checkLives() {
   console.log("AM I DEAD?", currentHearts.length === 0);
   if (currentHearts.length > 0) {
     if (pythonArray.length === 1) {
-      instructions2.classList.replace("hidden", "visible");
+      toggleClass(instructions2, 'hidden');
       setTimeout(() => {
-        instructions2.classList.replace("visible", "hidden");
+        toggleClass(instructions2, 'hidden');
       }, 1000);
     }
     repeatSequence();
@@ -175,27 +179,25 @@ function repeatSequence() {
 }
 
 function showGameOver() {
-  console.log("GAME OVER");
-  gameOverPrompt.classList.replace("hidden", "visible");
+  toggleClass(gameOverPrompt, 'hidden');
   playSoundEffect("./sounds/game-over.mp3");
 }
 
 function showYouWin() {
-  victoryPrompt.classList.replace("hidden", "visible");
+  toggleClass(victoryPrompt, 'hidden');
   playSoundEffect("./sounds/victory.mp3");
-  console.log("YOU WIN");
 }
 
 function openMenu() {
-  menuButton.classList.replace("hidden", "visible");
+  toggleClass(menuButton, 'hidden');
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-  // pythonHead.classList.replace("clickable", "non-clickable");
+
 }
 
 function closeMenu() {
-  menuButton.classList.replace("visible", "hidden");
+  toggleClass(menuButton, 'hidden');
   GameButton.buttonsArray.forEach((button) => button.unlockGameButton());
-  // pythonHead.classList.replace("non-clickable", "clickable");
+
 }
 
 
@@ -207,8 +209,6 @@ function closeMenu() {
 
 
 
-// Python Array
-const pythonArray = [];
 
 // This generates a random number between 1 and 4 to represent each of the 4 game buttons
 
@@ -217,48 +217,41 @@ function generateRandomNumber() {
   return randomNumber;
 }
 
-/* This function adds a random number (that represents one of the four game buttons)
-to the Python Array */
+/* This function adds a random button icon into the Python Array */
 
 function addRandomButton() {
   const randomButton = generateRandomNumber();
   switch (randomButton) {
     case 1:
-      /* htmlButton.icon = document.createElement("img");
-      htmlButton.icon.setAttribute("class", "game-button-icon");
-      htmlButton.icon.setAttribute("src", htmlButton.imageUrl);
-      htmlButton.icon.setAttribute("alt", htmlButton.alt); */
       htmlButton.icon = new Icon (htmlButton.id, htmlButton.imageUrl, htmlButton.alt);
       pythonArray.push(htmlButton.icon);
       break;
+
     case 2:
-       /* cssButton.icon = document.createElement("img");
-     cssButton.icon.setAttribute("class", "game-button-icon");
-     cssButton.icon.setAttribute("src",cssButton.imageUrl);
-     cssButton.icon.setAttribute("alt",cssButton.alt); */
      cssButton.icon = new Icon (cssButton.id, cssButton.imageUrl, cssButton.alt);
       pythonArray.push(cssButton.icon);
       break;
+
     case 3:
-        /* nodeButton.icon = document.createElement("img");
-      nodeButton.icon.setAttribute("class", "game-button-icon");
-      nodeButton.icon.setAttribute("src", nodeButton.imageUrl);
-      nodeButton.icon.setAttribute("alt", nodeButton.alt); */
       nodeButton.icon = new Icon (nodeButton.id, nodeButton.imageUrl, nodeButton.alt);
       pythonArray.push(nodeButton.icon);
       break;
+
     case 4:
-        /* jsButton.icon = document.createElement("img");
-      jsButton.icon.setAttribute("class", "game-button-icon");
-      jsButton.icon.setAttribute("src", jsButton.imageUrl);
-      jsButton.icon.setAttribute("alt", jsButton.alt); */
       jsButton.icon = new Icon (jsButton.id, jsButton.imageUrl, jsButton.alt);
       pythonArray.push(jsButton.icon);
       break;
+
     default:
       break;
   }
   console.log("PYTHON ARRAY", pythonArray);
+}
+
+// This function resets the provided array
+
+function resetArray(array) {
+   array.splice(0);
 }
 
 /* This function resets the answers array */
