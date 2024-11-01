@@ -1,27 +1,33 @@
 
 
-// PLAYER ARRAY
-
-const playerArray = [];
 
 
-// PYTHON ARRAY
-
-const pythonArray = [];
+/* -------------------------------  MENU  ------------------------------- */
 
 
-// ARRAY TO BE DISPLAYED ON SCREEN
+// OPEN/CLOSE THE MENU
 
-const answersArray = [];
-
-
-
+function openMenu() {
+    toggleClass(menuButton, 'hidden');
+    GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+}
+  
+function closeMenu() {
+    toggleClass(menuButton, 'hidden');
+    GameButton.buttonsArray.forEach((button) => button.unlockGameButton());
+}
 
 // TURN BACKGROUND MUSIC ON/OFF
 
+// Event listener for the spacebar to toggle background music
+document.addEventListener('keydown', function(e) {
+    if (e.code === 'Space') {
+        e.preventDefault();
+        toggleMusic();
+    }
+})
 
-
-muteButton.addEventListener("click", toggleMusic);
+stopMusic(); 
 
 function toggleMusic() {
   if (backgroundMusic.paused) {
@@ -42,239 +48,112 @@ function stopMusic() {
 
 
 
+
+
+
+/* -------------------------------  PYTHON HEAD ------------------------------- */
+
+
+// TOGGLE CSS CLASSES
+
 // This function toggles the provided class of the provided element
 
 function toggleClass(element, className) {
     element.classList.toggle(className);
 }
 
+// Python head Click Event Listener
+pythonHead.addEventListener("click", () => {
+    // startMusic();
+    toggleClass(pythonHead, 'non-clickable');
+    GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+    toggleClass(arrowSign, 'hidden');
+    clickPythonHead();
+});
 
-// DISPLAY ICONS FROM ANSWERS ARRAY IN ANSWER LINE
 
-function displayAnswersArray() {
-  answersArray.forEach((element) => answerLine.appendChild(element));
-}
-
-// CHECK IF THE PLAYER'S CHOICE IS CORRECT
-
-function checkCoincidence() {
-  const lastChoice = playerArray[playerArray.length - 1];
-  const currentQuestionMark = pythonArray[playerArray.length - 1];
-
-  if (lastChoice.id === currentQuestionMark.id) {
-    const verificationDivArray = answerLine.querySelectorAll("div");
-    const lastElement = verificationDivArray[verificationDivArray.length - 1];
-    lastElement.classList.add("correct");
-    if (pythonArray.length === 1) {
-        toggleClass(great,'hidden');
+function clickPythonHead (){
+    if (pythonArray.length === 0) {
+        toggleClass(instructions1, 'hidden');
         setTimeout(() => {
-          toggleClass(great,'hidden');
-      }, 2000);
+            toggleClass(instructions1, 'hidden');
+        }, 2000);
     }
-    setTimeout(() => {
-      /* This clears the python array when it reaches 10 elements */
-      if (playerArray[9].id === pythonArray[9].id) {
-        // pythonArray.splice(0);
-        showYouWin();
-        GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-      }
-    }, 3000);
-  } else {
-    fail();
-  }
+    
+    // 1.
+    clearAnswerLine();
+    
+    // 2.
+    resetArray(answersArray);
+    
+    // 3.
+    addRandomButton();
+    
+    // 4.
+    addQuestionMarks();
+    
+    // 5.
+    displayAnswersArray();
+    
+    // 6.
+    displayPythonArray();
+    
+    // 7.
+    resetArray(playerArray);
+    
+    // 8.
+    resetArray(Icon.iconsArray);
 }
 
-function fail() {
-  console.log("❌");
-  const cross = document.createElement("img");
-  cross.setAttribute("id", "cross");
-  cross.setAttribute("src", "./images/red-cross.png");
-  cross.setAttribute("alt", "red cross");
-  Icon.iconsArray[Icon.iconsArray.length - 1].classList.add(
-    "lastAnswer"
-  );
-  const lastAnswer = document.querySelector(".lastAnswer");
-  lastAnswer.prepend(cross);
-  playSoundEffect("./sounds/wrong.mp3");
-  GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-  toggleClass(wrong,'hidden');
-  setTimeout(() => {
-    toggleClass(wrong,'hidden');
-  }, 1500);
-  rage();
-  setTimeout(bite, 1500);
-//   setTimeout(calm, 2000);
-  setTimeout(checkLives, 3000);
+// (1) This function clears the answer line
+function clearAnswerLine() {
+    answerLine.innerHTML = "";
 }
 
-function rage() {
-  const pythonEye = document.querySelector("#python-eye");
-  toggleClass(pythonEye, 'rage');
-  playSoundEffect("./sounds/rage&bite.mp3");
-  setTimeout(() => toggleClass(pythonEye, 'rage'), 2000);
+// (2, 7, 8) This function resets the provided array
+function resetArray(array) {
+    array.splice(0);
 }
 
-function bite() {
-  const biteElement = document.querySelector("#bite");
-  toggleClass(biteElement,'hidden');
-  console.log('after toggle', biteElement);
-
-  setTimeout(() => toggleClass(biteElement,'hidden'), 500);
-  const heart = document.querySelectorAll('[alt="heart"]');
-  heart[0].remove();
-  toggleClass(pythonAvatar,'attack');
-  setTimeout(() => toggleClass(pythonAvatar,'attack'), 500);
-}
-
-function checkLine() {
-  const verificationDivArray = answerLine.querySelectorAll("div");
-  const lastElement = verificationDivArray[verificationDivArray.length - 1];
-
-  if (lastElement.classList.value === "game-button-icon correct") {
-    const answerElementsArray = document.querySelectorAll(".game-button-icon");
-    setTimeout(() => {
-      answerElementsArray.forEach((element) => toggleClass(element, 'verify'));
-      playSoundEffect("./sounds/correct.mp3");
-    }, 500);
-    setTimeout(() => {
-      answerElementsArray.forEach((element) => toggleClass(element, "verify"));
-    }, 2000);
-    setTimeout(() => {
-        toggleClass(pythonHead, 'non-clickable');
-      if (pythonArray.length < 10) {
-        clickPythonHead();
-      }
-    }, 2500);
-  }
-}
-
-function checkLives() {
-  const currentHearts = document.querySelectorAll('[alt="heart"]');
-  console.log("CURRENT HEARTS =", currentHearts.length);
-  console.log("AM I DEAD?", currentHearts.length === 0);
-  if (currentHearts.length > 0) {
-    if (pythonArray.length === 1) {
-      toggleClass(instructions2, 'hidden');
-      setTimeout(() => {
-        toggleClass(instructions2, 'hidden');
-      }, 1000);
-    }
-    repeatSequence();
-  } else {
-    showGameOver();
-    // GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-  }
-}
-
-function repeatSequence() {
-  clearAnswerLine();
-
-  resetAnswersArray();
-
-  addQuestionMarks();
-
-  displayAnswersArray();
-
-  displayPythonArray();
-
-  resetPlayerArray();
-}
-
-function showGameOver() {
-  toggleClass(gameOverPrompt, 'hidden');
-  playSoundEffect("./sounds/game-over.mp3");
-}
-
-function showYouWin() {
-  toggleClass(victoryPrompt, 'hidden');
-  playSoundEffect("./sounds/victory.mp3");
-}
-
-function openMenu() {
-  toggleClass(menuButton, 'hidden');
-  GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-
-}
-
-function closeMenu() {
-  toggleClass(menuButton, 'hidden');
-  GameButton.buttonsArray.forEach((button) => button.unlockGameButton());
-
-}
-
-
-
-
-
-/* -------------------------------  PYTHON  ------------------------------- */
-
-
-
-
-
-// This function generates a random number between 1 and 4 to represent each of the 4 game buttons
-
-function generateRandomNumber() {
-  let randomNumber = Math.ceil(Math.random() * 4);
-  return randomNumber;
-}
-
-/* This function adds a random button icon into the Python Array */
+/* (3) This function adds a random button icon into the Python Array */
 
 function addRandomButton() {
-  const randomButton = generateRandomNumber();
-  switch (randomButton) {
-    case 1:
-      htmlButton.icon = new Icon (htmlButton.id, htmlButton.imageUrl, htmlButton.alt);
-      pythonArray.push(htmlButton.icon);
-      break;
-
-    case 2:
-     cssButton.icon = new Icon (cssButton.id, cssButton.imageUrl, cssButton.alt);
-      pythonArray.push(cssButton.icon);
-      break;
-
-    case 3:
-      nodeButton.icon = new Icon (nodeButton.id, nodeButton.imageUrl, nodeButton.alt);
-      pythonArray.push(nodeButton.icon);
-      break;
-
-    case 4:
-      jsButton.icon = new Icon (jsButton.id, jsButton.imageUrl, jsButton.alt);
-      pythonArray.push(jsButton.icon);
-      break;
-
-    default:
-      break;
-  }
-  console.log("PYTHON ARRAY", pythonArray);
-}
-
-// This function resets the provided array
-
-function resetArray(array) {
-   array.splice(0);
-}
-
-/* This function resets the answers array */
-function resetAnswersArray() {
-  answersArray.splice(0);
-  console.log("ANSWERS ARRAY AFTER RESET", answersArray);
-}
-
-/* This function resets the player's array */
-function resetPlayerArray() {
-  playerArray.splice(0);
-  console.log("PLAYER ARRAY AFTER RESET", playerArray);
-  Icon.iconsArray.splice(0);
-  console.log("ICONS ARRAY AFTER RESET", Icon.iconsArray);
+    const randomButton = generateRandomNumber(); // 3.1.
+    switch (randomButton) {
+      case 1:
+        htmlButton.icon = new Icon (htmlButton.id, htmlButton.imageUrl, htmlButton.alt);
+        pythonArray.push(htmlButton.icon);
+        break;
   
+      case 2:
+       cssButton.icon = new Icon (cssButton.id, cssButton.imageUrl, cssButton.alt);
+        pythonArray.push(cssButton.icon);
+        break;
+  
+      case 3:
+        nodeButton.icon = new Icon (nodeButton.id, nodeButton.imageUrl, nodeButton.alt);
+        pythonArray.push(nodeButton.icon);
+        break;
+  
+      case 4:
+        jsButton.icon = new Icon (jsButton.id, jsButton.imageUrl, jsButton.alt);
+        pythonArray.push(jsButton.icon);
+        break;
+  
+      default:
+        break;
+    }
+    console.log("PYTHON ARRAY", pythonArray);
 }
 
-/* This function clears the answer line */
-function clearAnswerLine() {
-  answerLine.innerHTML = "";
+// (3.1) This function generates a random number between 1 and 4 to represent each of the 4 game buttons
+
+function generateRandomNumber() {
+    let randomNumber = Math.ceil(Math.random() * 4);
+    return randomNumber;
 }
+
+// (4) This function generates a question mark icon Element for each element in the pythonArray and pushes them into the answersArray 
 
 function addQuestionMarks () {
     pythonArray.forEach(() => {
@@ -286,50 +165,13 @@ function addQuestionMarks () {
       });
 } 
 
-// Python head Click Event Listener
-pythonHead.addEventListener("click", () => {
-    startMusic();
-    clickPythonHead();
-   });
+// (5) This appends each element of the answers array into the answers Line to display them on screen
 
-function clickPythonHead (){
-    toggleClass(pythonHead, 'non-clickable');
-    toggleClass(arrowSign, 'hidden');
-    if (pythonArray.length === 0) {
-        toggleClass(instructions1, 'hidden');
-        setTimeout(() => {
-            toggleClass(instructions1, 'hidden');
-        }, 2000);
-    }
-
-
-    /* This locks the game buttons during the sequence animation */
-    GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-    
-    /* This clears the answers Line in the DOM*/
-    clearAnswerLine();
-    
-    /* This clears the AnswersArray */
-    resetArray(answersArray);
-    
-    /* This adds a random button Element in the pythonArray */
-    addRandomButton();
-    
-    /* This generates a question mark icon Element for each element
-    in the pythonArray and pushes them into the answersArray */
-    addQuestionMarks();
-    
-    /* This appends each element of the answers array into the answers Line to display them on screen */
-    displayAnswersArray();
-    
-    /* This highlights each button Element in the python array with a time interval of 0.5s */
-    displayPythonArray();
-    
-    /* This clears the playerArray */
-    resetArray(playerArray);
+function displayAnswersArray() {
+    answersArray.forEach((element) => answerLine.appendChild(element));
 }
 
-// This function executes the highlight function in every element of the pythonArray
+// (6) This function highlights each button Element in the python array with a time interval of 0.5s
 function displayPythonArray() {
   let counter = 0;
   const intervalId = setInterval(() => {
@@ -358,3 +200,149 @@ function displayPythonArray() {
     }
   }, 1000);
 }
+
+
+
+
+
+/* ------------------------------- GAME BUTTONS ------------------------------- */
+
+
+
+// This function checks wether the player's choice was correct or not
+
+function checkCoincidence() {
+  const lastChoice = playerArray[playerArray.length - 1];
+  const currentQuestionMark = pythonArray[playerArray.length - 1];
+
+  if (lastChoice.id === currentQuestionMark.id) {
+    const verificationDivArray = answerLine.querySelectorAll("div");
+    const lastElement = verificationDivArray[verificationDivArray.length - 1];
+    // the 'correct' class is added for the line check
+    lastElement.classList.add("correct");
+
+    // The first time that the player answers correctly the 'great' speech bubble is shown
+    if (pythonArray.length === 1) {
+        toggleClass(great,'hidden');
+        setTimeout(() => {
+          toggleClass(great,'hidden');
+      }, 2000);
+    }
+  } else {
+    fail();
+  }
+}
+
+// This function shows the provided prompt window and plays the provided sound
+
+function showPrompt(prompt, musicUrl) {
+    toggleClass(prompt, 'hidden');
+    playSoundEffect(musicUrl);
+}
+  
+// This function activates the verification animation when all answers in the line are correct
+function checkLine() {
+    const verificationDivArray = answerLine.querySelectorAll("div");
+    const lastElement = verificationDivArray[verificationDivArray.length - 1];
+  
+    if (lastElement.classList.value === "game-button-icon correct") {
+      GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+      const answerElementsArray = document.querySelectorAll(".game-button-icon");
+      setTimeout(() => {
+        answerElementsArray.forEach((element) => toggleClass(element, 'verify'));
+        playSoundEffect("./sounds/correct.mp3");
+      }, 500);
+      setTimeout(() => {
+        answerElementsArray.forEach((element) => toggleClass(element, "verify"));
+      }, 2000);
+
+        /* This functionshows the 'you win' pop-up when the player answers the final array element correctly */
+      setTimeout(() => {
+        if (pythonArray.length < rounds) {
+            clickPythonHead();
+        } else if (playerArray[rounds - 1].id === pythonArray[rounds - 1].id) {
+            showPrompt(victoryPrompt, "./sounds/victory.mp3");
+            GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+        }
+      }, 2500);
+    }
+}
+
+function fail() {
+  console.log("❌");
+  const cross = document.createElement("img");
+  cross.setAttribute("id", "cross");
+  cross.setAttribute("src", "./images/red-cross.png");
+  cross.setAttribute("alt", "red cross");
+  Icon.iconsArray[Icon.iconsArray.length - 1].classList.add(
+    "lastAnswer"
+  );
+  const lastAnswer = document.querySelector(".lastAnswer");
+  lastAnswer.prepend(cross);
+  playSoundEffect("./sounds/wrong.mp3");
+  GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+  toggleClass(wrong,'hidden');
+  setTimeout(() => {
+    toggleClass(wrong,'hidden');
+  }, 1500);
+  rage();
+  setTimeout(bite, 1500);
+  setTimeout(checkLives, 3000);
+}
+
+function rage() {
+  const pythonEye = document.querySelector("#python-eye");
+  toggleClass(pythonEye, 'rage');
+  playSoundEffect("./sounds/rage&bite.mp3");
+  setTimeout(() => toggleClass(pythonEye, 'rage'), 2000);
+}
+
+function bite() {
+  const biteElement = document.querySelector("#bite");
+  toggleClass(biteElement,'hidden');
+  console.log('after toggle', biteElement);
+
+  setTimeout(() => toggleClass(biteElement,'hidden'), 500);
+  const heart = document.querySelectorAll('[alt="heart"]');
+  heart[0].remove();
+  toggleClass(pythonAvatar,'attack');
+  setTimeout(() => toggleClass(pythonAvatar,'attack'), 500);
+}
+
+function checkLives() {
+  const currentHearts = document.querySelectorAll('[alt="heart"]');
+  console.log("CURRENT HEARTS =", currentHearts.length);
+  console.log("AM I DEAD?", currentHearts.length === 0);
+  if (currentHearts.length > 0) {
+    if (pythonArray.length === 1) {
+      toggleClass(instructions2, 'hidden');
+      setTimeout(() => {
+        toggleClass(instructions2, 'hidden');
+      }, 1000);
+    }
+    repeatSequence();
+  } else {
+    showPrompt(gameOverPrompt, "./sounds/game-over.mp3");
+  }
+}
+
+function repeatSequence() {
+  clearAnswerLine();
+
+  resetArray(answersArray);
+
+  addQuestionMarks();
+
+  displayAnswersArray();
+
+  displayPythonArray();
+
+  resetArray(playerArray);
+}
+
+
+
+
+
+
+

@@ -2,8 +2,6 @@ class SoundEffect {
     constructor(src) {
         this.src = src;
     }
-
-    
 }
 
 function playSoundEffect(src) {

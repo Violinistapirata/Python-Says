@@ -8,3 +8,23 @@ const pythonHead = document.querySelector("#python-head");
 const pythonAvatar = document.querySelector("#python");
 const gameOverPrompt = document.querySelector("#box-container-game-over");
 const victoryPrompt = document.querySelector("#box-container-victory");
+
+
+// ARRAYS
+
+
+// 1. Python
+const pythonArray = [];
+
+
+// 2. Player
+const playerArray = [];
+
+
+// 3. Answers
+const answersArray = [];
+
+
+// GAME SETTINGS
+
+const rounds = 3;
