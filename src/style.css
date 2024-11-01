@@ -75,6 +75,7 @@ body {
 }
 
 #game-area {
+  /* border: 1px solid red; */
   width: 100vw;
   height: 93vh;
   position: relative;
@@ -347,17 +348,12 @@ body {
 
 #avatars {
   /* border: 1px solid red; */
-  max-width: 100%;
+  width: 90%;
   height: 20vh;
-  margin: 12vh;
+  margin: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-#avatars div img {
-  width: 40vw;
-  height: auto;
 }
 
 #python {

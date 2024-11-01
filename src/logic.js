@@ -86,8 +86,7 @@ function fail() {
   cross.setAttribute("id", "cross");
   cross.setAttribute("src", "./images/red-cross.png");
   cross.setAttribute("alt", "red cross");
-  Icon.iconsArray[Icon.iconsArray.length - 1].setAttribute(
-    "class",
+  Icon.iconsArray[Icon.iconsArray.length - 1].classList.add(
     "lastAnswer"
   );
   const lastAnswer = document.querySelector(".lastAnswer");
