@@ -19,7 +19,7 @@ const answersArray = [];
 
 // TURN BACKGROUND MUSIC ON/OFF
 
-stopMusic();
+
 
 muteButton.addEventListener("click", toggleMusic);
 
@@ -42,7 +42,11 @@ function stopMusic() {
 
 
 
+// This function toggles the provided class of the provided element
 
+function toggleClass(element, className) {
+    element.classList.toggle(className);
+}
 
 
 // DISPLAY ICONS FROM ANSWERS ARRAY IN ANSWER LINE
@@ -51,9 +55,7 @@ function displayAnswersArray() {
   answersArray.forEach((element) => answerLine.appendChild(element));
 }
 
-function toggleClass(element, className) {
-    element.classList.toggle(className);
-}
+// CHECK IF THE PLAYER'S CHOICE IS CORRECT
 
 function checkCoincidence() {
   const lastChoice = playerArray[playerArray.length - 1];
@@ -210,7 +212,7 @@ function closeMenu() {
 
 
 
-// This generates a random number between 1 and 4 to represent each of the 4 game buttons
+// This function generates a random number between 1 and 4 to represent each of the 4 game buttons
 
 function generateRandomNumber() {
   let randomNumber = Math.ceil(Math.random() * 4);
@@ -283,18 +285,24 @@ function addQuestionMarks () {
         answersArray.push(questionMark);
       });
 } 
-// Variable with the Python Head Element
-const pythonHead = document.querySelector("#python-head");
+
+// Python head Click Event Listener
+pythonHead.addEventListener("click", () => {
+    startMusic();
+    clickPythonHead();
+   });
 
 function clickPythonHead (){
-    pythonHead.classList.replace('clickable', 'non-clickable');
-    arrowSign.classList.add('hidden');
+    toggleClass(pythonHead, 'non-clickable');
+    toggleClass(arrowSign, 'hidden');
     if (pythonArray.length === 0) {
-        instructions1.classList.replace('hidden', 'visible');
+        toggleClass(instructions1, 'hidden');
         setTimeout(() => {
-            instructions1.classList.replace('visible', 'hidden');
+            toggleClass(instructions1, 'hidden');
         }, 2000);
     }
+
+
     /* This locks the game buttons during the sequence animation */
     GameButton.buttonsArray.forEach((button) => button.lockGameButton());
     
@@ -302,7 +310,7 @@ function clickPythonHead (){
     clearAnswerLine();
     
     /* This clears the AnswersArray */
-    resetAnswersArray();
+    resetArray(answersArray);
     
     /* This adds a random button Element in the pythonArray */
     addRandomButton();
@@ -318,13 +326,8 @@ function clickPythonHead (){
     displayPythonArray();
     
     /* This clears the playerArray */
-    resetPlayerArray();
+    resetArray(playerArray);
 }
-
-// Python head Click Event Listener
-pythonHead.addEventListener("click", () => {
- clickPythonHead();
-});
 
 // This function executes the highlight function in every element of the pythonArray
 function displayPythonArray() {
