@@ -1,4 +1,5 @@
 
+
 class Icon {
   static iconsArray = [];
   constructor(id, src, alt) {
