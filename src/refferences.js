@@ -1,3 +1,5 @@
+// HTML ELEMENTS
+
 const answerLine = document.querySelector("#verification");
 const menuButton = document.querySelector("#box-container-menu");
 const gameOverPrompt = document.querySelector("#box-container-game-over");

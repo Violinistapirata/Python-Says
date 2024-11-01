@@ -294,7 +294,7 @@ body {
   left: 42%;
   border-radius: 50%;
   border: 1px solid black;
-  /* transition: opacity 1.3s; */
+  transition: opacity 1.3s;
 }
 
 /* The bite image */
@@ -305,7 +305,6 @@ body {
   top: 0;
   left: 50%;
   transform: translate(-50%);
-  display: none;
   animation: grow 900ms;
   z-index: 3;
 }

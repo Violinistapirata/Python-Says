@@ -1,15 +1,6 @@
-// HTML ELEMENTS
-
-// const navBar = document.querySelector("#nav-bar");
-// const lives = document.querySelector("#lives");
-// const menuIcon = document.querySelector("#menu-icon");
-// const biteImgElement = document.querySelector("#bite");
-// const instructions1 = document.querySelector("#instructions1");
-// const instructions2 = document.querySelector("#instructions2");
-// const backgroundMusic = document.getElementById("backgroundMusic");
 
 
-
+// PLAYER ARRAY
 
 const playerArray = [];
 
@@ -24,14 +15,9 @@ const answersArray = [];
 
 // TURN BACKGROUND MUSIC ON/OFF
 
-function startMusic() {
-  backgroundMusic.play(); // Starts the music
-}
+stopMusic();
 
-function stopMusic() {
-  backgroundMusic.pause(); // Stops the music
-  backgroundMusic.currentTime = 0; // Restarts the music to the beginning
-}
+muteButton.addEventListener("click", toggleMusic);
 
 function toggleMusic() {
   if (backgroundMusic.paused) {
@@ -41,19 +27,28 @@ function toggleMusic() {
   }
 }
 
-muteButton.addEventListener("click", toggleMusic);
+function startMusic() {
+  backgroundMusic.play(); // Starts the music
+}
 
-stopMusic();
+function stopMusic() {
+  backgroundMusic.pause(); // Stops the music
+  backgroundMusic.currentTime = 0; // Restarts the music to the beginning
+}
 
 
 
 
 
 
+// DISPLAY ICONS FROM ANSWERS ARRAY IN ANSWER LINE
 
-// This function appends to the answerLine all the icon elements in the answersArray
 function displayAnswersArray() {
   answersArray.forEach((element) => answerLine.appendChild(element));
+}
+
+function toggleClass(element, className) {
+    element.classList.toggle(className);
 }
 
 function checkCoincidence() {
@@ -63,13 +58,11 @@ function checkCoincidence() {
   if (lastChoice.id === currentQuestionMark.id) {
     const verificationDivArray = answerLine.querySelectorAll("div");
     const lastElement = verificationDivArray[verificationDivArray.length - 1];
-    console.log(lastElement);
     lastElement.classList.add("correct");
-    console.log("✅");
     if (pythonArray.length === 1) {
-      great.classList.replace("hidden", "visible");
-      setTimeout(() => {
-        great.classList.replace("visible", "hidden");
+        toggleClass(great,'hidden');
+        setTimeout(() => {
+          toggleClass(great,'hidden');
       }, 2000);
     }
     setTimeout(() => {
@@ -98,29 +91,38 @@ function fail() {
   lastAnswer.prepend(cross);
   playSoundEffect("./sounds/wrong.mp3");
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-  wrong.classList.replace("hidden", "visible");
+  toggleClass(wrong,'hidden');
   setTimeout(() => {
-    wrong.classList.replace("visible", "hidden");
-  }, 2000);
+    toggleClass(wrong,'hidden');
+  }, 1500);
   rage();
-  setTimeout(bite, 1500);
-  setTimeout(calm, 2000);
+  setTimeout(pythonBite, 1500);
+//   setTimeout(calm, 2000);
   setTimeout(checkLives, 3000);
 }
 
 function rage() {
-  document.getElementById("python-eye").classList.replace("calm", "rage");
+  const pythonEye = document.querySelector("#python-eye");
+  console.log(pythonEye);
+  
+  toggleClass(pythonEye,'rage');
+  console.log('after toggle', pythonEye);
   playSoundEffect("./sounds/rage&bite.mp3");
+  setTimeout(() => toggleClass(pythonEye, 'rage'), 2000);
 }
 
 function calm() {
   document.getElementById("python-eye").classList.replace("rage", "calm");
 }
 
-function bite() {
+function pythonBite() {
   const bite = document.querySelector("#bite");
-  bite.setAttribute("style", "display: block");
-  setTimeout(() => bite.setAttribute("style", "display: none"), 500);
+  console.log(bite);
+  
+  toggleClass(bite,'hidden');
+  console.log('after toggle', bite);
+
+  setTimeout(() => toggleClass(bite,'hidden'), 500);
   const heart = document.querySelectorAll('[alt="heart"]');
   heart[0].remove();
   const pythonAvatar = document.querySelector("#python");
