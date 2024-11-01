@@ -244,7 +244,6 @@ body {
   /* border: 1px solid red; */
   padding: 3px 7px;
   width: 10vw;
-  height: 5vh;
   transition: background-color 1s;
 }
 
@@ -252,8 +251,6 @@ body {
   /* border: 2px solid red; */
   width: 55vw;
   height: 12vh;
-  /* background-color: rgba(3, 229, 3, 0.53); */
-  border-radius: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -449,16 +446,17 @@ body {
 
 /* -----------------------  KEYFRAMES ANIMATIONS -----------------------*/
 
-
+/* Animation for bite */
 @keyframes grow {
   from {
-    transform: translate(-50%) scale(1);
+    transform: translate(-70%, -20%) scale(1);
   }
   to {
-    transform: translatey(50%) scale(3);
+    transform: translate(-50%, 30%) scale(3);
   }
 }
 
+/* Animation for the python avatar */
 @keyframes attack {
   from {
     transform: translateX(0) scaleX(-1);

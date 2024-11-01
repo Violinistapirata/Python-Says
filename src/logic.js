@@ -205,3 +205,168 @@ function closeMenu() {
   GameButton.buttonsArray.forEach((button) => button.unlockGameButton());
   // pythonHead.classList.replace("non-clickable", "clickable");
 }
+
+
+
+
+
+/* -------------------------------  PYTHON  ------------------------------- */
+
+
+
+
+// Python Array
+const pythonArray = [];
+
+// This generates a random number between 1 and 4 to represent each of the 4 game buttons
+
+function generateRandomNumber() {
+  let randomNumber = Math.ceil(Math.random() * 4);
+  return randomNumber;
+}
+
+/* This function adds a random number (that represents one of the four game buttons)
+to the Python Array */
+
+function addRandomButton() {
+  const randomButton = generateRandomNumber();
+  switch (randomButton) {
+    case 1:
+      /* htmlButton.icon = document.createElement("img");
+      htmlButton.icon.setAttribute("class", "game-button-icon");
+      htmlButton.icon.setAttribute("src", htmlButton.imageUrl);
+      htmlButton.icon.setAttribute("alt", htmlButton.alt); */
+      htmlButton.icon = new Icon (htmlButton.id, htmlButton.imageUrl, htmlButton.alt);
+      pythonArray.push(htmlButton.icon);
+      break;
+    case 2:
+       /* cssButton.icon = document.createElement("img");
+     cssButton.icon.setAttribute("class", "game-button-icon");
+     cssButton.icon.setAttribute("src",cssButton.imageUrl);
+     cssButton.icon.setAttribute("alt",cssButton.alt); */
+     cssButton.icon = new Icon (cssButton.id, cssButton.imageUrl, cssButton.alt);
+      pythonArray.push(cssButton.icon);
+      break;
+    case 3:
+        /* nodeButton.icon = document.createElement("img");
+      nodeButton.icon.setAttribute("class", "game-button-icon");
+      nodeButton.icon.setAttribute("src", nodeButton.imageUrl);
+      nodeButton.icon.setAttribute("alt", nodeButton.alt); */
+      nodeButton.icon = new Icon (nodeButton.id, nodeButton.imageUrl, nodeButton.alt);
+      pythonArray.push(nodeButton.icon);
+      break;
+    case 4:
+        /* jsButton.icon = document.createElement("img");
+      jsButton.icon.setAttribute("class", "game-button-icon");
+      jsButton.icon.setAttribute("src", jsButton.imageUrl);
+      jsButton.icon.setAttribute("alt", jsButton.alt); */
+      jsButton.icon = new Icon (jsButton.id, jsButton.imageUrl, jsButton.alt);
+      pythonArray.push(jsButton.icon);
+      break;
+    default:
+      break;
+  }
+  console.log("PYTHON ARRAY", pythonArray);
+}
+
+/* This function resets the answers array */
+function resetAnswersArray() {
+  answersArray.splice(0);
+  console.log("ANSWERS ARRAY AFTER RESET", answersArray);
+}
+
+/* This function resets the player's array */
+function resetPlayerArray() {
+  playerArray.splice(0);
+  console.log("PLAYER ARRAY AFTER RESET", playerArray);
+  Icon.iconsArray.splice(0);
+  console.log("ICONS ARRAY AFTER RESET", Icon.iconsArray);
+  
+}
+
+/* This function clears the answer line */
+function clearAnswerLine() {
+  answerLine.innerHTML = "";
+}
+
+function addQuestionMarks () {
+    pythonArray.forEach(() => {
+        const questionMark = document.createElement("img");
+        questionMark.setAttribute("class", "game-button-icon");
+        questionMark.setAttribute("src", "./images/question-mark.png");
+        questionMark.setAttribute("alt", "question mark");
+        answersArray.push(questionMark);
+      });
+} 
+// Variable with the Python Head Element
+const pythonHead = document.querySelector("#python-head");
+
+function clickPythonHead (){
+    pythonHead.classList.replace('clickable', 'non-clickable');
+    arrowSign.classList.add('hidden');
+    if (pythonArray.length === 0) {
+        instructions1.classList.replace('hidden', 'visible');
+        setTimeout(() => {
+            instructions1.classList.replace('visible', 'hidden');
+        }, 2000);
+    }
+    /* This locks the game buttons during the sequence animation */
+    GameButton.buttonsArray.forEach((button) => button.lockGameButton());
+    
+    /* This clears the answers Line in the DOM*/
+    clearAnswerLine();
+    
+    /* This clears the AnswersArray */
+    resetAnswersArray();
+    
+    /* This adds a random button Element in the pythonArray */
+    addRandomButton();
+    
+    /* This generates a question mark icon Element for each element
+    in the pythonArray and pushes them into the answersArray */
+    addQuestionMarks();
+    
+    /* This appends each element of the answers array into the answers Line to display them on screen */
+    displayAnswersArray();
+    
+    /* This highlights each button Element in the python array with a time interval of 0.5s */
+    displayPythonArray();
+    
+    /* This clears the playerArray */
+    resetPlayerArray();
+}
+
+// Python head Click Event Listener
+pythonHead.addEventListener("click", () => {
+ clickPythonHead();
+});
+
+// This function executes the highlight function in every element of the pythonArray
+function displayPythonArray() {
+  let counter = 0;
+  const intervalId = setInterval(() => {
+    switch (pythonArray[counter].id) {
+      case htmlButton.id:
+        htmlButton.highlight(htmlButton.highlightColor);
+        break;
+      case cssButton.id:
+        cssButton.highlight(cssButton.highlightColor);
+        break;
+      case nodeButton.id:
+        nodeButton.highlight(nodeButton.highlightColor);
+        break;
+      case jsButton.id:
+        jsButton.highlight(jsButton.highlightColor);
+        break;
+      default:
+        break;
+    }
+    counter++;
+    if (counter == pythonArray.length) {
+        clearInterval(intervalId);
+        setTimeout(() => {
+            GameButton.buttonsArray.forEach(button => button.unlockGameButton());
+        }, 1000)
+    }
+  }, 1000);
+}
