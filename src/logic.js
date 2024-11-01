@@ -96,38 +96,28 @@ function fail() {
     toggleClass(wrong,'hidden');
   }, 1500);
   rage();
-  setTimeout(pythonBite, 1500);
+  setTimeout(bite, 1500);
 //   setTimeout(calm, 2000);
   setTimeout(checkLives, 3000);
 }
 
 function rage() {
   const pythonEye = document.querySelector("#python-eye");
-  console.log(pythonEye);
-  
-  toggleClass(pythonEye,'rage');
-  console.log('after toggle', pythonEye);
+  toggleClass(pythonEye, 'rage');
   playSoundEffect("./sounds/rage&bite.mp3");
   setTimeout(() => toggleClass(pythonEye, 'rage'), 2000);
 }
 
-function calm() {
-  document.getElementById("python-eye").classList.replace("rage", "calm");
-}
+function bite() {
+  const biteElement = document.querySelector("#bite");
+  toggleClass(biteElement,'hidden');
+  console.log('after toggle', biteElement);
 
-function pythonBite() {
-  const bite = document.querySelector("#bite");
-  console.log(bite);
-  
-  toggleClass(bite,'hidden');
-  console.log('after toggle', bite);
-
-  setTimeout(() => toggleClass(bite,'hidden'), 500);
+  setTimeout(() => toggleClass(biteElement,'hidden'), 500);
   const heart = document.querySelectorAll('[alt="heart"]');
   heart[0].remove();
-  const pythonAvatar = document.querySelector("#python");
-  pythonAvatar.classList.replace("stare", "attack");
-  setTimeout(() => pythonAvatar.classList.replace("attack", "stare"), 500);
+  toggleClass(pythonAvatar,'attack');
+  setTimeout(() => toggleClass(pythonAvatar,'attack'), 500);
 }
 
 function checkLine() {
@@ -136,16 +126,12 @@ function checkLine() {
 
   if (lastElement.classList.value === "game-button-icon correct") {
     const answerElementsArray = document.querySelectorAll(".game-button-icon");
-    // const verificationDivElement = document.querySelector("#verification");
-    // verificationDivElement.classList.add("verify");
     setTimeout(() => {
-      answerElementsArray.forEach((element) => element.classList.add("verify"));
+      answerElementsArray.forEach((element) => toggleClass(element, 'verify'));
       playSoundEffect("./sounds/correct.mp3");
     }, 500);
     setTimeout(() => {
-      answerElementsArray.forEach((element) =>
-        element.classList.remove("verify")
-      );
+      answerElementsArray.forEach((element) => toggle(element, "verify"));
     }, 2000);
     setTimeout(() => {
       pythonHead.classList.replace("non-clickable", "clickable");
