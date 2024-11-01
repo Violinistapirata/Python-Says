@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="./src/style.css">
 </head>
 <body>
+
+    <!-- AUDIOS -->
+
     <audio id="backgroundMusic" autoplay loop>
         <source src="./sounds/background-music.mp3" type="audio/mpeg">
     </audio>
@@ -14,6 +17,10 @@
     <audio id="sound-effect">
         <source src="" type="audio/mpeg">
     </audio>
+
+
+    <!-- NAV BAR -->
+    
     <nav id="nav-bar">
         <div id="lives">
             <img src="./images/heart.png" alt="heart">
@@ -25,7 +32,14 @@
             <img src="./images/menu-icon.png" alt="menu-icon">
         </button>
     </nav>
+
+
+    <!-- GAME AREA -->
+    
     <section id="game-area">
+
+        <!-- TUTORIAL  -->
+
         <div id="arrow">
             <img src="./images/arrow.png" alt="arrow">
             <p>Click to start</p>
@@ -46,13 +60,24 @@
             <img src="./images/speech-bubble.png" alt="speech bubble">
             <p>WRONG!!</p>
         </div>
+
+
+        <!-- BITE ANIMATION -->
+
+        <div>
+            <img id="bite"src="./images/snake-bite.png" alt="bite animation">
+        </div>
+
+
+        <!-- POP UP SCREENS -->
+
         <div id="box-container-menu" class="box-container hidden">
             <div id="menu-div" class="menu">
                 <div id="close" onclick="closeMenu()">x</div>
                 <p>PAUSE</p>
                 <button onclick="window.location.reload()">Restart Game</button>
                 <button id="mute" onclick="">Toggle Music on/off</button>
-                <button onclick="">Options (coming soon)</button>
+                <button onclick="">Options<br>(coming soon)</button>
             </div>
         </div>
         <div id="box-container-game-over" class="box-container hidden">
@@ -67,18 +92,27 @@
                 <button onclick="window.location.reload()">Play again</button>
             </div>
         </div>
+
+
+        <!-- GAME AREA ELEMENTS -->
+
         <div id="answer-line">
-            <!-- The answers array will be displayed here -->
-            <div id="verification"></div>
+            <div id="verification">
+                <!-- The answers array will be displayed here -->
+            </div>
             <!-- <div id="cross">
                 <img src="./images/red-cross.png" alt="red cross">
             </div> -->
         </div>
+
+
         <div id="python-head" class="clickable">
             <img src="./images/python-2.png" alt="python-head">
             <div id="python-eye" class="calm">
             </div>
         </div>
+
+
         <div id="game-buttons-div">
           <!--   <button id="html-button" class="game-button">
                 <img src="./images/HTML logo.png" alt="html button">
@@ -93,6 +127,8 @@
                 <img src="./images/JS logo.png" alt="js button">
             </button> -->
         </div>
+
+
         <div id="avatars">
             <div id="python" class="stare">
                 <img src="./images/python-2.png" alt="python">
@@ -104,16 +140,16 @@
                 <img src="" alt="">
             </div> -->
         </div>
-        <div>
-            <img id="bite"src="./images/snake-bite.png" alt="bite animation">
-        </div>
     </section>
 </body>
-<!-- Scripts -->
+
+<!-- SCRIPTS -->
+
+<script src="./src/refferences.js"></script>
 <script src="./src/sound.js"></script>
 <script src="./src/buttons.js"></script>
 <script src="./src/player.js"></script>
 <script src="./src/python.js"></script>
 <script src="./src/screens.js"></script>
- <script src="./src/logic.js"></script>
+<script src="./src/logic.js"></script>
 </html>

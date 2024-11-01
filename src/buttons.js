@@ -1,199 +1,25 @@
-// HTML Elements
 
-// const gameArea = document.querySelector('#game-area');
-const navBar = document.querySelector("#nav-bar");
-const lives = document.querySelector("#lives");
-const menuIcon = document.querySelector("#menu-icon");
-
-const answerLine = document.querySelector("#verification");
-const gameButtonsDiv = document.querySelector("#game-buttons-div");
-const biteImgElement = document.querySelector("#bite");
-const menuButton = document.querySelector("#box-container-menu");
-const gameOverPrompt = document.querySelector("#box-container-game-over");
-const victoryPrompt = document.querySelector("#box-container-victory");
-const arrowSign = document.querySelector("#arrow");
-const instructions1 = document.querySelector("#instructions1");
-const instructions2 = document.querySelector("#instructions2");
-const muteButton = document.querySelector("#mute");
-
-const playerArray = [];
-
-// Array for the question mark icons and the game button icons
-const answersArray = [];
-
-function toggleMusic() {
-  if (backgroundMusic.paused) {
-    startMusic();
-  } else {
-    stopMusic();
+class Icon {
+  static iconsArray = [];
+  constructor(id, src, alt) {
+    this.id = id;
+    this.class = "game-button-icon";
+    this.src = src;
+    this.alt = alt;
+    this.generateIconElement();
   }
-}
 
-muteButton.addEventListener("click", toggleMusic);
-
-// This function appends to the answerLine all the icon elements in the answersArray
-function displayAnswersArray() {
-  answersArray.forEach((element) => answerLine.appendChild(element));
-}
-
-function checkCoincidence() {
-  const lastChoice = playerArray[playerArray.length - 1];
-  const currentQuestionMark = pythonArray[playerArray.length - 1];
-
-  if (lastChoice.id === currentQuestionMark.id) {
-    const verificationDivArray = answerLine.querySelectorAll("div");
-    const lastElement = verificationDivArray[verificationDivArray.length - 1];
-    console.log(lastElement);
-    lastElement.classList.add("correct");
-    console.log("✅");
-    if (pythonArray.length === 1) {
-      great.classList.replace("hidden", "visible");
-      setTimeout(() => {
-        great.classList.replace("visible", "hidden");
-      }, 2000);
-    }
-    setTimeout(() => {
-      /* This clears the python array when it reaches 10 elements */
-      if (playerArray[9].id === pythonArray[9].id) {
-        // pythonArray.splice(0);
-        showYouWin();
-        GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-      }
-    }, 3000);
-  } else {
-    fail();
+  generateIconElement() {
+    this.iconDivElement = document.createElement("div");
+    this.iconElement = document.createElement("img");
+    this.iconElement.setAttribute("id", this.id);
+    this.iconElement.setAttribute("class", "game-button-icon");
+    this.iconElement.setAttribute("src", this.src);
+    this.iconElement.setAttribute("alt", this.alt);
+    this.iconDivElement.appendChild(this.iconElement);
+    Icon.iconsArray.push(this.iconDivElement);
+    console.log("ICONS ARRAY", Icon.iconsArray);
   }
-}
-
-function fail() {
-  console.log("❌");
-  const cross = document.createElement("img");
-  cross.setAttribute("id", "cross");
-  cross.setAttribute("src", "./images/red-cross.png");
-  cross.setAttribute("alt", "red cross");
-  Icon.iconsArray[Icon.iconsArray.length - 1].setAttribute(
-    "class",
-    "lastAnswer"
-  );
-  const lastAnswer = document.querySelector(".lastAnswer");
-  lastAnswer.prepend(cross);
-  playSoundEffect("./sounds/wrong.mp3");
-  GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-  wrong.classList.replace("hidden", "visible");
-  setTimeout(() => {
-    wrong.classList.replace("visible", "hidden");
-  }, 2000);
-  rage();
-  setTimeout(bite, 1500);
-  setTimeout(calm, 2000);
-  setTimeout(checkLives, 3000);
-}
-
-function checkLives() {
-  const currentHearts = document.querySelectorAll('[alt="heart"]');
-  console.log("CURRENT HEARTS =", currentHearts.length);
-  console.log("AM I DEAD?", currentHearts.length === 0);
-  if (currentHearts.length > 0) {
-    if (pythonArray.length === 1) {
-      wrong.classList.replace("hidden", "visible");
-      wrong.classList.replace("visible", "hidden");
-      instructions2.classList.replace("hidden", "visible");
-      setTimeout(() => {
-        instructions2.classList.replace("visible", "hidden");
-      }, 1000);
-    }
-    repeatSequence();
-  } else {
-    showGameOver();
-    // GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-  }
-}
-
-function repeatSequence() {
-  clearAnswerLine();
-
-  resetAnswersArray();
-
-  addQuestionMarks();
-
-  displayAnswersArray();
-
-  displayPythonArray();
-
-  resetPlayerArray();
-}
-
-function showGameOver() {
-  console.log("GAME OVER");
-  gameOverPrompt.classList.replace("hidden", "visible");
-  playSoundEffect("./sounds/game-over.mp3");
-  // confetti({
-  //     particleCount: 100,
-  //     spread: 70,
-  //     origin: { y: 0.6 }
-  //   });
-}
-
-function showYouWin() {
-  victoryPrompt.classList.replace("hidden", "visible");
-  playSoundEffect("./sounds/victory.mp3");
-  console.log("YOU WIN");
-}
-
-function rage() {
-  document.getElementById("python-eye").classList.replace("calm", "rage");
-  playSoundEffect("./sounds/rage&bite.mp3");
-}
-
-function calm() {
-  document.getElementById("python-eye").classList.replace("rage", "calm");
-}
-
-function bite() {
-  const bite = document.querySelector("#bite");
-  bite.setAttribute("style", "display: block");
-  setTimeout(() => bite.setAttribute("style", "display: none"), 500);
-  const heart = document.querySelectorAll('[alt="heart"]');
-  heart[0].remove();
-  const pythonAvatar = document.querySelector("#python");
-  pythonAvatar.classList.replace("stare", "attack");
-  setTimeout(() => pythonAvatar.classList.replace("attack", "stare"), 500);
-}
-
-function checkLine() {
-  const verificationDivArray = answerLine.querySelectorAll("div");
-  const lastElement = verificationDivArray[verificationDivArray.length - 1];
-
-  if (lastElement.classList.value === "correct") {
-    const answerElementsArray = document.querySelectorAll(".game-button-icon");
-    // const verificationDivElement = document.querySelector("#verification");
-    // verificationDivElement.classList.add("verify");
-    setTimeout(() => {
-      answerElementsArray.forEach((element) => element.classList.add("verify"));
-      playSoundEffect("./sounds/correct.mp3");
-    }, 500);
-    setTimeout(() => {
-      answerElementsArray.forEach((element) => element.classList.remove("verify"));
-    }, 2000);
-    setTimeout(() => {
-      pythonHead.classList.replace("non-clickable", "clickable");
-      if (pythonArray.length < 10) {
-        clickPythonHead();
-      }
-    }, 2500);
-  }
-}
-
-function openMenu() {
-  menuButton.classList.replace("hidden", "visible");
-  GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-  // pythonHead.classList.replace("clickable", "non-clickable");
-}
-
-function closeMenu() {
-  menuButton.classList.replace("visible", "hidden");
-  GameButton.buttonsArray.forEach((button) => button.unlockGameButton());
-  // pythonHead.classList.replace("non-clickable", "clickable");
 }
 
 class GameButton {
@@ -222,11 +48,6 @@ class GameButton {
 
     this.buttonElement.addEventListener("click", () => {
       this.highlight(this.highlightColor);
-      // The icon shown in the answers line
-      /* this.icon = document.createElement("img");
-      this.icon.setAttribute("class", "game-button-icon");
-      this.icon.setAttribute("src", this.imageUrl);
-      this.icon.setAttribute("alt", this.alt); */
       this.icon = new Icon(this.id, this.imageUrl, this.alt);
 
       playerArray.push(this.icon);
@@ -260,6 +81,7 @@ class GameButton {
     playSoundEffect(this.soundUrl);
   }
 
+  // THIS MAY NOT BE NECESSARY
   lockGameButton() {
     this.buttonElement.style.pointerEvents = "none";
   }
@@ -268,6 +90,9 @@ class GameButton {
     this.buttonElement.style.pointerEvents = "auto";
   }
 }
+
+
+// GAME BUTTONS INITIALISATION
 
 const htmlButton = new GameButton(
   "html-button",
@@ -300,96 +125,3 @@ const jsButton = new GameButton(
 console.log("BUTTONS ARRAY", GameButton.buttonsArray);
 
 // GameButton.buttonsArray.push(htmlButton, cssButton, nodeButton, jsButton);
-
-class Icon {
-  static iconsArray = [];
-  constructor(id, src, alt) {
-    this.id = id;
-    this.class = "game-button-icon";
-    this.src = src;
-    this.alt = alt;
-    this.generateIconElement();
-  }
-
-  generateIconElement() {
-    this.iconDivElement = document.createElement("div");
-    this.iconElement = document.createElement("img");
-    this.iconElement.setAttribute("id", this.id);
-    this.iconElement.setAttribute("class", "game-button-icon");
-    this.iconElement.setAttribute("src", this.src);
-    this.iconElement.setAttribute("alt", this.alt);
-    this.iconDivElement.appendChild(this.iconElement);
-    Icon.iconsArray.push(this.iconDivElement);
-    console.log("ICONS ARRAY", Icon.iconsArray);
-  }
-}
-
-/* 
-htmlButton.buttonElement.addEventListener('click', () => {
-    // show icon in answers array
-    const html = document.createElement('img');
-    html.setAttribute('class', 'game-button-icon');
-    html.setAttribute('src', '../images/HTML logo.png');
-    html.setAttribute('alt', 'html icon');
-    answersArray.splice(0, 1, html);
-    answerLine.appendChild(answersArray[0]);
-
-    // highlight button
-    htmlButton.buttonElement.style.backgroundColor = 'rgba(255, 0, 0, 0.5)'
-    setTimeout(() => {
-        htmlButton.buttonElement.style.backgroundColor = '';
-    }, 500);
-})
-
-const cssButton = document.querySelector('#css-button');
-cssButton.addEventListener('click', () => {
-    // show icon in answers array
-    const css = document.createElement('img');
-    css.setAttribute('class', 'game-button-icon');
-    css.setAttribute('src', '../images/CSS logo.png');
-    css.setAttribute('alt', 'css icon');
-    answersArray.splice(0, 1, css);
-    answerLine.appendChild(answersArray[0]);
-
-    // highlight button
-    cssButton.style.backgroundColor = 'rgba(0, 0, 255, 0.5)';
-    setTimeout(() => {
-        cssButton.style.backgroundColor = '';
-    }, 500);
-})
-
-const nodeButton = document.querySelector('#node-button');
-nodeButton.addEventListener('click', () => {
-    // show icon in answers array
-    const node = document.createElement('img');
-    node.setAttribute('class', 'game-button-icon');
-    node.setAttribute('src', '../images/NODE logo.png');
-    node.setAttribute('alt', 'node icon');
-    answersArray.splice(0, 1, node);
-    answerLine.appendChild(answersArray[0]);
-    
-    // highlight button
-    nodeButton.style.backgroundColor = 'rgba(0, 255, 0, 0.5)';
-    setTimeout(() => {
-        nodeButton.style.backgroundColor = '';
-    }, 500);
-})
-
-
-const jsButton = document.querySelector('#js-button');
-jsButton.addEventListener('click', () => {
-    // show icon in answers array
-    const js = document.createElement('img');
-    js.setAttribute('class', 'game-button-icon');
-    js.setAttribute('src', '../images/JS logo.png');
-    js.setAttribute('alt', 'js icon');
-    answersArray.splice(0, 1, js);
-    answerLine.appendChild(answersArray[0]);
-
-    // highlight button
-    jsButton.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
-    setTimeout(() => {
-        jsButton.style.backgroundColor = '';
-    }, 500);
-})
- */

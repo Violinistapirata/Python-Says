@@ -1,4 +1,7 @@
-/* General layouts reset */
+
+
+/* -----------------------  GENERAL LAYOUTS -----------------------*/
+
 * {
   margin: 0;
   padding: 0;
@@ -6,13 +9,14 @@
 }
 
 button {
-    border-radius: 0;
+  border-radius: 0;
 }
 
-/* mobile app */
+
+/* ----------------------- MOBILE VERSION -----------------------*/
 
 body {
-    /* border: 6px solid rgb(0, 0, 0); */
+  /* border: 6px solid rgb(0, 0, 0); */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,6 +24,55 @@ body {
   background-color: lightgray;
 }
 
+
+/* -----------------------  NAV BAR -----------------------*/
+
+#nav-bar {
+  /* border: 1px solid red; */
+  width: 100vw;
+  height: 6vh;
+  padding: 5px;
+  border: 1px solid black;
+  background-color: rgb(60, 122, 245);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  P {
+    margin-right: 2vw;
+    font-size: 4vh;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    /* font-weight: bolder; */
+  }
+}
+
+#lives {
+  width: 20vw;
+  height: auto;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+#lives img {
+  width: 30%;
+  height: auto;
+}
+
+#menu-icon {
+  width: 5vh;
+  height: 5vh;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+#menu-icon img {
+  width: 80%;
+  height: 80%;
+}
 
 #game-area {
   width: 100vw;
@@ -32,30 +85,34 @@ body {
 }
 
 .screen {
-    width: 100vw;
-    height: 93vh;
-    /* border: 1px solid red; */
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  /* border: 1px solid red; */
+  width: 100vw;
+  height: 93vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
+
+
+/* ----------------------- TUTORIAL TEXT BOXES -----------------------*/
+
 #arrow {
-    /* border: 2px solid red; */
-    transform: rotate(340deg);
-    position: absolute;
-    left: 54vw;
-    top: 12vh;
+  /* border: 2px solid red; */
+  transform: rotate(340deg);
+  position: absolute;
+  left: 54vw;
+  top: 12vh;
 
-    img {
-        width: 35vw;
-        height: 10vh;
-        position: relative;
-    }
+  img {
+    width: 35vw;
+    height: 10vh;
+    position: relative;
+  }
 
-    p {
+  p {
     /* border: 2px solid red; */
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -63,161 +120,244 @@ body {
     font-size: 2vh;
     width: 100%;
     height: 30%;
-    font-weight:bold;
+    font-weight: bold;
     transform: translate(-50%, -50%);
     position: absolute;
     top: 48%;
     left: 55%;
-    }
+  }
 }
 
 #instructions2 {
+  top: 8vh;
 
-    top: 8vh;
+  img {
+    width: 45vw;
+    height: 12vh;
+  }
 
-    img {
-        width: 45vw;
-        height: 12vh;
-    }
-
-    p {
-        width: 90%;
-        font-size: 1.3rem;
-    }
+  p {
+    width: 90%;
+    font-size: 1.3rem;
+  }
 }
 
 #great {
-    top: 8vh;
+  top: 8vh;
 }
 
 #wrong {
-    top: 8vh;
-    p {
-        left: 45%;
-    }
+  top: 8vh;
+  p {
+    left: 45%;
+  }
 }
 
 .speech-bubble {
-    /* border: 2px solid red; */
+  /* border: 2px solid red; */
+  position: absolute;
+  top: 9vh;
+  left: 40vw;
+
+  img {
+    z-index: 1;
+    position: relative;
+    width: 40vw;
+    height: 11vh;
+  }
+
+  p {
+    z-index: 2;
+    text-align: center;
+    width: 60%;
+    font-size: 1.7rem;
+    font-weight: bold;
     position: absolute;
-    top: 9vh;
-    left: 40vw;
-    /* left: 55vw;
-    top: 10vh; */
-
-    img {
-        z-index: 1;
-        position: relative;
-        width: 40vw;
-        height: 11vh;
-    }
-
-    p {
-        z-index: 2;
-        text-align: center;
-        width: 60%;
-        font-size: 1.7rem;
-        font-weight: bold;
-        position: absolute;
-        top: 38%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
+
+
+/* -----------------------  MENU AND PROMPTS -----------------------*/
+
 
 #box-container-menu {
+  position: absolute;
+  top: 13vh;
+  z-index: 1000;
+}
+
+#menu-div {
+  max-width: 90vw;
+  min-height: 60vh;
+  background-color: rgb(211, 204, 204);
+  border: 4px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+  align-items: center;
+  /* gap: 3vh; */
+}
+
+#menu-div {
+  div {
+    font-size: 3vh;
+    font-weight: bold;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    border: 1px solid black;
+    border-radius: 0.5vw;
+    background-color: rgb(138, 138, 138);
+    padding: 0.5vh 3vw;
     position: absolute;
-    top: 13vh;
-    z-index: 1000;
-}
+    top: 4vw;
+    right: 4vw;
+  }
 
-#menu-div {
-    width:90vw;
-    height: 60vh;
-    background-color: rgb(211, 204, 204);
-    border: 4px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3vh;
-}
+  p {
+    font-size: 10vw;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 6vh;
+  }
 
-#menu-div {
-    div {
-        font-size: 3vh;
-        font-weight: bold;
-        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        border: 1px solid black;
-        border-radius: 0.5vw;
-        background-color: rgb(138, 138, 138);
-        padding: 0.5vh 3vw;
-        position: absolute;
-        top: 4vw;
-        right: 4vw;
-    }
-
-    p {
-        font-size: 2.5rem;
-        font-weight: bold;
-        text-decoration: underline;
-        margin-bottom: 6vh;
-    }
-
-    button {
-        font-size: 1.5rem;
-        width: 80%;
-        padding: 0.5rem 1.5rem;
-        border: 1px solid black;
-    }
+  button {
+    font-size: 8vw;
+    width: 80%;
+    padding: 3vw 6vw;
+    border: 1px solid black;
+  }
 }
 
 #prompt-div {
-    width: 90vw;
-    height: 20vh;
-    background-color: rgb(211, 204, 204);
-    border: 4px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3vh;
+  width: 90vw;
+  height: 20vh;
+  background-color: rgb(211, 204, 204);
+  border: 4px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3vh;
 }
 
 #prompt-div {
-    p {
-        font-size: 2.5rem;
-        font-weight: bold;
-    }
+  p {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
 
-    button {
-        font-size: 1.5rem;
-        padding: 0.5rem 1.5rem;
-        border: 1px solid black;
-    }
+  button {
+    font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid black;
+  }
 }
 
 .box-container {
-    position: absolute;
-    top: 25vh;
-    z-index: 1000;
+  position: absolute;
+  top: 25vh;
+  z-index: 1000;
 }
 
 .game-over {
-    color: red;
+  color: red;
 }
 
 .you-win {
-    color: green;
+  color: green;
 }
 
+
+/* -----------------------  SHOW AND HIDE ELEMENT CLASSES -----------------------*/
+
 .hidden {
-    display: none;
+  display: none;
 }
 
 .visible {
-    display: block;
+  display: block;
 }
+
+
+/* -----------------------  ALLOW AND LOCK CLICK EVENTS CLASSES -----------------------*/
+
+.clickable {
+  pointer-events: visiblePainted;
+}
+
+.non-clickable {
+  pointer-events: none;
+}
+
+
+
+/* -----------------------  TRANSITIONS CLASSES -----------------------*/
+
+.calm {
+  opacity: 0;
+}
+
+.rage {
+  opacity: 0.7;
+}
+
+.attack {
+  animation: attack 0.5s;
+}
+
+.stare {
+  animation: none;
+}
+
+
+/* -----------------------  GAME AREA ELEMENTS -----------------------*/
+
+#answer-line {
+  /* border: 1px solid red; */
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.game-button-icon {
+  /* border: 1px solid red; */
+  padding: 3px 7px;
+  width: 10vw;
+  height: 5vh;
+  transition: background-color 1s;
+}
+
+#verification {
+  /* border: 2px solid red; */
+  width: 55vw;
+  height: 12vh;
+  /* background-color: rgba(3, 229, 3, 0.53); */
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 1vh 0;
+}
+
+.verify {
+  background-color: rgba(3, 229, 3, 0.53);
+}
+
+/* The cross that appears when you fail the sequence */
+
+#cross {
+  margin-top: 0.7vh;
+  width: 10vw;
+  height: 5vh;
+  position: absolute;
+}
+
 
 #game-buttons-div {
   border: 2px solid black;
@@ -254,70 +394,6 @@ body {
   height: 80%;
 }
 
-/*#html-button{
-    background-color: rgba(255, 0, 0, 0.5);
-}
-
-#css-button{
-    background-color: rgba(0, 0, 255, 0.5);
-}
-
-#node-button{
-    background-color: rgba(0, 255, 0, 0.5);
-}
-
-#js-button{
-    background-color: rgba(255, 255, 0, 0.5);
-} 
-*/
-
-#nav-bar {
-  /* border: 1px solid red; */
-  width: 100vw;
-  height: 6vh;
-  padding: 5px;
-  border: 1px solid black;
-  background-color: rgb(60, 122, 245);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  P {
-    margin-right: 2vw;
-    font-size: 4vh;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    /* font-weight: bolder; */
-  }
-}
-
-#menu-icon {
-  width: 5vh;
-  height: 5vh;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
-}
-
-#menu-icon img {
-  width: 80%;
-  height: 80%;
-}
-
-#lives {
-  width: 20vw;
-  height: auto;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
-
-#lives img {
-  width: 30%;
-  height: auto;
-}
-
 #python-head {
   /* border: 1px solid red; */
   width: 85vw;
@@ -328,72 +404,32 @@ body {
 #python-head img {
   width: 100%;
   height: auto;
- 
-}
-
-.clickable {
-    pointer-events: visiblePainted;
-}
-
-.non-clickable {
-    pointer-events: none;
 }
 
 #python-eye {
-    width: 4vw;
-    height: 3vw;
-    background-color: rgb(255, 0, 0);
-    position: absolute;
-    top: 7.5%;
-    left: 42%;
-    border-radius: 50%;
-    border: 1px solid black;
-    transition: opacity 1.3s;
+  width: 4vw;
+  height: 3vw;
+  background-color: rgb(255, 0, 0);
+  position: absolute;
+  top: 7.5%;
+  left: 42%;
+  border-radius: 50%;
+  border: 1px solid black;
+  transition: opacity 1.3s;
 }
 
-.calm {
-    opacity: 0;
-}
-.rage {
-    opacity: 0.7;
-}
+/* The bite image */
 
-#answer-line {
-  /* border: 1px solid red; */
-  margin-top: 2vh;
-  /* position: absolute; */
-  /* width: 90%;
-  height: 7%; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.game-button-icon {
-  /* border: 1px solid red; */
-  padding: 3px 7px;
-  width: 10vw;
-  height: 5vh;
-  transition: background-color 1s;
-}
-
-#verification {
-    /* border: 2px solid red; */
-    width: 55vw;
-    height: 12vh;
-    /* background-color: rgba(3, 229, 3, 0.53); */
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
-    gap: 1vh 0;
-}
-
-.verify {
-    background-color: rgba(3, 229, 3, 0.53);
+#bite {
+  width: 20vw;
+  height: 20vh;
+  position: absolute;
+  top: 18vh;
+  left: 50vw;
+  transform: translate(-50%);
+  display: none;
+  animation: grow 900ms;
+  z-index: 3;
 }
 
 #avatars {
@@ -415,60 +451,37 @@ body {
   transform: scaleX(-1);
 }
 
-.attack {
-    animation: attack 0.5s;
-}
+/* -----------------------  KEYFRAMES ANIMATIONS -----------------------*/
 
-.stare {
-    animation: none;
-}
-
-/* The cross that appears when you fail the sequence */
-
-#cross {
-    margin-top: 0.7vh;
-    width: 10vw;
-    height: 5vh;
-    position: absolute;
-}
-
-/* The bite image */
-
-#bite {
-    width: 20vw;
-    height: 20vh;
-    position: absolute;
-    top: 18vh;
-    left: 50vw;
-    transform: translate(-50%);
-    display: none;
-    animation: grow 900ms;
-    z-index: 3;
-}
-
-/* --- Keyframes per a animations --- */
-/* @keyframes shrink {
-    from {transform: translate(0) scale(3)}
-    to {transform: translate(-50%) scale(1)}
-} */
 
 @keyframes grow {
-    from {transform: translate(-50%) scale(1)}
-    to {transform: translatey(50%) scale(3)}
+  from {
+    transform: translate(-50%) scale(1);
+  }
+  to {
+    transform: translatey(50%) scale(3);
+  }
 }
 
 @keyframes attack {
-    from {transform: translateX(0) scaleX(-1);}
-    to {transform: translateX(75%) scaleX(-1);}
+  from {
+    transform: translateX(0) scaleX(-1);
+  }
+  to {
+    transform: translateX(75%) scaleX(-1);
+  }
 }
-/* --- Media queries --- */
 
-/* Teléfonos pequeños */
+
+
+/* -----------------------  MEDIA QUERIES -----------------------*/
+
+/* SMALL SIZE MOBILE PHONES */
 @media (max-width: 480px) {
   /* Estilos para teléfonos pequeños */
 }
 
-/* Teléfonos pequeños en modo apaisado */
+/* SMALL SIZE MOBILE PHONES - LANDSCAPE MODE*/
 @media only screen and (min-width: 480px) and (orientation: landscape) {
   /* Estilos para teléfonos pequeños en modo apaisado */
 
@@ -498,14 +511,14 @@ body {
     margin-left: 5vw;
     margin-top: 5vw;
   }
-  
+
   #python-head {
     width: 75vh;
     height: 75vh;
     position: absolute;
     top: -10vh;
   }
-  
+
   #avatars {
     width: 90%;
     height: 0vh;
@@ -515,9 +528,9 @@ body {
     position: absolute;
     top: 10vh;
   }
-  
+
   #avatars div img {
-    width: 30vh; 
+    width: 30vh;
   }
 
   #python {
@@ -544,40 +557,37 @@ body {
   }
 }
 
-/* Teléfonos medianos */
+/* MEDIUM SIZE */
 @media (min-width: 481px) and (max-width: 768px) {
-  /* Estilos para teléfonos medianos */
+  /* Estilos para MEDIUM SIZE */
 }
 
-/* Teléfonos medianos a grandes en modo apaisado */
+/* MEDIUM SIZE TO LARGE - LANDSCAPE MODE */
 @media only screen and (min-width: 641px) and (orientation: landscape) {
-  /* Estilos para teléfonos medianos a grandes en modo apaisado */
+  /* Estilos para MEDIUM SIZE a grandes en modo apaisado */
 }
 
-/* Tablets pequeñas */
+/* SMALL TABLETS */
 @media (min-width: 769px) and (max-width: 1024px) {
   /* Estilos para tablets pequeñas */
 }
 
-/* Tablets grandes */
+/* LARGE TABLETS */
 @media (min-width: 1025px) and (max-width: 1280px) {
-  /* Estilos para tablets grandes */
+  /* Estilos para LARGE TABLETS */
 }
 
-/* Tablets en modo apaisado */
+/* LANDSCAPE MODE TABLETS */
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
   /* Estilos para tablets en modo apaisado */
 }
 
-/* Laptops pequeñas */
+/* SMALL LAPTOPS */
 @media (min-width: 1281px) and (max-width: 1440px) {
-  /* Estilos para laptops pequeñas */
+  /* Estilos para SMALL LAPTOPS */
 }
 
-/* Laptops grandes y monitores de escritorio */
+/* LARGE LAPTOPS AND DESKTOP SCREENS */
 @media (min-width: 1441px) {
   /* Estilos para laptops grandes y monitores de escritorio */
 }
-
-
-
