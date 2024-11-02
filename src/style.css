@@ -354,8 +354,12 @@ body {
 
 #python {
   transform: scaleX(-1);
+  z-index: 1;
 }
 
+#player {
+  position: relative;
+}
 
 
 /* ----------------------- TUTORIAL TEXT BOXES -----------------------*/
@@ -578,4 +582,91 @@ body {
 /* LARGE LAPTOPS AND DESKTOP SCREENS */
 @media (min-width: 1441px) {
   /* Estilos para laptops grandes y monitores de escritorio */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#solitaire {
+  width: 40%;
+  position: absolute;
+  top: 12%;
+  left: 24%;
+  z-index: -10;
 }
