@@ -19,7 +19,6 @@ button {
 /* ----------------------- MOBILE VERSION -----------------------*/
 
 body {
-  /* border: 6px solid rgb(0, 0, 0); */
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -33,7 +32,6 @@ body {
 /* -----------------------  NAV BAR -----------------------*/
 
 #nav-bar {
-  /* border: 1px solid red; */
   width: 100vw;
   height: 6vmax;
   padding: 0 10px;
@@ -46,7 +44,6 @@ body {
 
 
 #lives {
-  /* border: 1px solid red; */
   height: 100%;
   display: flex;
   justify-content: start;
@@ -54,8 +51,6 @@ body {
 }
 
 .heart {
-  /* border: 1px solid red; */
-  /* height:100%; */
   width: 30px ;
 }
 
@@ -71,7 +66,6 @@ body {
 
 .menu-icon {
   width: 35px;
-  /* height: 5vh; */
   border: none;
   padding: 4px;
   display: flex;
@@ -83,7 +77,6 @@ body {
 /* ----------------------- GAME AREA -----------------------*/
 
 #game-area {
-  /* border: 1px solid red; */
   width: 100vw;
   height: 90vh;
   position: relative;
@@ -94,7 +87,6 @@ body {
 }
 
 .screen {
-  /* border: 1px solid red; */
   width: 100vw;
   height: 93vh;
   position: relative;
@@ -236,7 +228,6 @@ body {
 
 
 #answer-line {
-  /* border: 1px solid red; */
   margin-top: 2vh;
   display: flex;
   justify-content: center;
@@ -245,20 +236,23 @@ body {
 }
 
 .game-button-icon {
-  /* border: 1px solid red; */
-  width: 20%;
-  height: 40%;
+  border: 1px solid red;
+  width: 40px;
+  height: 40px;
   padding: 3px 7px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 1s;
+  img {
+    border: 1px solid red;
+  }
 }
 
 #verification {
-  /* border: 2px solid red; */
-  width: 55vw;
-  height: 12vh;
+  border: 2px solid red;
+  /* width: 55vw; */
+  /* height: 12vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -279,13 +273,14 @@ body {
 }
 
 #click-area-wrapper {
-  /* border: 1px solid red; */
   position: relative;
   width: 85vw;
 }
 
 #python-head {
-  background: url(/images/python-2.png);
+  margin:auto;
+  width: 80vmin;
+  background: url(/images/python-2.png) top / cover ;
 }
 #python-head img {
   width: 100%;
@@ -352,7 +347,6 @@ body {
 }
 
 #avatars {
-  /* border: 1px solid red; */
   width: 90%;
   height: 20vh;
   margin: 15vh;
@@ -483,9 +477,29 @@ body {
 }
 
 /* SMALL SIZE MOBILE PHONES - LANDSCAPE MODE*/
-/* @media only screen and (min-width: 480px) and (orientation: landscape) {
-  Estilos para teléfonos pequeños en modo apaisado
+ @media only screen and (min-width: 480px) and (orientation: landscape) {
+  /*Estilos para teléfonos pequeños en modo apaisado*/
 
+  #answer-line {
+    border: 1px solid red;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 18%;
+    height: 60vh;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #verification {
+    height: 90%;
+    width: 90%;
+    gap: 10px 0;
+    /* flex-direction: column; */
+  }
+}
+/*
   #game-area {
     height: 80vh;
   }
