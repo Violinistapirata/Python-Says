@@ -23,12 +23,20 @@
     
     <nav id="nav-bar">
         <div id="lives">
-            <img src="./images/heart.png" alt="heart">
-            <img src="./images/heart.png" alt="heart">
-            <img src="./images/heart.png" alt="heart">
+            <div class="heart">
+                <img src="./images/heart.png" alt="heart">
+            </div>
+            <div class="heart">
+                <img src="./images/heart.png" alt="heart">
+            </div>
+            <div class="heart">
+                <img src="./images/heart.png" alt="heart">
+            </div>
+            <!-- <img src="./images/heart.png" alt="heart">
+            <img src="./images/heart.png" alt="heart"> -->
         </div>
-        <p>PYTHON SAYS</p>
-        <button id="menu-icon" onclick="openMenu()">
+        <h1 id="title">PYTHON SAYS</h1>
+        <button class="menu-icon" onclick="openMenu()">
             <img src="./images/menu-icon.png" alt="menu-icon">
         </button>
     </nav>
@@ -40,8 +48,8 @@
 
         <!-- POP UP SCREENS -->
 
-        <div id="box-container-menu" class="box-container hidden">
-            <div id="menu-div" class="menu">
+        <div id="pause-menu" class="box-container menu hidden">
+            <div id="menu-div" >
                 <div id="close" onclick="closeMenu()">x</div>
                 <p>PAUSE</p>
                 <button onclick="window.location.reload()">Restart Game</button>
@@ -49,14 +57,14 @@
                 <button onclick="">Options<br>(coming soon)</button>
             </div>
         </div>
-        <div id="box-container-game-over" class="box-container hidden">
-            <div id="prompt-div" class="game-over">
+        <div id="box-container-game-over" class="box-container game-over hidden">
+            <div id="prompt-div" class="prompt-div game-over">
                 <p>GAME OVER ☠️</p>
                 <button onclick="window.location.reload()">Try again</button>
             </div>
         </div>
-        <div id="box-container-victory" class="box-container hidden">
-            <div id="prompt-div" class="you-win">
+        <div id="box-container-victory" class="box-container victory hidden">
+            <div id="prompt-div" class="prompt-div you-win">
                 <p>YOU WIN!!</p>
                 <button onclick="window.location.reload()">Play again</button>
             </div>

@@ -1,6 +1,6 @@
 // HTML ELEMENTS
 
-const menuButton = document.querySelector("#box-container-menu");
+const menuButton = document.querySelector("#pause-menu");
 const muteButton = document.querySelector("#mute");
 const answerLine = document.querySelector("#verification");
 const arrowSign = document.querySelector("#arrow");
