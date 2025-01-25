@@ -234,7 +234,7 @@ body {
   border: 1px solid red;
   margin-top: 10px;
   width: 60vw;
-  height: 30vw;
+  min-height: 25vw;
   display: flex;
   justify-content: center;
   align-items: center;
