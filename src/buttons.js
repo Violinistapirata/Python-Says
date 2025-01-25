@@ -12,9 +12,10 @@ class Icon {
 
   generateIconElement() {
     this.iconDivElement = document.createElement("div");
-    this.iconDivElement.setAttribute("class", `game-button-icon ${this.alt}`);
+    this.iconDivElement.setAttribute("class", "game-button-icon");
     this.iconElement = document.createElement("img");
     // this.iconElement.setAttribute("id", this.id);
+    this.iconElement.setAttribute("class", this.alt);
     this.iconElement.setAttribute("src", this.src);
     this.iconElement.setAttribute("alt", this.alt);
     this.iconDivElement.appendChild(this.iconElement);
