@@ -231,10 +231,10 @@ body {
 
 
 #answer-line {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-top: 10px;
   width: 60vw;
-  min-height: 25vw;
+  min-height: 23vw;
   display: flex;
   justify-content: center;
   align-items: center;

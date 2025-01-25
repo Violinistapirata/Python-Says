@@ -165,6 +165,10 @@ function addQuestionMarks () {
       });
 } 
 
+// const questionMark = new Icon("question-mark", "./images/question-mark.png", "question-mark");
+
+// console.log("THIS IS questionMark: ", questionMark);
+
 // (5) This appends each element of the answers array into the answers Line to display them on screen
 
 function displayAnswersArray() {
