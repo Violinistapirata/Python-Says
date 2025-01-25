@@ -236,7 +236,7 @@ body {
 }
 
 .game-button-icon {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 40px;
   height: 40px;
   padding: 3px 7px;
@@ -245,12 +245,12 @@ body {
   align-items: center;
   transition: background-color 1s;
   img {
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
 }
 
 #verification {
-  border: 2px solid red;
+  /* border: 2px solid red; */
   /* width: 55vw; */
   /* height: 12vh; */
   display: flex;
@@ -481,7 +481,7 @@ body {
   /*Estilos para teléfonos pequeños en modo apaisado*/
 
   #answer-line {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     position: absolute;
     top: 50%;
     right: 10px;
@@ -496,7 +496,6 @@ body {
     height: 90%;
     width: 90%;
     gap: 10px 0;
-    /* flex-direction: column; */
   }
 }
 /*
