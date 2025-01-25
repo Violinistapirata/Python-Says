@@ -4,7 +4,7 @@ class Icon {
   static iconsArray = [];
   constructor(id, src, alt) {
     this.id = id;
-    this.class = "game-button-icon";
+    this.class = "game-button-icon ", alt;
     this.src = src;
     this.alt = alt;
     this.generateIconElement();
@@ -12,9 +12,9 @@ class Icon {
 
   generateIconElement() {
     this.iconDivElement = document.createElement("div");
-    this.iconDivElement.setAttribute("class", "game-button-icon");
+    this.iconDivElement.setAttribute("class", `game-button-icon ${this.alt}`);
     this.iconElement = document.createElement("img");
-    this.iconElement.setAttribute("id", this.id);
+    // this.iconElement.setAttribute("id", this.id);
     this.iconElement.setAttribute("src", this.src);
     this.iconElement.setAttribute("alt", this.alt);
     this.iconDivElement.appendChild(this.iconElement);
@@ -99,28 +99,28 @@ const htmlButton = new GameButton(
   "html-button",
   "./images/HTML-logo.png",
   "./sounds/tone1.mp3",
-  "html icon",
+  "html-icon",
   "rgba(255, 0, 0, 0.5)"
 );
 const cssButton = new GameButton(
   "css-button",
   "./images/CSS-logo.png",
   "./sounds/tone2.mp3",
-  "css icon",
+  "css-icon",
   "rgba(0, 0, 255, 0.5)"
 );
 const nodeButton = new GameButton(
   "node-button",
   "./images/NODE-logo.png",
   "./sounds/tone3.mp3",
-  "node icon",
+  "node-icon",
   "rgba(0, 255, 0, 0.5)"
 );
 const jsButton = new GameButton(
   "js-button",
   "./images/JS-logo.png",
   "./sounds/tone4.mp3",
-  "js icon",
+  "js-icon",
   "rgba(255, 255, 0, 0.5)"
 );
 console.log("BUTTONS ARRAY", GameButton.buttonsArray);

@@ -228,7 +228,10 @@ body {
 
 
 #answer-line {
-  margin-top: 2vh;
+  border: 1px solid red;
+  margin-top: 10px;
+  width: 60vw;
+  height: 30vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -237,8 +240,7 @@ body {
 
 .game-button-icon {
   /* border: 1px solid red; */
-  width: 40px;
-  height: 40px;
+  max-width: 20%;
   padding: 3px 7px;
   display: flex;
   justify-content: center;
@@ -340,8 +342,8 @@ body {
   height: 90%;
 }
 
-#html-button img,
-#node-button img {
+.html-button img,
+.node-button img {
   width: 80%;
   height: 80%;
 }
