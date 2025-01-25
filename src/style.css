@@ -44,7 +44,7 @@ body {
 
 
 #lives {
-  height: 100%;
+  max-width: 15%;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -55,9 +55,11 @@ body {
 }
 
 #title {
+  width: 60vw;
+  text-align: center;
   font-size: 1.2rem;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  letter-spacing: 1vw;
+  letter-spacing: 2vw;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -65,7 +67,8 @@ body {
 }
 
 .menu-icon {
-  width: 35px;
+  width:30px;
+  max-height: 90%;
   border: none;
   padding: 4px;
   display: flex;
@@ -479,6 +482,14 @@ padding: 4%;
 /* SMALL SIZE MOBILE PHONES - LANDSCAPE MODE*/
  @media only screen and (min-width: 480px) and (orientation: landscape) {
   /*Estilos para teléfonos pequeños en modo apaisado*/
+
+  .menu-icon {
+    width: 5%;
+  }
+
+  #title {
+    font-size: 2rem;
+  }
 
   #answer-line {
     /* border: 1px solid red; */
