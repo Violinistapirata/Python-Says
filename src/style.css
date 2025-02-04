@@ -242,6 +242,8 @@ body {
 }
 
 .game-button-icon {
+  /* border: 1px solid red; */
+  height: 100%;
   max-width: 20%;
   padding: 3px 7px;
   display: flex;
@@ -255,9 +257,9 @@ body {
 }
 
 #verification {
-  /* border: 2px solid red; */
-  /* width: 55vw; */
-  /* height: 12vh; */
+  /* border: 2px solid green; */
+  width: 50vw;
+  height: 10vw;
   display: flex;
   justify-content: center;
   align-items: center;

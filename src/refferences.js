@@ -27,4 +27,4 @@ const answersArray = [];
 
 // GAME SETTINGS
 
-const rounds = 10;
+const rounds = 5;
