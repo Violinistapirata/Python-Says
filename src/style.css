@@ -414,10 +414,10 @@ body {
 #game-buttons-div {
   border: 2px solid black;
   background-color: white;
-  width: 15em;
-  height: 15em;
-  max-height: 85%;
+  width: 425px;
+  height: 425px;
   max-width: 85%;
+  max-height: 42%;
   position: absolute;
   top: 25%;
   left: 50%;
