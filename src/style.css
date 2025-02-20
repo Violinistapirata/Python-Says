@@ -285,12 +285,12 @@ body {
   /* border: 2px solid red; */
   transform: rotate(340deg);
   position: absolute;
-  top: 0;
-  left: 60%;
+  top: 10%;
+  right: 5%;
 
   img {
     width: 35vw;
-    height: 10vh;
+    max-width: 150px;
     position: relative;
   }
 
@@ -303,10 +303,10 @@ body {
     width: 100%;
     height: 30%;
     font-weight: bold;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
     position: absolute;
-    top: 48%;
-    left: 55%;
+    top: 52%;
+    right: -5%;
   }
 }
 
