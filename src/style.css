@@ -295,46 +295,41 @@ body {
 
 .speech-bubble {
   /* border: 2px solid red; */
+  font-size: 2vh;
+  width: 35%;
   position: absolute;
-  top: -25%;
-  left: 40%;
+  top: 8%;
+  right: 15%;
 
   img {
-    z-index: 1;
     position: relative;
-    width: 40vw;
-    height: 11vh;
-  }
-
-  p {
-    z-index: 2;
-    text-align: center;
-    width: 60%;
-    font-size: 6vw;
-    font-weight: bold;
-    position: absolute;
-    top: 38%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    z-index: 1;
   }
 }
 
-#instructions2 {
+.speech-bubble__text {
+  font-size: 1.25em;
+  width: 100%;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  top: 38%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.speech-bubble--angry {
+  font-size: 2.5vh;
+  color: rgb(189, 36, 36);
+  width: 11em;
+  position: absolute;
+  top: 0;
+  right: 0%;
+
   img {
-    width: 48vw;
-    height: 12vh;
+    position: relative;
+    z-index: 1;
   }
-
-  p {
-    color: rgb(189, 36, 36);
-    width: 80%;
-  }
-}
-
-#great,
-#wrong {
-  top: -10%;
-  left: 50%;
 }
 
 #python-head {
