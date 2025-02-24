@@ -239,7 +239,7 @@ body {
 /* -----------------------  GAME AREA ELEMENTS -----------------------*/
 
 #answer-line {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 60%;
   min-height: 90px;
   display: flex;
@@ -249,7 +249,7 @@ body {
 }
 
 #verification {
-  border: 2px solid green;
+  /* border: 2px solid green; */
   /* width: 50%;
   height: 10%; */
   display: flex;
@@ -451,7 +451,7 @@ body {
 /* -----------------------  AVATARS -----------------------*/
 
 #avatars {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 90%;
   height: 20vh;
   margin-top: 17vh;
