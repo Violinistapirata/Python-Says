@@ -50,7 +50,7 @@ body {
 }
 
 #lives {
-  max-width: 15%;
+  max-width: 18%;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -63,7 +63,7 @@ body {
 #title {
   width: 60%;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 5vw;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   letter-spacing: 0.5em;
   /* position: absolute; */
@@ -80,6 +80,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 12px;
+  z-index: 10;
 }
 
 /* ----------------------- GAME AREA -----------------------*/
@@ -141,7 +142,7 @@ body {
 
 .modal__btn {
   font-size: 1.3rem;
-  padding: .3em .5em;
+  padding: 0.3em 0.5em;
   margin: 0 auto;
   max-width: 55%;
   border: 1px solid black;
@@ -493,6 +494,18 @@ body {
   }
 }
 
+/* -----------------------  MOBILE FRAME -----------------------*/
+
+.mobile-frame {
+  display: none;
+  width: 320px;
+  height: 495px;
+  position: absolute;
+  top: 50%;
+  left: 50.3%;
+  transform: translate(-50%, -50%);
+}
+
 /* -----------------------  MEDIA QUERIES -----------------------*/
 
 /* SMALL SIZE MOBILE PHONES */
@@ -617,8 +630,11 @@ body {
 } */
 
 /* MEDIUM SIZE */
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 500px){
   /* Estilos para MEDIUM SIZE */
+  #title {
+    font-size: 1.3rem;
+  }
 }
 
 /* MEDIUM SIZE TO LARGE - LANDSCAPE MODE */
@@ -644,9 +660,18 @@ body {
     height: 450px;
   }
 
+  .mobile-frame {
+    display: block;
+  }
+
   #nav-bar {
-    height: 10%;
-    padding: 10px 10px 5px;
+    height: 12%;
+    padding: 10px;
+  }
+
+  #title {
+    margin-top: 1rem;
+    font-size: 0.8rem;
   }
 
   #answer-line {
