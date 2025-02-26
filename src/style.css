@@ -16,15 +16,33 @@ button {
 
 /* ----------------------- MOBILE VERSION -----------------------*/
 html {
+  /* width: 100vw;
+  height: 100vh;
+  background-color: rgb(39, 197, 225);
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+body {
   width: 100vw;
   height: 100vh;
   background-color: rgb(39, 197, 225);
   display: flex;
   justify-content: center;
   align-items: center;
+  /* width: 100vw;
+  height: 100vh;
+  max-width: 430px;
+  max-height: 930px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgray; */
 }
 
-body {
+.view-frame {
   width: 100vw;
   height: 100vh;
   max-width: 430px;
@@ -630,10 +648,14 @@ body {
 } */
 
 /* MEDIUM SIZE */
-@media (min-width: 500px){
+@media (min-width: 500px) and (max-width: 1023px){
   /* Estilos para MEDIUM SIZE */
   #title {
     font-size: 1.3rem;
+  }
+
+  .arrow__text {
+    font-size: 1.2rem;
   }
 }
 
@@ -655,7 +677,7 @@ body {
 /* LANDSCAPE MODE TABLETS */
 @media only screen and (min-width: 1024px) and (orientation: landscape) {
   /* Estilos para tablets en modo apaisado */
-  body {
+  .view-frame {
     width: 250px;
     height: 450px;
   }
