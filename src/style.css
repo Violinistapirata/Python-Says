@@ -15,31 +15,13 @@ button {
 }
 
 /* ----------------------- MOBILE VERSION -----------------------*/
-html {
-  /* width: 100vw;
-  height: 100vh;
-  background-color: rgb(39, 197, 225);
-  display: flex;
-  justify-content: center;
-  align-items: center; */
-}
 
 body {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(39, 197, 225);
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 100vw;
-  height: 100vh;
-  max-width: 430px;
-  max-height: 930px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  background-color: lightgray; */
 }
 
 .view-frame {
