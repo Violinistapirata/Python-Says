@@ -246,7 +246,7 @@ body {
 #answer-line {
   /* border: 1px solid red; */
   width: 60%;
-  min-height: 90px;
+  min-height: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -374,14 +374,14 @@ body {
 }
 
 #python-eye {
-  width: 4vw;
-  height: 3vw;
+  width: 5%;
+  height: 4%;
   max-width: 13px;
   max-height: 9.4px;
   background-color: rgb(255, 0, 0);
   position: absolute;
-  top: 7.5%;
-  left: 41.5%;
+  top: 7.6%;
+  left: 42%;
   border-radius: 50%;
   border: 1px solid black;
   transition: opacity 1.3s;
