@@ -70,9 +70,6 @@ body {
   font-size: 5vw;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   letter-spacing: 0.5em;
-  /* position: absolute; */
-  /* left: 50%;
-  transform: translateX(-50%); */
 }
 
 .menu-icon {
@@ -244,7 +241,6 @@ body {
 /* -----------------------  GAME AREA ELEMENTS -----------------------*/
 
 #answer-line {
-  /* border: 1px solid red; */
   width: 60%;
   min-height: 10%;
   display: flex;
@@ -254,9 +250,6 @@ body {
 }
 
 #verification {
-  /* border: 2px solid green; */
-  /* width: 50%;
-  height: 10%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -270,7 +263,6 @@ body {
 }
 
 .game-button-icon {
-  /* border: 1px solid red; */
   height: 100%;
   max-width: 20%;
   padding: 3px 7px;
@@ -299,7 +291,6 @@ body {
 /* ----------------------- TUTORIAL TEXT BOXES -----------------------*/
 
 #arrow {
-  /* border: 2px solid red; */
   width: 35%;
   transform: rotate(340deg);
   position: absolute;
@@ -324,7 +315,6 @@ body {
 }
 
 .speech-bubble {
-  /* border: 2px solid red; */
   font-size: 2vh;
   width: 35%;
   position: absolute;
@@ -370,7 +360,6 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  /* background: url(/images/python-2.png) top / cover ; */
 }
 
 #python-eye {
@@ -441,7 +430,6 @@ body {
   justify-content: center;
   align-items: center;
   z-index: -100;
-  /* pointer-events: none; */
 }
 
 .game-button img {
@@ -456,7 +444,6 @@ body {
 /* -----------------------  AVATARS -----------------------*/
 
 #avatars {
-  /* border: 1px solid red; */
   width: 90%;
   height: 20vh;
   margin-top: 17vh;
