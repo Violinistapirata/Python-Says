@@ -6,190 +6,22 @@
     <title>Python Says</title>
     <link rel="stylesheet" href="./src/style.css" />
   </head>
-  <body background="./images/background.jpg">
-    <div class="blocking-screen">
-      <div class="flex-container--column">
-        <div class="blocking-screen__images">
-          <img class="image__cross" src="./images/red-cross.png" alt="red cross" />
-          <img class="image__snake" src="./images/snake-bite.png" alt="snake biting" />
-          <img class="image__cross" src="./images/red-cross.png" alt="red cross" />
-        </div>
-        <div class="blocking-screen__text">
-            <h2>Landscape view is not supported</h2>
-            <p>please, turn your device to portrait view</p>
-        </div>
-        <img class="blocking-screen__icon" src="./images/mobile-icon.png" alt="mobile-icon" />
+  <body>
+    <main class="landing-page flex-container--col">
+      <h1 class="landing-page__title">Python Says</h1>
+      <div class="flex-container">
+        <img src="" alt="" class="landing-page__img">
+        <img src="" alt="" class="landing-page__img">
       </div>
-    </div>
-    <div class="view-frame">
-      <img
-        class="mobile-frame"
-        src="./images/mobile-frame-adjusted.png"
-        alt="mobile frame"
-      />
-      <!-- NAV BAR -->
-      <nav id="nav-bar">
-        <div id="lives">
-          <div class="heart">
-            <img src="./images/heart.png" alt="heart" />
-          </div>
-          <div class="heart">
-            <img src="./images/heart.png" alt="heart" />
-          </div>
-          <div class="heart">
-            <img src="./images/heart.png" alt="heart" />
-          </div>
-        </div>
-        <h1 id="title">PYTHON SAYS</h1>
-        <button class="menu-icon" onclick="openMenu()">
-          <img src="./images/menu-icon.png" alt="menu-icon" />
-        </button>
-      </nav>
-
-      <!-- AUDIOS -->
-
-      <audio id="backgroundMusic" onkeydown="" autoplay loop>
-        <source src="./sounds/background-music.mp3" type="audio/mpeg" />
-      </audio>
-
-      <audio id="sound-effect">
-        <source src="" type="audio/mpeg" />
-      </audio>
-
-      <!-- GAME AREA -->
-
-      <section id="game-area">
-        <!-- MODALS -->
-
-        <div id="pause-menu" class="modal hidden">
-          <div class="flex-container--column menu">
-            <div id="close" class="close-btn" onclick="closeMenu()">x</div>
-            <p class="menu__title">PAUSE</p>
-            <div class="container--menu-buttons">
-              <button class="menu__btn" onclick="window.location.reload()">
-                Restart Game
-              </button>
-              <button class="menu__btn" id="mute" onclick="toggleMusic()">
-                Toggle Music on/off
-              </button>
-              <button class="menu__btn" onclick="">
-                Options<br />(coming soon)
-              </button>
-            </div>
-          </div>
-        </div>
-        <div id="box-container-game-over" class="modal hidden">
-          <div class="flex-container--column">
-            <p class="game-over">GAME OVER <br />☠️</p>
-            <button class="modal__btn" onclick="window.location.reload()">
-              Try again
-            </button>
-          </div>
-        </div>
-        <div id="box-container-victory" class="modal hidden">
-          <div class="flex-container--column">
-            <p class="victory">YOU WIN!!</p>
-            <button class="modal__btn" onclick="window.location.reload()">
-              Play again
-            </button>
-          </div>
-        </div>
-
-        <!-- GAME AREA ELEMENTS -->
-
-        <div id="answer-line">
-          <div id="verification">
-            <!-- The answers array will be displayed here -->
-          </div>
-          <!-- <div id="cross">
-                <img src="./images/red-cross.png" alt="red cross">
-            </div> -->
-        </div>
-
-        <div id="click-area-wrapper">
-          <!-- TUTORIAL  -->
-
-          <div id="arrow">
-            <img src="./images/arrow.png" alt="arrow" class="arrow__img" />
-            <p class="arrow__text">Click to start</p>
-          </div>
-          <div id="instructions1" class="speech-bubble hidden">
-            <img src="./images/speech-bubble.png" alt="speech bubble" />
-            <p class="speech-bubble__text">Repeat after me</p>
-          </div>
-          <div id="instructions2" class="speech-bubble--angry hidden">
-            <img src="./images/speech-bubble.png" alt="speech bubble" />
-            <p class="speech-bubble__text">REPEAT AFTER ME !!</p>
-          </div>
-          <div id="great" class="speech-bubble hidden">
-            <img src="./images/speech-bubble.png" alt="speech bubble" />
-            <p class="speech-bubble__text">GREAT!</p>
-          </div>
-          <div id="wrong" class="speech-bubble hidden">
-            <img src="./images/speech-bubble.png" alt="speech bubble" />
-            <p class="speech-bubble__text">WRONG!!</p>
-          </div>
-
-          <!-- PYTHON HEAD -->
-
-          <div id="python-head" class="clickable">
-            <img src="./images/python-2.png" alt="python-head" />
-            <div id="python-eye" class="calm"></div>
-          </div>
-
-          <!-- BITE ANIMATION -->
-
-          <div>
-            <img
-              id="bite"
-              class="hidden"
-              src="./images/snake-bite.png"
-              alt="bite animation"
-            />
-          </div>
-
-          <!-- GAME BUTTONS -->
-
-          <div id="game-buttons-div">
-            <!--   <button id="html-button" class="game-button">
-                    <img src="./images/HTML logo.png" alt="html button">
-                </button> -->
-            <!--  <button id="css-button" class="game-button">
-                    <img src="./images/CSS logo.png" alt="css button">
-                </button>
-                <button id="node-button" class="game-button">
-                    <img src="./images/NODE logo.png" alt="node button">
-                </button>
-                <button id="js-button" class="game-button">
-                    <img src="./images/JS logo.png" alt="js button">
-                </button> -->
-          </div>
-        </div>
-
-        <!-- AVATARS -->
-
-        <div id="avatars">
-          <div id="python">
-            <img src="./images/python-2.png" alt="python" />
-          </div>
-          <div id="player">
-            <img id="dev" src="./images/programmer.png" alt="programmer" />
-          </div>
-          <!-- <div id="player-screen">
-                <img src="" alt="">
-            </div> -->
-        </div>
-      </section>
-    </div>
+      <div class="landing-page__buttons flex-container--col">
+        <button class="landing-page__btn">NEW GAME</button>
+        <button class="landing-page__btn">HOW TO PLAY</button>
+        <button class="landing-page__btn">OPTIONS</button>
+      </div>
+      <footer class="footer">
+        <p>Game designed by: </p>
+        <a href="">Violinista Pirata</a>
+      </footer>
+    </main>
   </body>
-
-  <!-- SCRIPTS -->
-
-  <script src="./src/refferences.js"></script>
-  <script src="./src/sound.js"></script>
-  <script src="./src/buttons.js"></script>
-  <script src="./src/player.js"></script>
-  <script src="./src/python.js"></script>
-  <script src="./src/screens.js"></script>
-  <script src="./src/logic.js"></script>
 </html>
