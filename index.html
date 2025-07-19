@@ -5,44 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Python Says</title>
     <link rel="stylesheet" href="./src/style.css" />
+    <link rel="icon" type="image/svg+xml" href="public/images/python-2.png" />
   </head>
   <body background="./images/background.jpg">
+    <div id="loading-screen">
+      <div class="flex-container--column ls-display">
+        <h1 class="ls__title">PYTHON SAYS</h1>
+        <img
+          class="ls__icon"
+          src="public/images/snake-bite.png"
+          alt="python icon"
+        />
+        <p class="ls__text">Loading...</p>
+      </div>
+    </div>
     <div class="blocking-screen">
       <div class="flex-container--column">
         <div class="blocking-screen__images">
-          <img class="image__cross" src="./images/red-cross.png" alt="red cross" />
-          <img class="image__snake" src="./images/snake-bite.png" alt="snake biting" />
-          <img class="image__cross" src="./images/red-cross.png" alt="red cross" />
+          <img class="image__cross" src="public/images/red-cross.png" alt="red cross" />
+          <img class="image__snake" src="public/images/snake-bite.png" alt="snake biting" />
+          <img class="image__cross" src="public/images/red-cross.png" alt="red cross" />
         </div>
         <div class="blocking-screen__text">
             <h2>Landscape view is not supported</h2>
             <p>please, turn your device to portrait view</p>
         </div>
-        <img class="blocking-screen__icon" src="./images/mobile-icon.png" alt="mobile-icon" />
+        <img class="blocking-screen__icon" src="public/images/mobile-icon.png" alt="mobile-icon" />
       </div>
     </div>
     <div class="view-frame">
       <img
         class="mobile-frame"
-        src="./images/mobile-frame-adjusted.png"
+        src="public/images/mobile-frame-adjusted.png"
         alt="mobile frame"
       />
       <!-- NAV BAR -->
       <nav id="nav-bar">
         <div id="lives">
           <div class="heart">
-            <img src="./images/heart.png" alt="heart" />
+            <img src="public/images/heart.png" alt="heart" />
           </div>
           <div class="heart">
-            <img src="./images/heart.png" alt="heart" />
+            <img src="public/images/heart.png" alt="heart" />
           </div>
           <div class="heart">
-            <img src="./images/heart.png" alt="heart" />
+            <img src="public/images/heart.png" alt="heart" />
           </div>
         </div>
         <h1 id="title">PYTHON SAYS</h1>
         <button class="menu-icon" onclick="openMenu()">
-          <img src="./images/menu-icon.png" alt="menu-icon" />
+          <img src="public/images/menu-icon.png" alt="menu-icon" />
         </button>
       </nav>
 
@@ -102,7 +114,7 @@
             <!-- The answers array will be displayed here -->
           </div>
           <!-- <div id="cross">
-                <img src="./images/red-cross.png" alt="red cross">
+                <img src="public/images/red-cross.png" alt="red cross">
             </div> -->
         </div>
 
@@ -110,30 +122,30 @@
           <!-- TUTORIAL  -->
 
           <div id="arrow">
-            <img src="./images/arrow.png" alt="arrow" class="arrow__img" />
+            <img src="public/images/arrow.png" alt="arrow" class="arrow__img" />
             <p class="arrow__text">Click to start</p>
           </div>
           <div id="instructions1" class="speech-bubble hidden">
-            <img src="./images/speech-bubble.png" alt="speech bubble" />
+            <img src="public/images/speech-bubble.png" alt="speech bubble" />
             <p class="speech-bubble__text">Repeat after me</p>
           </div>
           <div id="instructions2" class="speech-bubble--angry hidden">
-            <img src="./images/speech-bubble.png" alt="speech bubble" />
+            <img src="public/images/speech-bubble.png" alt="speech bubble" />
             <p class="speech-bubble__text">REPEAT AFTER ME !!</p>
           </div>
           <div id="great" class="speech-bubble hidden">
-            <img src="./images/speech-bubble.png" alt="speech bubble" />
+            <img src="public/images/speech-bubble.png" alt="speech bubble" />
             <p class="speech-bubble__text">GREAT!</p>
           </div>
           <div id="wrong" class="speech-bubble hidden">
-            <img src="./images/speech-bubble.png" alt="speech bubble" />
+            <img src="public/images/speech-bubble.png" alt="speech bubble" />
             <p class="speech-bubble__text">WRONG!!</p>
           </div>
 
           <!-- PYTHON HEAD -->
 
           <div id="python-head" class="clickable">
-            <img src="./images/python-2.png" alt="python-head" />
+            <img src="public/images/python-2.png" alt="python-head" />
             <div id="python-eye" class="calm"></div>
           </div>
 
@@ -143,7 +155,7 @@
             <img
               id="bite"
               class="hidden"
-              src="./images/snake-bite.png"
+              src="public/images/snake-bite.png"
               alt="bite animation"
             />
           </div>
@@ -152,16 +164,16 @@
 
           <div id="game-buttons-div">
             <!--   <button id="html-button" class="game-button">
-                    <img src="./images/HTML logo.png" alt="html button">
+                    <img src="public/images/HTML logo.png" alt="html button">
                 </button> -->
             <!--  <button id="css-button" class="game-button">
-                    <img src="./images/CSS logo.png" alt="css button">
+                    <img src="public/images/CSS logo.png" alt="css button">
                 </button>
                 <button id="node-button" class="game-button">
-                    <img src="./images/NODE logo.png" alt="node button">
+                    <img src="public/images/NODE logo.png" alt="node button">
                 </button>
                 <button id="js-button" class="game-button">
-                    <img src="./images/JS logo.png" alt="js button">
+                    <img src="public/images/JS logo.png" alt="js button">
                 </button> -->
           </div>
         </div>
@@ -170,10 +182,10 @@
 
         <div id="avatars">
           <div id="python">
-            <img src="./images/python-2.png" alt="python" />
+            <img src="public/images/python-2.png" alt="python" />
           </div>
           <div id="player">
-            <img id="dev" src="./images/programmer.png" alt="programmer" />
+            <img id="dev" src="public/images/programmer.png" alt="programmer" />
           </div>
           <!-- <div id="player-screen">
                 <img src="" alt="">

@@ -14,6 +14,19 @@ button {
   border-radius: 0;
 }
 
+/* ----------------------- CONTAINERS -----------------------*/
+
+.flex-container {
+  display: flex;
+  gap: 1em;
+}
+
+.flex-container--column {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
 /* ----------------------- MOBILE VERSION -----------------------*/
 
 body {
@@ -40,6 +53,43 @@ body {
   display: none;
 }
 
+/* -----------------------  LOADING SCREEN -----------------------*/
+
+#loading-screen {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgb(36, 155, 25);
+  padding: 3em;
+  padding-bottom: 15em;
+}
+
+.ls-display {
+  height: 100%;
+  align-items: center;
+  justify-content: space-between
+}
+
+.ls__title {
+  font-size: 2rem;
+  color: silver;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0);
+}
+
+.ls__icon {
+  max-width: 200px; 
+}
+
+.ls__text {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 3px 3px 4px rgba(0, 0, 0);
+}
 /* -----------------------  NAV BAR -----------------------*/
 
 #nav-bar {
@@ -121,12 +171,6 @@ body {
   position: absolute;
   top: 25vh;
   z-index: 1000;
-}
-
-.flex-container--column {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
 }
 
 .modal {
