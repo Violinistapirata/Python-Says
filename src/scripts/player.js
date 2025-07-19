@@ -25,7 +25,7 @@
 
 const easterEgg1 = document.createElement('img');
 easterEgg1.setAttribute('id', 'solitaire');
-easterEgg1.setAttribute('src', './images/solitaire.jpeg');
+easterEgg1.setAttribute('src', '/public/images/solitaire.jpeg');
 easterEgg1.setAttribute('alt', 'screen');
 
 const playerAvatar = document.querySelector('#player');

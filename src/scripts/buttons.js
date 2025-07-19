@@ -98,29 +98,29 @@ class GameButton {
 
 const htmlButton = new GameButton(
   "html-button",
-  "./images/HTML-logo.png",
-  "./sounds/tone1.mp3",
+  "/public/images/HTML-logo.png",
+  "/public/sounds/tone1.mp3",
   "html-icon",
   "rgba(255, 0, 0, 0.5)"
 );
 const cssButton = new GameButton(
   "css-button",
-  "./images/CSS-logo.png",
-  "./sounds/tone2.mp3",
+  "/public/images/CSS-logo.png",
+  "/public/sounds/tone2.mp3",
   "css-icon",
   "rgba(0, 0, 255, 0.5)"
 );
 const nodeButton = new GameButton(
   "node-button",
-  "./images/NODE-logo.png",
-  "./sounds/tone3.mp3",
+  "/public/images/NODE-logo.png",
+  "/public/sounds/tone3.mp3",
   "node-icon",
   "rgba(0, 255, 0, 0.5)"
 );
 const jsButton = new GameButton(
   "js-button",
-  "./images/JS-logo.png",
-  "./sounds/tone4.mp3",
+  "/public/images/JS-logo.png",
+  "/public/sounds/tone4.mp3",
   "js-icon",
   "rgba(255, 255, 0, 0.5)"
 );

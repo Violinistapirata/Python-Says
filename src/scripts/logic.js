@@ -159,7 +159,7 @@ function addQuestionMarks () {
     pythonArray.forEach(() => {
         const questionMark = document.createElement("img");
         questionMark.setAttribute("class", "game-button-icon");
-        questionMark.setAttribute("src", "./images/question-mark.png");
+        questionMark.setAttribute("src", "/public/images/question-mark.png");
         questionMark.setAttribute("alt", "question mark");
         answersArray.push(questionMark);
       });
@@ -254,7 +254,7 @@ function checkLine() {
       const answerElementsArray = document.querySelectorAll(".game-button-icon");
       setTimeout(() => {
         answerElementsArray.forEach((element) => toggleClass(element, 'verify'));
-        playSoundEffect("./sounds/correct.mp3");
+        playSoundEffect("/public/sounds/correct.mp3");
       }, 500);
       setTimeout(() => {
         answerElementsArray.forEach((element) => toggleClass(element, "verify"));
@@ -265,7 +265,7 @@ function checkLine() {
         if (pythonArray.length < rounds) {
             clickPythonHead();
         } else if (playerArray[rounds - 1].id === pythonArray[rounds - 1].id) {
-            showPrompt(victoryPrompt, "./sounds/victory.mp3");
+            showPrompt(victoryPrompt, "/public/sounds/victory.mp3");
             GameButton.buttonsArray.forEach((button) => button.lockGameButton());
         }
       }, 2500);
@@ -277,14 +277,14 @@ function fail() {
   GameButton.buttonsArray.forEach((button) => button.lockGameButton());
   const cross = document.createElement("img");
   cross.setAttribute("id", "cross");
-  cross.setAttribute("src", "./images/red-cross.png");
+  cross.setAttribute("src", "/public/images/red-cross.png");
   cross.setAttribute("alt", "red cross");
   Icon.iconsArray[Icon.iconsArray.length - 1].classList.add(
     "lastAnswer"
   );
   const lastAnswer = document.querySelector(".lastAnswer");
   lastAnswer.prepend(cross);
-  playSoundEffect("./sounds/wrong.mp3");
+  playSoundEffect("/public/sounds/wrong.mp3");
   toggleClass(wrong,'hidden');
   setTimeout(() => {
     toggleClass(wrong,'hidden');
@@ -297,7 +297,7 @@ function fail() {
 function rage() {
   const pythonEye = document.querySelector("#python-eye");
   toggleClass(pythonEye, 'rage');
-  playSoundEffect("./sounds/rage&bite.mp3");
+  playSoundEffect("/public/sounds/rage&bite.mp3");
   setTimeout(() => toggleClass(pythonEye, 'rage'), 2000);
 }
 
@@ -324,7 +324,7 @@ function checkLives() {
     }
     repeatSequence();
   } else {
-    showPrompt(gameOverPrompt, "./sounds/game-over.mp3");
+    showPrompt(gameOverPrompt, "/public/sounds/game-over.mp3");
   }
 }
 
@@ -670,13 +670,13 @@ function repeatSequence() {
 const player = playerAvatar.querySelector('img');
 
 const goIddle = function () {
-    player.setAttribute('src', './images/programmer-iddle.png');
+    player.setAttribute('src', '/public/images/programmer-iddle.png');
 }
 
 let timeoutId;
 
 document.addEventListener('click', () => {
-    player.setAttribute('src', './images/programmer.png');
+    player.setAttribute('src', '/public/images/programmer.png');
     clearTimeout(timeoutId);
     timeoutId = setTimeout(goIddle, 20000);
 })
