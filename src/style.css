@@ -71,15 +71,16 @@ body {
   width: 100dvw;
   height: 100dvh;
   background-color: rgb(36, 155, 25);
-  padding: 3em;
-  padding-bottom: 15em;
+  padding: 3rem;
+  padding-bottom: 5rem;
   transition: opacity 1s ease-out;
 }
 
 .ls-display {
   height: 100%;
   align-items: center;
-  justify-content: space-between
+  justify-content: center;
+  gap: 0;
 }
 
 .ls__title {
@@ -100,6 +101,22 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   text-shadow: 3px 3px 4px rgba(0, 0, 0);
 }
+
+.spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-top: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* -----------------------  NAV BAR -----------------------*/
 
 #nav-bar {
