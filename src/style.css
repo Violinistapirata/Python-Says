@@ -209,6 +209,7 @@ body {
 }
 
 .close-btn {
+  cursor: pointer;
   font-size: 2.5vh;
   background-color: rgb(138, 138, 138);
   font-weight: bold;
@@ -237,6 +238,7 @@ body {
 }
 
 .menu__btn {
+  cursor: pointer;
   font-size: 1.3rem;
   width: 80%;
   height: 3em;
