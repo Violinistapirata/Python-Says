@@ -76,6 +76,10 @@ body {
   transition: opacity 1s ease-out;
 }
 
+#loading-container {
+  align-items: center;
+}
+
 .ls-display {
   height: 100%;
   align-items: center;
@@ -110,6 +114,13 @@ body {
     height: 40px;
     animation: spin 1s linear infinite;
     margin-top: 1rem;
+}
+
+.start-button {
+  font-size: xx-large;
+  padding: 1rem 2.5rem;
+  border-radius: 20px;
+  background-color: #45ea2c
 }
 
 @keyframes spin {

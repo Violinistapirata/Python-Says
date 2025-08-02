@@ -17,8 +17,13 @@
           src="public/images/snake-bite.png"
           alt="python icon"
         />
-        <p class="ls__text">Loading...</p>
-        <div class="spinner"></div>
+        <div id="loading-container" class="flex-container--column ">
+          <p class="ls__text">Loading...</p>
+          <div class="spinner"></div>
+        </div>
+        <div id="loaded-container" class= "hidden">
+          <button id="start-game-button" class="start-button" onclick="hideLoadingScreen()">START GAME</button>
+        </div>
       </div>
     </div>
     <div class="blocking-screen">
