@@ -54,4 +54,4 @@ El acercamiento a este proyecto ha sido totalmente mobile-first, siendo diseñad
 
 |  DESARROLLADO POR  |          CONTACTO          |                           LINKEDIN                           |
 | :----------------: | :------------------------: | :----------------------------------------------------------: |
-| Èric Masip Vilalta | ericmasipvilalta@gmail.com | [eric-masip-web-dev](www.linkedin.com/in/eric-masip-web-dev) |
+| Èric Masip Vilalta | ericmasipvilalta@gmail.com | [Eric Masip Web Dev](www.linkedin.com/in/eric-masip-web-dev) |
