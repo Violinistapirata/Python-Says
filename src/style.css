@@ -49,7 +49,7 @@ body {
   background-color: lightgray;
 }
 
-.blocking-screen{
+.blocking-screen {
   display: none;
 }
 
@@ -94,7 +94,7 @@ body {
 }
 
 .ls__icon {
-  max-width: 200px; 
+  max-width: 200px;
 }
 
 .ls__text {
@@ -107,25 +107,29 @@ body {
 }
 
 .spinner {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin-top: 1rem;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-top: 1rem;
 }
 
 .start-button {
   font-size: xx-large;
   padding: 1rem 2.5rem;
   border-radius: 20px;
-  background-color: #45ea2c
+  background-color: #45ea2c;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* -----------------------  NAV BAR -----------------------*/
@@ -576,7 +580,6 @@ body {
   }
   to {
     transform: rotateZ(0);
-    
   }
 }
 /* -----------------------  MOBILE FRAME -----------------------*/
@@ -714,8 +717,15 @@ body {
   }
 } */
 
+@media (width <= 40rem) {
+  .start-button {
+    font-size: x-large;
+    padding: 1rem 1.5rem;
+  }
+}
+
 /* MEDIUM SIZE */
-@media (min-width: 500px) and (max-width: 1023px){
+@media (min-width: 500px) and (max-width: 1023px) {
   /* Estilos para MEDIUM SIZE */
   #title {
     font-size: 1.3rem;
@@ -729,7 +739,7 @@ body {
 /* MEDIUM SIZE TO LARGE - LANDSCAPE MODE */
 @media only screen and (min-width: 641px) and (max-width: 1024px) and (orientation: landscape) {
   /* Estilos para MEDIUM SIZE a grandes en modo apaisado */
-  .view-frame{
+  .view-frame {
     display: none;
   }
 
@@ -739,36 +749,35 @@ body {
     align-items: center;
     width: 100%;
     height: 100%;
-   background-color: rgb(36, 35, 35);
-   color: rgb(196, 199, 202);
-   position: absolute;
-   z-index: 5000;
+    background-color: rgb(36, 35, 35);
+    color: rgb(196, 199, 202);
+    position: absolute;
+    z-index: 5000;
   }
 
-  .blocking-screen__images{
-   height: 20dvh;
+  .blocking-screen__images {
+    height: 20dvh;
     margin: 0 auto;
     display: flex;
     justify-content: center;
   }
 
-  .image__cross{
+  .image__cross {
     margin: 1em;
   }
-  
-  .image__snake{
-    max-height: 100%
+
+  .image__snake {
+    max-height: 100%;
   }
-  
-  .blocking-screen__text{
+
+  .blocking-screen__text {
     text-align: center;
   }
 
-  .blocking-screen__icon{
+  .blocking-screen__icon {
     margin: 0 auto;
     width: 15%;
     animation: rotate 2.5s ease-in-out 1s infinite alternate;
-    
   }
 }
 
