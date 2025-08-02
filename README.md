@@ -1,28 +1,54 @@
-# Game project 1: Python Says
+# Proyecto de juego 1: Python Says
 
-## Description
+![Python y el programador](./public/images/python-and-programmer.png)
+## Descripción
 
-El juego es un Simon Says tematizado con elementos de programación. El argumento es que Python se ha descontrolado y amenaza con comerse a los programadores que no siguen su código, así que para sobrevivir como programador tendrás que replicar la secuencia que ejecute haciendo click en los botones en el mismo orden que la máquina. Si cometes un fallo Python va a morderte y perderás una vida. A los tres fallos serás devorado (GAME OVER). Por el contrario, si logras replicar correctamente el código, Python va a añadir un elemento más, y así hasta llegar a la serie final de 10 elementos. Cuando logres replicar el último código, Python será aplacado y devuelto a su terrario (YOU WIN)
+Python Says es un juego de memoria inspirado en el clásico Simon Says tematizado con elementos de programación. El argumento es que Python se ha descontrolado y amenaza con comerse a los programadores que no siguen su código, así que para sobrevivir como programador tendrás que replicar la secuencia que la serpiente Python ejecute haciendo click en los botones en el mismo orden que la máquina. Si cometes un fallo Python va a morderte y perderás una vida. A los tres fallos serás devorado (GAME OVER). Por el contrario, si logras replicar correctamente el código, Python va a añadir un elemento más, y así hasta llegar a la serie final de 10 elementos. Cuando logres replicar el último código, Python será aplacado y devuelto a su terrario (YOU WIN)
 
-## Planificación
+## Tecnologías
 
-1. Funcionalidad del juego
-2. Diseño del juego (low-fi)
-3. Lista de tareas
-4. Organización de OOP:
-  - Clases
-  - Methods
-  - Atributos
-5. Empezar a codear el juego
+- HTML
+- CSS
+- JavaScript
 
-## Issues to solve:
+## Funcionalidades principales del juego
 
-The python head should always be above the game buttons enough to see its tongue (it should behave responsively relative to the game buttons div)
+- Juego base con una secuencia incremental aleatoria de 1 a 10 elementos.
+- Animación de victoria y de derrota.
+- Animación de error y de acierto.
+- Versión para móbil y para ordenador.
 
-Media queries:
- - mobile landscape mode.
- - tablet portrait.
- - tablet landscape.
- - laptop.
+## Funcionalidades extra
 
-The icons for HTML and NODE are bigger
+- Pantalla de carga.
+- Pantalla de bloqueo en versión móbil apaisada.
+- Menú de pausa.
+- Tutorial inicial.
+- Música de fondo y botón silenciador.
+- Botón de reseteo del juego.
+- Gag oculto.
+
+## Futuras implementaciones
+
+- Sección "Sobre mí"
+- Niveles de dificultad (Fácil, medio, difícil, extremo).
+- Modalidades de juego (Clásico, Historia, Random, Custom, Survival, Multijugador local).
+- Récords personales.
+- Logros desbloqueables.
+- Opciones de sonido con controles de volumen independientes para los efectos de sonido y para la música de fondo.
+- Creación de perfil de usuario.
+- Modo on-line.
+
+## Metodologías
+
+En este juego se han implementado las clases de Javascript para la creación de objetos para los distintos elementos estructurales del propio juego siguiendo la metodología OOP (Object Oriented Programming).
+
+También se han utilizado técnicas de DOM manipulation para añadir interactividad a los elementos del HTML mediante JavaScript.
+
+El acercamiento a este proyecto ha sido totalmente mobile-first, siendo diseñado desde un principio para dispositivos móbiles y después adaptado a otro tipo de dispositivos siguiendo las prácticas más adecuadas en cuanto a responsive design.
+
+## Desarrolladores
+
+|  DESARROLLADO POR  |          CONTACTO          |                           LINKEDIN                           |
+| :----------------: | :------------------------: | :----------------------------------------------------------: |
+| Èric Masip Vilalta | ericmasipvilalta@gmail.com | [eric-masip-web-dev](www.linkedin.com/in/eric-masip-web-dev) |
