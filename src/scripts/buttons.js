@@ -105,7 +105,7 @@ const htmlButton = new GameButton(
 );
 const cssButton = new GameButton(
   "css-button",
-  "public/images/CSS-logo2.png",
+  "public/images/CSS-logo.png",
   "public/sounds/tone2.mp3",
   "css-icon",
   "rgba(0, 0, 255, 0.5)"
