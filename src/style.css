@@ -496,10 +496,8 @@ body {
 #game-buttons-div {
   border: 2px solid black;
   background-color: white;
-  width: 425px;
-  height: 425px;
-  max-width: 85%;
-  max-height: 42%;
+  width: 13rem;
+  height: 11rem;
   position: absolute;
   top: 25%;
   left: 50%;
@@ -514,6 +512,7 @@ body {
 .game-button {
   height: 50%;
   width: 50%;
+  padding: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -521,12 +520,7 @@ body {
 }
 
 .game-button img {
-  width: 90%;
-  height: 90%;
-}
-
-#html-button {
-  padding: 4%;
+  height: 100%;
 }
 
 /* -----------------------  AVATARS -----------------------*/
@@ -721,6 +715,11 @@ body {
   .start-button {
     font-size: x-large;
     padding: 1rem 1.5rem;
+  }
+
+  #game-buttons-div {
+    width: 90dvw;
+    height: 40dvh;
   }
 }
 
