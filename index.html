@@ -7,7 +7,21 @@
     <link rel="stylesheet" href="./src/style.css" />
     <link rel="icon" type="image/svg+xml" href="public/images/python-2.png" />
   </head>
+
   <body background="public/images/background.jpg">
+    
+    <!-- AUDIOS -->
+
+    <audio id="backgroundMusic" onkeydown="" autoplay loop>
+      <source src="public/sounds/background-music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <audio id="sound-effect">
+      <source src="" type="audio/mpeg" />
+    </audio>
+
+    <!-- Loading screen -->
+
     <div id="blackout-screen"></div>
     <div id="loading-screen">
       <div class="flex-container--column ls-display">
@@ -17,35 +31,64 @@
           src="public/images/snake-bite.png"
           alt="python icon"
         />
-        <div id="loading-container" class="flex-container--column ">
+        <div id="loading-container" class="flex-container--column">
           <p class="ls__text">Loading...</p>
           <div class="spinner"></div>
         </div>
-        <div id="loaded-container" class= "hidden">
-          <button id="start-game-button" class="start-button" onclick="hideLoadingScreen()">START GAME</button>
+        <div id="loaded-container" class="hidden">
+          <button
+            id="start-game-button"
+            class="start-button"
+            onclick="hideLoadingScreen()"
+          >
+            START GAME
+          </button>
         </div>
       </div>
     </div>
+
+    <!-- Blocking screen for landscape position -->
+
     <div class="blocking-screen">
       <div class="flex-container--column">
         <div class="blocking-screen__images">
-          <img class="image__cross" src="public/images/red-cross.png" alt="red cross" />
-          <img class="image__snake" src="public/images/snake-bite.png" alt="snake biting" />
-          <img class="image__cross" src="public/images/red-cross.png" alt="red cross" />
+          <img
+            class="image__cross"
+            src="public/images/red-cross.png"
+            alt="red cross"
+          />
+          <img
+            class="image__snake"
+            src="public/images/snake-bite.png"
+            alt="snake biting"
+          />
+          <img
+            class="image__cross"
+            src="public/images/red-cross.png"
+            alt="red cross"
+          />
         </div>
         <div class="blocking-screen__text">
-            <h2>Landscape view is not supported</h2>
-            <p>please, turn your device to portrait view</p>
+          <h2>Landscape view is not supported</h2>
+          <p>please, turn your device to portrait view</p>
         </div>
-        <img class="blocking-screen__icon" src="public/images/mobile-icon.png" alt="mobile-icon" />
+        <img
+          class="blocking-screen__icon"
+          src="public/images/mobile-icon.png"
+          alt="mobile-icon"
+        />
       </div>
     </div>
+
+    <!-- Game screen -->
+
     <div class="view-frame">
       <img
         class="mobile-frame"
         src="public/images/mobile-frame-adjusted.png"
         alt="mobile frame"
       />
+
       <!-- NAV BAR -->
       <nav id="nav-bar">
         <div id="lives">
@@ -59,44 +102,43 @@
             <img src="public/images/heart.png" alt="heart" />
           </div>
         </div>
+
         <h1 id="title">PYTHON SAYS</h1>
+
         <button class="menu-icon" onclick="openMenu()">
           <img src="public/images/menu-icon.png" alt="menu-icon" />
         </button>
       </nav>
-
-      <!-- AUDIOS -->
-
-      <audio id="backgroundMusic" onkeydown="" autoplay loop>
-        <source src="public/sounds/background-music.mp3" type="audio/mpeg" />
-      </audio>
-
-      <audio id="sound-effect">
-        <source src="" type="audio/mpeg" />
-      </audio>
 
       <!-- GAME AREA -->
 
       <section id="game-area">
         <!-- MODALS -->
 
+        <!-- Menu -->
         <div id="pause-menu" class="modal hidden">
           <div class="flex-container--column menu">
             <div id="close" class="close-btn" onclick="closeMenu()">x</div>
+
             <p class="menu__title">PAUSE</p>
+
             <div class="container--menu-buttons">
               <button class="menu__btn" onclick="window.location.reload()">
                 Restart Game
               </button>
+
               <button class="menu__btn" id="mute" onclick="toggleMusic()">
                 Toggle Music on/off
               </button>
+
               <button class="menu__btn" onclick="">
                 Options<br />(coming soon)
               </button>
             </div>
           </div>
         </div>
+
+        <!-- Game over -->
         <div id="box-container-game-over" class="modal hidden">
           <div class="flex-container--column">
             <p class="game-over">GAME OVER <br />☠️</p>
@@ -105,6 +147,8 @@
             </button>
           </div>
         </div>
+
+        <!-- Victory -->
         <div id="box-container-victory" class="modal hidden">
           <div class="flex-container--column">
             <p class="victory">YOU WIN!!</p>
@@ -203,7 +247,6 @@
   </body>
 
   <!-- SCRIPTS -->
-   
 
   <script src="./src/scripts/refferences.js"></script>
   <script src="./src/scripts/sound.js"></script>
