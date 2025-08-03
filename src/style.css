@@ -330,7 +330,8 @@ body {
 
 #answer-line {
   width: 60%;
-  min-height: 10%;
+  height: 5rem;
+  overflow-y: scroll;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -343,7 +344,7 @@ body {
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
-  gap: 1vh 0;
+  gap: 0.5rem 0;
 }
 
 .verify {
@@ -813,13 +814,19 @@ body {
   }
 
   #answer-line {
-    height: 10%;
-    min-height: 0;
+    height: 3rem;
   }
 
+  #answer-line::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  #answer-line::-webkit-scrollbar-thumb {
+  background-color: #9b9b9b;
+  border-radius: 15px;
+}
   #verification {
-    max-height: 100%;
-    gap: 0;
+    gap: 0.1rem 0;
   }
 
   .game-button-icon {
