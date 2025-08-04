@@ -1,6 +1,9 @@
 
+// TOGGLE CSS CLASSES
 
-
+function toggleClass(element, className) {
+    element.classList.toggle(className);
+}
 
 /* -------------------------------  MENU  ------------------------------- */
 
@@ -19,24 +22,6 @@ function closeMenu() {
 
 // TURN BACKGROUND MUSIC ON/OFF
 
-// Event listener for the spacebar to toggle background music
-document.addEventListener('keydown', function(e) {
-    if (e.code === 'Space') {
-        e.preventDefault();
-        toggleMusic();
-    }
-})
-
-stopMusic(); 
-
-function toggleMusic() {
-  if (backgroundMusic.paused) {
-    startMusic();
-  } else {
-    stopMusic();
-  }
-}
-
 function startMusic() {
   backgroundMusic.play(); // Starts the music
 }
@@ -46,25 +31,29 @@ function stopMusic() {
   backgroundMusic.currentTime = 0; // Restarts the music to the beginning
 }
 
+function toggleMusic() {
+  if (backgroundMusic.paused) {
+    startMusic();
+  } else {
+    stopMusic();
+  }
+}
 
+// Event listener for the spacebar to toggle background music
+document.addEventListener('keydown', function(e) {
+    if (e.code === 'Space') {
+        e.preventDefault();
+        toggleMusic();
+    }
+})
 
-
-
+// The next function invocation is just to stop the music from turning on every time a change is made in the code during development. It may be removed for production.
+stopMusic(); 
 
 /* -------------------------------  PYTHON HEAD ------------------------------- */
 
-
-// TOGGLE CSS CLASSES
-
-// This function toggles the provided class of the provided element
-
-function toggleClass(element, className) {
-    element.classList.toggle(className);
-}
-
 // Python head Click Event Listener
 pythonHead.addEventListener("click", () => {
-    // startMusic();
     toggleClass(pythonHead, 'non-clickable');
     GameButton.buttonsArray.forEach((button) => button.lockGameButton());
     toggleClass(arrowSign, 'hidden');
@@ -105,12 +94,12 @@ function clickPythonHead (){
     resetArray(Icon.iconsArray);
 }
 
-// (1) This function clears the answer line
+// (1)
 function clearAnswerLine() {
     answerLine.innerHTML = "";
 }
 
-// (2, 7, 8) This function resets the provided array
+// (2, 7, 8)
 function resetArray(array) {
     array.splice(0);
 }
@@ -143,7 +132,6 @@ function addRandomButton() {
       default:
         break;
     }
-    console.log("PYTHON ARRAY", pythonArray);
 }
 
 // (3.1) This function generates a random number between 1 and 4 to represent each of the 4 game buttons
@@ -157,11 +145,13 @@ function generateRandomNumber() {
 
 function addQuestionMarks () {
     pythonArray.forEach(() => {
+        const iconDivElement = document.createElement("div");
         const questionMark = document.createElement("img");
         questionMark.setAttribute("class", "game-button-icon");
         questionMark.setAttribute("src", "public/images/question-mark.png");
         questionMark.setAttribute("alt", "question mark");
-        answersArray.push(questionMark);
+        iconDivElement.appendChild(questionMark);
+        answersArray.push(iconDivElement);
       });
 } 
 
@@ -223,7 +213,10 @@ function checkCoincidence() {
     const verificationDivArray = answerLine.querySelectorAll("div");
     const lastElement = verificationDivArray[verificationDivArray.length - 1];
     // the 'correct' class is added for the line check
-    lastElement.classList.add("correct");
+    Icon.iconsArray[Icon.iconsArray.length - 1].classList.add(
+    "correct"
+  );
+    // lastElement.classList.add("correct");
 
     // The first time that the player answers correctly the 'great' speech bubble is shown
     if (pythonArray.length === 1) {
@@ -249,9 +242,9 @@ function checkLine() {
     const verificationDivArray = answerLine.querySelectorAll("div");
     const lastElement = verificationDivArray[verificationDivArray.length - 1];
   
-    if (lastElement.classList.value === "game-button-icon correct") {
+    if (lastElement.classList.value === "correct") {
       GameButton.buttonsArray.forEach((button) => button.lockGameButton());
-      const answerElementsArray = document.querySelectorAll(".game-button-icon");
+      const answerElementsArray = document.querySelectorAll(".correct");
       setTimeout(() => {
         answerElementsArray.forEach((element) => toggleClass(element, 'verify'));
         playSoundEffect("public/sounds/correct.mp3");
