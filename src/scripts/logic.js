@@ -147,7 +147,7 @@ function addQuestionMarks () {
     pythonArray.forEach(() => {
         const iconDivElement = document.createElement("div");
         const questionMark = document.createElement("img");
-        questionMark.setAttribute("class", "game-button-icon");
+        iconDivElement.setAttribute("class", "game-button-icon");
         questionMark.setAttribute("src", "public/images/question-mark.png");
         questionMark.setAttribute("alt", "question mark");
         iconDivElement.appendChild(questionMark);
@@ -239,12 +239,18 @@ function showPrompt(prompt, musicUrl) {
   
 // This function activates the verification animation when all answers in the line are correct
 function checkLine() {
+    console.log("the checkLine function has been executed");
+    
     const verificationDivArray = answerLine.querySelectorAll("div");
+    console.log("this is the verificationDivArray: ", verificationDivArray);
     const lastElement = verificationDivArray[verificationDivArray.length - 1];
+    console.log("this is the last element of the verificationDivArray: ", lastElement);
   
-    if (lastElement.classList.value === "correct") {
+    if (lastElement.classList.value === "game-button-icon correct") {
+      console.log("The if clause has been executed");
       GameButton.buttonsArray.forEach((button) => button.lockGameButton());
       const answerElementsArray = document.querySelectorAll(".correct");
+      console.log("THIS IS ANSWERELEMENTSARRAY: ", answerElementsArray);
       setTimeout(() => {
         answerElementsArray.forEach((element) => toggleClass(element, 'verify'));
         playSoundEffect("public/sounds/correct.mp3");

@@ -1,6 +1,7 @@
 const gameButtonsDiv = document.querySelector("#game-buttons-div");
-
+// This class generates icon objects
 class Icon {
+  // This array stores icon objects every time an icon object is created
   static iconsArray = [];
   constructor(id, src, alt) {
     this.id = id;
@@ -12,10 +13,10 @@ class Icon {
 
   generateIconElement() {
     this.iconDivElement = document.createElement("div");
-    // this.iconDivElement.setAttribute("class", "game-button-icon");
+    this.iconDivElement.setAttribute("class", this.class);
     this.iconElement = document.createElement("img");
     // this.iconElement.setAttribute("id", this.id);
-    this.iconElement.setAttribute("class", "game-button-icon");
+    // this.iconElement.setAttribute("class", "game-button-icon");
     this.iconElement.setAttribute("src", this.src);
     this.iconElement.setAttribute("alt", this.alt);
     this.iconDivElement.appendChild(this.iconElement);
@@ -63,6 +64,8 @@ class GameButton {
       clearAnswerLine();
       displayAnswersArray();
       checkCoincidence();
+      console.log("PLAYERARRAY: ", playerArray);
+      console.log("PYTHONARRAY: ", pythonArray);
       if (playerArray.length === pythonArray.length) {
         GameButton.buttonsArray.forEach((button) => button.lockGameButton());
         checkLine();
