@@ -11,6 +11,17 @@ Python Says es un juego de memoria inspirado en el clásico Simon Says tematizad
 - CSS
 - JavaScript
 
+## Metodologías
+
+### OOP
+En este juego se han implementado las clases de Javascript para la creación de objetos para los distintos elementos estructurales del propio juego siguiendo la metodología OOP (Object Oriented Programming).
+
+### DOM
+También se han utilizado técnicas de DOM manipulation para añadir interactividad a los elementos del HTML mediante JavaScript.
+
+### Mobile-first & Responsive Design
+El acercamiento a este proyecto ha sido totalmente mobile-first, siendo diseñado desde un principio para dispositivos móbiles y después adaptado a otro tipo de dispositivos siguiendo las prácticas más adecuadas en cuanto a responsive design.
+
 ## Funcionalidades principales del juego
 
 - Juego base con una secuencia incremental aleatoria de 1 a 10 elementos.
@@ -38,17 +49,6 @@ Python Says es un juego de memoria inspirado en el clásico Simon Says tematizad
 - Opciones de sonido con controles de volumen independientes para los efectos de sonido y para la música de fondo.
 - Creación de perfil de usuario.
 - Modo on-line.
-
-## Metodologías
-
-### OOP
-En este juego se han implementado las clases de Javascript para la creación de objetos para los distintos elementos estructurales del propio juego siguiendo la metodología OOP (Object Oriented Programming).
-
-### DOM
-También se han utilizado técnicas de DOM manipulation para añadir interactividad a los elementos del HTML mediante JavaScript.
-
-### Mobile-first & Responsive Design
-El acercamiento a este proyecto ha sido totalmente mobile-first, siendo diseñado desde un principio para dispositivos móbiles y después adaptado a otro tipo de dispositivos siguiendo las prácticas más adecuadas en cuanto a responsive design.
 
 ## Desarrolladores
 
