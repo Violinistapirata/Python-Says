@@ -31,11 +31,17 @@ function stopMusic() {
   backgroundMusic.currentTime = 0; // Restarts the music to the beginning
 }
 
+const toggleMusicButton = document.querySelector("#toggle-music-button");
+
 function toggleMusic() {
   if (backgroundMusic.paused) {
     startMusic();
+    toggleMusicButton.setAttribute("src", "./public/images/music-on.svg")
+    toggleClass(toggleMusicButton, "music-on")
   } else {
     stopMusic();
+    toggleMusicButton.setAttribute("src", "./public/images/music-off.svg")
+    toggleClass(toggleMusicButton, "music-on")
   }
 }
 
@@ -46,6 +52,11 @@ document.addEventListener('keydown', function(e) {
         toggleMusic();
     }
 })
+
+
+function toggleMusicButtonImage() {
+
+}
 
 // The next function invocation is just to stop the music from turning on every time a change is made in the code during development. It may be removed for production.
 stopMusic(); 
@@ -304,8 +315,9 @@ function bite() {
   const biteElement = document.querySelector("#bite");
   toggleClass(biteElement,'hidden');
   setTimeout(() => toggleClass(biteElement,'hidden'), 500);
-  const heart = document.querySelectorAll('[alt="heart"]');
-  heart[0].remove();
+  const lives = document.querySelector("#lives");
+  const heart = lives.querySelector(".heart");
+  heart.remove();
   toggleClass(pythonAvatar,'attack');
   setTimeout(() => toggleClass(pythonAvatar,'attack'), 500);
 }

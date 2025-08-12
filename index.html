@@ -9,7 +9,6 @@
   </head>
 
   <body background="public/images/background.jpg">
-    
     <!-- AUDIOS -->
 
     <audio id="backgroundMusic" onkeydown="" autoplay loop>
@@ -105,9 +104,19 @@
 
         <h1 id="title">PYTHON SAYS</h1>
 
-        <button class="menu-icon" onclick="openMenu()">
-          <img src="public/images/menu-icon.png" alt="menu-icon" />
-        </button>
+        <div class="nav-buttons">
+          <button type="button" class="menu-button" onclick="toggleMusic">
+            <img
+            id="toggle-music-button"
+            src="./public/images/music-on.svg"
+            alt="toggle music button"
+            />
+          </button>
+          
+          <button class="menu-button" onclick="openMenu()">
+            <img src="public/images/menu-icon.png" alt="menu-icon" />
+          </button>
+        </div>
       </nav>
 
       <!-- GAME AREA -->
